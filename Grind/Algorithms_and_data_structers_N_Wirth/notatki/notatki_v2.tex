@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage{import}
+\usepackage{transparent}
+\usepackage{xcolor}
+
+
+%Commands definitions
+\newcommand{\setbackgroundcolour}{\pagecolor[rgb]{0.19,0.19,0.19}}  
+\newcommand{\settextcolour}{\color[rgb]{0.87,0.87,0.87}}    
+\newcommand{\invertbackgroundtext}{\setbackgroundcolour\settextcolour}
+
+%Command execution. 
+%If this line is commented, then the appearance remains as usual.
+\invertbackgroundtext
+
+%na gorze beda cale komendy usepackage etc
+
+\author{Lukasz Kopyto}
+\title{Notatki z ksiazki Algorytmy + struktury danych = programy}
+
+\begin{document}  %begin calego dokumentu
+\maketitle     %dowiedz sie o co kaman z tym tytulem, czemu tu jest make
+
+\section{Rekurencja}
+\subsection{Algorytmy z nawrotami}
+\title{Droga skoczka szachowego}
+
+
+Mamy szachownice $n \times n$ o $n^{2}$ polach. Na poczatku szkoczek jest umieszczany na polu $y_{0}$ i $x_{0}$. Problem polega na znalezieniu drogi o dlugosci $n^{2}-1$ ruchow, ze kazde pole bedzie dokladnie raz odwiedzone.
+
+Pierwsze podejscie:
+
+\begin{verbatim}
+procedure probuj nastepny ruch;
+begin zapoczatkuj nowy ruch;
+    repeat wybierz nastepnego kandydata z listy nastepnych ruchow;
+        if dopuszczalny then
+        
+\end{verbatim}
+
+
+
+\end{document} %end calego dokumentu
