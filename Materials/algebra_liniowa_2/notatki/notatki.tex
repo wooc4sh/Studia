@@ -1,0 +1,774 @@
+\documentclass{article}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Fakt 1.21 Obraz przeksztalcenia liniowego]
+
+Niech $V$ i $W$ beda przestrzeniami liniowymi, zas $F: V  \rightarrow W$ przeksztalceniemi liniowym.
+Jesli $\mathbf{B}$ jest baza $V$, to zbior $F(b_{1}),...,F(b_{n})$ jest zbiorem generujacym $ImF$.
+
+\end{tcolorbox}
+\vspace{5mm}
+Dowod.
+Kazdy element obrazu $ImF$ jest postaci $F(v)$ dla pewnego $v \in V$. Wektor $v$ mozna przedstawic w postaci kombinacji liniowej bazy: $v = \alpha_{1}b_{1} + ... + \alpha_{n}b_{n}$.
+Nakladajac $F$ na obie strony, otrzymujemy z liniowosci:
+$F(v) = F(\alpha_{1}b_{1}) + ... + F(\alpha_{n}b_{n}) = \alpha_{1}F(b_{1}) + ... + \alpha_{n}F(b_{n})$, czyli kazdy element obrazu jest kombinacja liniowa $F(b_{1}) + ... + F(b_{n})$     q.e.d. 
+
+\vspace{5mm}
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Fakt 1.25 Roznowartosciowosc i "na"]
+
+Niech $V$ i $W$ beda przestrzeniami liniowymi, zas $F: V \rightarrow W$ przeksztalceniem liniowym. Wowczas:
+
+1) $F$ jest roznowartosciowe $\iff kerF = {0}$, inaczej $dimKerF = 0$
+
+2) $F$ jest "na" $\iff ImF = W$, inaczej $dimImF = dimW$
+
+
+\end{tcolorbox}
+\vspace{5mm}
+Dowod TODO -proste
+
+\vspace{5mm}
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Wniosek 1.26 Bijekcja]
+
+Niech $V$ i $W$ beda skonczenie wymiarowymi przestrzeniami liniowymi, zas $F: V \rightarrow W$ przeksztalceniem liniowym. Wowczas:
+
+
+1) Jesli $dimV = dimW$ to
+    $F$ jest roznowartosciowe $\iff F$ jest "na" $\iff F$ jest bijekcja.
+
+2) Jesli $dimV < dimW$ to $F$ nie moze byc "na".
+
+3) Jesli $dimV > dimW$ to $F$ nie moze byc roznowartosciowa.
+
+\end{tcolorbox}
+\vspace{5mm}
+
+Dowod TODO -proste
+
+\vspace{5mm}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 1.27 Macierz przeksztalcenia]
+
+Niech $F: V \rightarrow W$ bedzie przeksztalceniem liniowym, a $\mathbf{B} = (b_{1}...., b_{n})$ i $\mathbf{C} = (c_{1},..., c_{m})$ bazami, odpowiednio $V$ i $W$. 
+
+Wowczas macierz rozmiaru $n \times n$:
+
+$$m_{C}^{B}(F) = ([F(b_{1})]_{C},...,[F(b_{n})]_{C})$$
+
+nazywamy macierza przeksztalcenia $F$ w bazach $B$ i $C$ kolejno. Kolumny macierzy przeksztalcenia to wspolrzedne obrazow wektorow bazowych
+
+\end{tcolorbox}
+
+\vspace{5mm}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Fakt 1.28 Macierz przeksztalcenia]
+
+Niech $F: V \rightarrow W$ bedzie przeksztalceniem liniowym, a $B=(b_{1},...,b_{n})$i $C=(c_{1},...,c_{m})$ bazami, odpowiednio $V$ i $W$. Wowczas:
+$$[F(v)]_{C} = m_{C}^{B}(F)[v]_{B}$$
+
+\end{tcolorbox}
+
+\vspace{5mm}
+
+Dowod- TODO-proste
+\vspace{5mm}
+
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Wniosek 1.29]
+
+Dla baz $B = (b_{1},...,b_{n})$ i $C = (c_{1},...,c_{n})$ przestrzeni liniowej $V$ zachodzi:
+
+$$[v]_{C} = m_{C}^{B}(id)[v]_{B} \text{, gdzie } m_{C}^{B}(id) = ([b_{1}]_{C},...,[b_{n}]_{C})$$
+$$[v]_{B} = m_{B}^{C}(id)[v]_{e} \text{, gdzie } m_{B}^{C}(id) = ([c_{1}]_{B},...,[c_{n}]_{B})$$
+
+Dodatkowo macierze $m_{C}^{B}$ oraz $m_{B}^{C}$, zwane macierzami zmiany bazy, spelniaja warunek:
+
+$$m_{B}^{C}(id) = (m_{C}^{B}(id))^{-1}$$
+
+\end{tcolorbox}
+\vspace{5mm}
+
+Dowod TODO - proste
+
+\vspace{5mm}
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Fakt 1.30 Macierz zlozenia przeksztalcen]
+
+Dla przeksztalcen liniowych $F:U \rightarrow V$ i $G: V \rightarrow W$ oraz baz $B,C,D$ przestrzeni odpowiednio $U,V,W$ zachodzi:
+$$m_{D}^{B}(G \circ F) = m_{D}^{C}(G)\cdot m_{C}^{B}(F)$$
+
+\end{tcolorbox}
+\vspace{5mm}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Wniosek 1.31 Macierz przeksztalcenia w roznych bazach.]
+
+Dla baz $B$ i $C$ przestrzeni $V$ oraz przeksztalcenia liniowego $F: V \rightarrow V$ zachodzi
+$$m_{C}^{C}(F) = m_{C}^{B}(id) \cdot m_{B}^{B}(F) \cdot m_{B}^{C}(id) $$
+
+\end{tcolorbox}
+
+\vspace{5mm}
+Dowod TODO-prosty
+\vspace{5mm}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 1.32 Izomorfizm]
+
+Przeksztalcenie liniowe $F:V \rightarrow W$ nazywamy przeksztalceniem odwracalnym lub izomorfizmem, jesli istnieje przeksztalcenie liniowe $G:W \rightarrow V$ takie, ze:
+$$F \circ G = id_{W} \text{ oraz } G \circ F = id_{V}$$
+
+Przeksztalcenie G spelniajace powyzszy warunek oznaczamy $G=F^{-1}$ i nazywamy przeksztalceniem odwrotnym do F. Przestrzenie liniowe V i W nazywamy wowczas przestrzeniami izmorficznymi i oznaczamy $V \overset{\sim}{=} W$
+
+\end{tcolorbox}
+ 
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Fakt 1.33-4 Izomorfizm i uniwersalnosc $\mathbb{R}^{n}$]
+
+Przeksztalcenie liniowe jest izomorfizmem wtedy i tylko wtedy, gdy jest bijekcja. W szczegolnosci przestrzenie izomorficzne maja ten sam wymiar. 
+
+Jezeli V jest przestrzenia liniowa wymiaru n, to $V$ jest izomorficzne z $\mathbb{R}^{n}$
+
+\end{tcolorbox}
+
+\vspace{10mm}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Definicja 2.1 Rozstawienie wyrazow macierzy]
+
+Rozstawieniem wyrazow macierzy $A=(a_{ij})_{1\leq i,j \leq n}$ rozmiaru $n \times n$ nazywamy kazdy taki wybor zbioru $n$ wyrazow tej macierzy:
+$$a_{i_{1}j_{1}} a_{i_{2}j_{2}} ... a_{i_{n}j_{n}}$$
+
+ze w kazdym wierzu i w kazdej kolumnie znajduje sie dokladnie jeden z wybranych wyrazow. 
+Rozstawieniem diagonalnym nazwiemy rozstawienie skladajace sie z wyrazow lezacych na przekatnej.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Fakt 2.2-2.4 Liczba parzystosc i liczba (nie)parzystych rozstawien]
+
+Wszystkich rozstawien macierzy $n \times n$ jest $n!$
+
+
+Kazde rozstawienie wyrazow macierzy $n \times n$ mozemy przeksztalcic w rozstawienie diagonalne poprzez wielokrotne powtorzenie operacji zamiany miejscami dwoch kolumn macierzy. Rozstawienie nazywamy:
+
+1) Parzystym, jesli mozna to zrobic przy uzyciu parzystej liczby zamian.
+
+3) Nieparzystym, jesli mozna to zrobic przy uzyciu nieparzystej liczby zamian.
+
+Wsrod wszystki $n!$ rozstawien macierz $n \times n$ dla $n \geq 2$ polowa jest parzysta a polowa nieparzysta
+
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 2.5 Wyznacznik macierzy]
+
+Wyznacznikiem macierzy  $A=(a_{ij})_{1\leq i,j \leq n}$ rozmiaru $n \times n$ nazywamy liczbe:
+
+$$detA = \sum \overset{+}{-} a_{i_{1}j_{1}} \cdot a_{i_{2}j_{2}} \cdot ... \cdot a_{i_{n}j_{n}}$$
+
+gdzie suma przebiega wszystkie mozliwe rozstawienia wyrazow macierzy A, a wybor znaku jest zgodny z parzystoscia rozstawienia- + to parzysta a - to nieparzysta 
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Wnioski 2.6-2.7 Wyznacznik macierzy transponowanej i zamiana kolumn wierszy]
+
+Dla dowolnej macierzy $A_{n \times n}$ wyznacznik macierzy jest taki sam jak wyznacznik macierzy transponowanej, tzn $detA = detA^{T}$
+
+Wyznacznik macierzy zmienia znak przy zamianie miejscami dwoch kolumn lub dwoch wierszy.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Przeksztalcenie n-liniowe]
+
+Niech $V$ i $W$ beda przestrzeniami liniowymi. Odwzorowanie $F: V \times ... \times V \rightarrow W$ nazywamy liniowym wzgledem kazdej wspolrzednej(lub n-liniowym) jesli dla dowolnego indeksu k zachodza warunki:
+
+1) addytywnosc wzgledem k-tej wspolrzednej
+
+2) jednorodnosc wzgledem k-tej wspolrzednej
+
+Zatem wyznacznik macierzy, traktowany jako odwzorowanie $det: \mathbb{R}^{n} \times ... \times \mathbb{R}^{n} \rightarrow \mathbb{R}$ jest liniowy wzgledem kazdej wspolrzednej(n-liniowy).
+
+WNIOSEK:
+Wyznacznik macierz:
+
+1) mnozy sie przez $t$, jesli pomnozymy wybrana kolumne macierzy przez $t$
+
+2) nie zmienia sie jesli dodamy krotnosc jednej kolumny macierzy do innej kolumny
+
+Powyzsze wlasnosci sa prawdziwe rowniez jesli slowo kolumna zamienimy slowem wiersz.(bo wyznacznik macierzy transponowanej to to samo co nie transponownaej)
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 2.15 Rozwiniecie Laplace'a]
+
+Dana jest macierz $A = (a_{ij})_{1 \leq i,j \leq n}$ rozmiaru $n \times n$. Jesli oznaczymy przez $A_{ij}$ macierz rozmiaru $(n-1) \times (n-1)$ powstala z macierzy A przez usuniecie i-tego wiersza i j-tej kolumny, 
+
+1) to dla kazdego i = 1,...,n prawdziwy jest nastepujacy wzor na rozwiniecie wyznacznika wzgledem i-tego wiersza:
+
+$$detA =  \sum^{n}_{j=1} (-1)^{j+i}a_{ij}detA_ij $$
+
+2) to dla kazdego j = 1,...,n prawdziwy jest nastepujacy wzor na rozwiniecie wyznacznika wzgledem j-tej kolumny:
+
+$$detA =  \sum^{n}_{i=1} (-1)^{j+i}a_{ij}detA_ij $$
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 2.16 Wyznacznik Vandermonde'a]
+
+Dla dowolnych liczb rzeczywistych $a_{1},..., a_{n}$ zachodzi warunek:
+
+$$det
+\begin{bmatrix}
+1 & 1 & ... & 1 \\
+a_{1} & a_{2} & ... &a_{n} \\
+... & ... & ... & ... \\
+a_{1}^{n-1} & a_{2}^{n-1} & ... & a_{n}^{n-1} 
+    
+\end{bmatrix} = \prod_{i<j}(a_{j} - a_{i})
+$$
+gdzie iloczyn po prawej stronie wyliczany jest wzgledem wszystkich par indeksow $(i,j)$, gdzie $i<j$. W szczegolnosci, powyzszy wyznacznik jest niezerowy wtedy i tylko wtedy gdy liczby $a_{1},..., a_{n}$ sa parami rozne.
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Lemat 2.20 Lemat Wronskiego (liniowa niezaleznosc w $C^{\infty}(\mathbb{R}$))]
+
+Dane sa funkcje $f_{1},...,f_{n} \in C^{\infty}(\mathbb{R})$ Wyznacznikiem Wronskiego badz Wronskianem funkcji $f_{1},..., f_{n}$ nazywamy wyznacznik:
+
+$$
+W(x) = det
+\begin{bmatrix}
+
+f_{1}(x) & f_{2}(x) & ... & f_{n}(x) \\
+f_{1}^{'}(x) & f_{2}^{'}(x) & ... & f_{n}^{'}(x) \\
+... & ... & ... & ... \\
+f_{1}^{n-1}(x) & f_{2}^{n-1}(x) & ... & f_{n}^{n-1}(x)
+    
+\end{bmatrix}
+$$
+
+Jesli $W(x) != 0$ dla przynajmniej jednej liczby x, to funkcje $f_{1},...f_{n}$ sa liniowo niezalezne.
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Macierz i przeksztalcenie odwrotne]
+
+Macierza odwrotna do macierzy $A \in M_{n \times n}$ nazywamy taka macierz $B \in M_{n \times n}$, ze:
+$$AB = BA = I$$
+Macierz odwrotna do $A$ oznaczamy $A^{-1}$. Macierz, dla ktorej istnieje macierz odwrotna nazywamy macierza odwracalna.
+
+Fakt: Macierza A iB sa wzajemnie odwrotne wtedy i tylko wtedy, gdy spelniony jest ktorykolwiek z warunkow:
+$$AB = I \text{ lub } BA = I$$
+
+prawdzowosc jednego z warunkow pociaga prawdziwosc drugiego.
+
+
+
+Niech $V$ i $W$ beda skonczenie wymiarowymi przestrzeniami liniowymi, a $B$ i $C$ bazami odpowiednio, przestrzeni $V$ i $W$.
+
+1) Jesli dimV = dimW, to przeksztalcenie $F: V \rightarrow W$ oraz $G:W \rightarrow V$ sa wzajemnie odwrotne wtedy i tylko wtedy, gdy spelniony jest ktorykolwiek z warunkow:
+$$F \circ G = id_{W} \text{ lub } G \circ F = id_{V}$$
+
+2) Przeksztalcenie F jest odwracalne wtedey i tylko wtedy, gdy macierz $m_{C}^{B}(F)$ jest odwracalna.
+
+3) Jesli przeksztalcenie F jest odwracalne to zachodzi wzor: $m_{B}^{C}(F^{-1}) = (m_{C}^{B}(F))^{-1}$
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Fakt 2.25-2.26 Odwrotnosc iloczynu macierzy i Odwrotnosc macierzy klatkowej]
+
+Jesli macierze $A_{1},..., A_{k} \in M_{n \times n}$ sa odwracalne, to macierz $A_{1} \cdot ... \cdot A_{k}$ tez jest odwracalna oraz:
+$$(A_{1} \cdot ... \cdot A_{k})^{-1} = A_{k}^{-1} \cdot ... \cdot A_{1}^{-1}$$
+
+
+Dla dowolnych odwracalnych macierzy kwadratowych (klatek) $A_{1}, ... , A_{k}$ (nie koniecznie tego samego rozmiaru) odwrotnosc macierzy klatkowej wyznaczamy zgodnie z nastepujacym wzorem:
+
+$${\begin{bmatrix}
+A_{1} & ... & 0 \\
+... & ... & ... \\
+0 & ... & A_{k}
+\end{bmatrix}}^{-1} = 
+\begin{bmatrix}
+A_{1}^{-1} & ... & 0 \\
+... & ... & \\
+0 & ... & A_{k}^{-1}
+\end{bmatrix} $$
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Wniosek 2.30 Wlasnosci wyznacznika]
+
+Dla macierzy $A, B \in M_{n \times n}$ zachodzi:
+
+1) $det(AB) = detA \cdot detB$
+
+2) $det(A^{-1}) = \frac{1}{detA}$ 
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Operacje elementarne wierszowe/kolumnowe.]
+
+Operacja elemenetarna wierszowa/macierzowa na macierzy prostokatnej A nazywamy kazda z nastepujacych operacji:
+
+1) Zamiana miejscami dwoch wierszy/kolumn.
+
+2) Przemnozenie wybranego wiersza/kolumny przez niezerowa liczbe,
+
+3) Dodanie do wybranego wiersza/kolumny niezerowej krotnosci innego wiersza/kolumny.
+
+Kazda operacja elementarna wierszowa zamienia macierza $A$ na iloczyn $E \cdot A$, gdzie $E$ jest pewna macierza kwadratowa. Macierz $E$ nazywamy macierza elementarna.
+Mnemotechnika: dla operacji wierszowych mnozymy macierz $A$ z lewej.
+
+Kazda operacja elementarna kolumnowa zamienia macierz $A$ na iloczyn $A \cdot E$, gdzie $E$ jest pewna macierza kwadratowa. Macierz $E$ nazywamy macierza elementarna.
+Mnemotechnika: dla operacji kolumnowych mnozymy macierz $A$ z prawej.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Macierze elementarne: zamiana wierszy/kolumn]
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}$$
+
+
+Powyzsza macierz, jesli uzyjemy jej do przemnozenia macierzy A z lewej strony, to zamieni miejscami wiersz numer 2 z wierszem numer 4 macierzy A.
+
+Natomiast, jesli uzyjemy jej do przemnozenia macierzy A z prawej strony, to zamieni miejscami kolumne numer 2 z kolumna numer 4 macierzy A.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Macierze elementarne: mnozenie wiersza/kolumny przez skalar]
+
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 3 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+Powyzsza macierz, jesli uzyjemy jej do przemnozenia macierzy $A$ z lewej strony, to uzyskamy macierz $A$, w ktorej wiersz numer przeskalowany o liczbe 3.
+
+Natomiast jesli uzyjemy jej do przemnozenia macierzy $A$ z prawej strony, to uzyskamy macierz $A$ z przeskalowana kulmna numer 3 o liczbe 3.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Macierze elementarne: dodanie wiersza/kolumny do wiersza/ kolumny]
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 4 & 1 & 0 \\
+0 & 0 & 0 & 1  
+\end{bmatrix}$$
+
+Powyzsza macierz, jesli uzyjemy jej do przemnozenia macierzy $A$ z lewej strony, to do wiersza numer 3 doda wiersz numer 2 przemnozony przez liczbe 4, macierzy A.
+
+Natomiast jesli uzyjemy jej do przemnozenia macierzy $A$ z prawej strony, to do kolumny numer 3 doda kolumne numer 2 przemnozona przez liczbe 4, macierzy A. 
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 2.33 Rzad wierszowy i kolumnowy.]
+
+Dla macierzy $A \in M_{m \times n}$:
+
+Rzedem kolumnowym nazywamy wymiar przestrzeni $\mathbb{R}^{m}$ rozpietej przez kolumny $A$.
+
+Rzedem wierszowym nazywamy wymiar przestrzeni $\mathbb{R}^{n}$ rozpietej przez wiersze $A$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Wnioski 2.34-2.35 Rzad macierzy i maksymalny rzad macierzy]
+
+Dla kazdej prostokatnej macierzy $A$, rzad wierszowy i rzad kolumnowy sa rowne. Kazda z tych liczb nazywamy rzedem macierzy $A$ i oznaczamy : $rankA$.
+
+Jesli $A \in M_{m \times n}$ to $rankA \leq m \text{ oraz } rankA \leq n$.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 2.36 Minor]
+
+Minorem stopnia $k$ macierzy $A$ nazywamy wyznacznik dowolnej macierzy rozmiaru $k \times k$ powstalej przez usuniecie pewnej liczby wierzy i kolumn $A$.
+
+\end{tcolorbox} 
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt2.3? Rzad macierzy c.d.] 
+Rzad macierzy prostokatnej $A$ to najwiekszy stopien niezerowego minora tej macierzy.
+
+Operacje elementarne, zarowno wierszowe jak i kolumnowe, nie zmieniaja rzadu macierzy.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Wniosek laczacy liniowa niezaleznosc.]
+
+Wektory $v_{1},...,v_{k} \in \mathbb{R}^{n}$ sa liniowo niezalezne, wtedy i tylko wtedy kiedy rzad macierzy $(v_{1},...,v_{k})$ wynosi $k$, tzn macierz ma niezerowy minor stopnia $k$.
+ 
+Co wiecej powyzszy wniosek rozszerza sie na wektory w dowolnej bazie:
+
+Niech $V$ bedzie skonczenie wymiarowa przestrzenia a $B$ jej dowolna baza. Wowczas wektory 
+Niech $V$ bedzie skonczenie wymiarowa przestrzenia a $B$ jej dowolna baza. Wowczas wektory $v_{1},...,v_{k} \in V$ sa liniowo niezalezne wtedy i tylko wtedy, gdy rzad macierzy $([v_{1}]_{B}, ... , [v_{k}]_{B})$ wynosi $k$, tzn macierz ta ma niezerowy minor stopnia $k$ 
+
+\end{tcolorbox}
+
+\vspace{10mm}
+
+Uklady rownan liniowych.
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 2.41 Uklady rownan liniowych]
+
+Jednorodnym ukladem $m$ rownan liniowych z niewiadomymi $x_{1},...,x_{n}$ nazywamy nastepujacy uklad($a_{ij}$ to dowolne liczby rzeczywiste):
+$$
+Nr. 1
+\begin{cases}
+a_{11}x_{1} + ... + a_{1n}x_{n} = 0 \\
+\vdots \\
+a_{m1}x_{1} + ... + a_{mn}x_{n} = 0
+\end{cases}
+$$
+
+Niejednorodnym ukladem $m$ rownan liniowych z niewiadomymi $x_{1},...,x_{n}$ nazywamy nastepujacy uklad($a_{ij}, b_{ij}$ to dowolne liczby rzeczywiste);
+$$
+Nr. 2
+\begin{cases}
+a_{11}x_{1} + ... + a_{1n}x_{n} = 0 \\
+\vdots \\
+a_{m1}x_{1} + ... + a_{mn}x_{n} = b_{m}
+\end{cases}
+$$
+Uklad nr 1 nazywamy ukladem jednorodnym zwiazanym z ukladem niejednorodnym- numer 2.
+W obu przypadkach macierz $A = (a_{ij})$ nazywamy macierza glowna ukladu. Macierz $(A|b)$- macierz $A$ z dopisana kolumna wyrazow wolnych- nazywamy macierza rozszerzona ukladu (Nr. 2)
+
+Uklad Nr. 2 mozemy skrutowo zapisac(wiadomo):$$AX = b$$
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Zbior rozwiazan ukladu jednorodnego]
+    
+Zbior rozwiazan jednorodnego ukladu $m$ rownan liniowych z niewiadomymi $x_{1},...,x_{n}$ o macierzy glownej $A = (a_{ij})$:
+
+$$
+Nr. 1
+\begin{cases}
+a_{11}x_{1} + ... + a_{1n}x_{n} = 0 \\
+\vdots \\
+a_{m1}x_{1} + ... + a_{mn}x_{n} = 0
+\end{cases}
+$$
+
+jest podprzestrzenia $kerA < \mathbb{R}^{n}$. W szczegolnosci uklad jednorodny zawsze ma rozwiazanie - rozwiazanie zerowe $x_{1} = ... = x_{n} = 0$
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 2.43 Warstwa podprzestrzeni]
+
+Niech $W<V$ bedzie podprzestrzenia przestrzeni liniowej $V$, a $v \in V$ dowolnym wektorem. Warstwa podprzestrzeni $W<V$, oznaczane jako $v + W$- nazywamy zbior elementow postaci $v + w \in V$ dla wszystkich mozliwych wyborow $w \in W$, tzn.:
+$$ v + W = \left\{ v + w: w \in W\right\} \subset V$$ 
+
+Warstwa elementu $v \in V$ podprzestrzeni $W<V$ to inaczej klasa abstrakcji elementu $v$ dla relacji rownowaznosci zdefiniowanej jako $v \sim v^{'} \iff v - v^{'} \in W$
+
+\end{tcolorbox}
+\vspace{5mm}
+
+O warstwie podprzestrzeni $W$ myslimy jako o "przesunieciu rownoleglym" podprzestrzeni $W$ o wektor $v$. Ponizsze przyklady pomoga zobrazowac to zagadnienie,
+
+\textbf{Przyklad 1}
+
+Opiszemy warstwy podprzestrzeni $$W = \left\{ \begin{pmatrix} x\\ y\end{pmatrix} \in \mathbb{R}^{2}: 2x + 3y = 0 \right\} <  \mathbb{R}^{2}$$
+
+Przestrzen $W$ to prosta o rownaniu parametrycznym $$\begin{pmatrix} x\\y
+\end{pmatrix} = t \begin{pmatrix} 3\\ -2
+    
+\end{pmatrix}$$
+
+Kazda warstwa tej podprzestrzeni to zbior punktow postaci:
+$$ \begin{pmatrix} x\\y
+    
+\end{pmatrix} = t \begin{pmatrix}
+3\\-2
+    
+\end{pmatrix} +
+\begin{pmatrix}
+v_{1}\\v_{2}
+    
+\end{pmatrix}
+$$
+
+Czyli przesuniecie rownolegle prostej $W$ o wektor $v = \begin{pmatrix} v_{1}\\v_{2}
+\end{pmatrix}$
+
+Rownanie ogolne przyjmuje postac $2x + 3y + C = 0$, dla kazdej wartosci $C$ otrzymujemy inna warstwe.
+
+\textbf{Przyklad 2}
+
+Opiszemy warstwy podprzestrzeni $$W = \left\{ \begin{pmatrix} x\\ y\\z\end{pmatrix} \in \mathbb{R}^{3}: 3x - 4y + z = 0 \right\} <  \mathbb{R}^{3}$$
+
+Przestrzen $W$ to plaszczyzna o rownaniu parametrycznym $$\begin{pmatrix} x\\y\\z
+\end{pmatrix} = 
+t \begin{pmatrix} 4\\3\\0 \end{pmatrix} +
+s \begin{pmatrix} 0\\1\\4 \end{pmatrix}$$
+
+Kazda warstwa tej podprzestrzeni to zbior punktow postaci:
+$$ 
+\begin{pmatrix} x\\y\\z
+\end{pmatrix} = 
+t \begin{pmatrix} 4\\3\\0 \end{pmatrix} +
+s \begin{pmatrix} 0\\1\\4 \end{pmatrix} +
+\begin{pmatrix} v_{1}\\v_{2}\\v_{3} \end{pmatrix} 
+$$
+czyli przesuniecie rownolegle plaszczyzny $W$ o wektor $v = \begin{pmatrix} v_{1}\\v_{2}\\v_{3} \end{pmatrix}$.
+
+Rownanie ogolne plaszczyzny przyjmuje postac $3x - 4y + z + D = 0$, dla kazdej wartosci $D$ mamy inna warstwe.
+
+\textbf{Przyklad 3} 
+
+
+Opiszemy warstwy podprzestrzeni $$W = \left\{ \begin{pmatrix} x\\ y\\z\end{pmatrix} \in \mathbb{R}^{3}: \frac{x}{2} = \frac{y}{3} = \frac{z}{5}= 0 \right\} <  \mathbb{R}^{3}$$
+
+Przestrzen $W$ to prosta o rownaniu parametrycznym $$\begin{pmatrix} x\\y\\z
+\end{pmatrix} = 
+t \begin{pmatrix} 2\\3\\5 \end{pmatrix}$$
+
+Kazda warstwa tej podprzestrzeni to zbior punktow:
+$$ 
+\begin{pmatrix} x\\y\\z
+\end{pmatrix} = 
+t \begin{pmatrix} 2\\3\\5 \end{pmatrix} +
+\begin{pmatrix} a\\b\\c \end{pmatrix} 
+$$
+
+czyli przesuniecie rownolegle prostej $W$ o wektor $v = \begin{pmatrix} a\\b\\c
+\end{pmatrix}$
+
+\textbf{Przyklad 4}
+
+Opiszemy warstwy podprzestrzeni $$W = \left\{f:  \mathbb{R} \rightarrow \mathbb{R}: f \text{ stala}\right\} < C(\mathbb{R})$$
+
+Kazda warstwa przestrzeni funkcji stalych jest postaci $f(x) + C$, tzn ustalona funkcja f z przestrzeni $C(\mathbb{R})$ + dowolna funkcja stala. 
+
+Jest to dobrze znany przyklad z analizy, gdzie calka nieoznaczona funkcji nie jest funkcja, tylko warstwa podprzestrzeni funkcji stalych, tzn funkcja z dokladnoscia do dodania stalej. Zmienna $C$ uzywana przy wyliczaniu calki nieoznaczonej nalezy w tym kontekscie interpretowac nie jako liczbe, ale jako przestrzen liniowa- dokladnie to przestrzen funkcji stalych.
+
+\textbf{Przyklad 5}
+
+Szczegolnym przypadkiem warstwy podprzestrzeni $W<V$ jest sama podprzestrzen $W$, ktora traktujemy jako warstwe $0 + W$- czyli $W$ przesunieta o wektor zerowy.
+
+\textbf{Przyklad 6}
+
+Opiszemy warstwy podprzestrzeni $\left\{ 0 \right\} < V \text{ oraz } V < V$
+
+Warstwa $v + \left\{0\right\} \text{ to zbior } \left\{v+0\right\}$, czyli zbior jedno punktowy. Dla kazdego elementu $v \in V$ otrzymujemy zatem warstwe $\left\{v\right\}$ . Warstwa podprzestrzeni $V$ jest tylko jedna i jest nia $V$
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 2.44 Warstwy podprzestrzeni]
+
+Warstwy podprzestrzeni $W$ przestrzeni liniowej $V$ zadaja rozklad przestrzeni $V$ na parami rozlaczne podzbiory, tzn. kazdy element $v \in V$ nalezy do dokladnie jedne warstwy $W$- jest to warstwa $v + W$
+
+\end{tcolorbox}
+
+\vspace{5mm}
+Pojecie warstwy pozwala opisac zbior rozwiazan ukladu niejednorodnego w sposob analogiczny do opisu zbioru rozwiazan ukladu jednorodnego podanego wczesniej w fakcie 2.42
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 2.45 Zbior rozwiazan ukladu niejednorodnego]
+
+Zbior rozwiazan niejednorodnego ukladu $m$ rownan liniowych z niewiadomymi $x_{1},...,x_{n}$ o macierzy glownej $A = (a_{ij})$:
+
+$$
+Nr 1.
+\begin{cases}
+a_{11}x_{1} + ... + a_{1n}x_{n} = b_{1} \\
+\vdots \\
+a_{m1}x_{1} + ... + a_{mn}x_{n} = b_{m}
+\end{cases}
+$$
+
+jest warstwa $v + kerA$, gdzie $kerA$ to przestrzen rozwiazan ukladu jednorodnego z nim zwiazanego, zas $v = \begin{pmatrix} v_{1} \\ \vdots \\ v_{n} \end{pmatrix}$ to dowolne rozwiazanie ukladu niejednorodnego, zwane rozwiazaniem szczegolnym ukladu Nr1.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!yellow,colframe=black!15!yellow,title=Algorytm]
+Nasze rozwazania mozemy podusmowac nastepujacym algorytmem rozwiazywaina niejednorodnego ukladu rownan.
+
+1) Wyzancz przestrzen $kerA$ rozwiazan ukladu jednorodnego zwiazanego z ukladem wejsciowym.
+
+2) Wyznacz jedno rozwiazanie(szczegolne) $v$ ukladu niejednorodnego(uklad wejsciowy).
+
+3) Zbiorem rozwiazan wejsciowego ukladu niejednorodnego bedzie warstwa $v + kerA$.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Fakt 2.46 Przestrzen ilorazowa]
+Dana jest przestrzen liniowa $V$ orazj jej podprzestrzen $W<V$. Na zbiorze wszystkich warstw podprzestrzeni $W$ mozemy wprowadzic dzialania:
+$$(v + W) + (v^{'} + W) = (v + v^{'}) + W \text{ oraz } \alpha(v + W) = \alpha v + W$$
+Dodanie dwoch warstw to dodanie ich dowolnie wybranych reprezentantow, a mnozenie warstwy przez skalar to mnozenie przez skalar dowolnego reprezentanta. Zbior warst z tak okreslonymi dzialaniami tworzy przestrzen liniowa zwana przestrzenia ilorazowa i oznaczana $V/W$. Wektorem zerowym przestrzeni ilorazowej jest warstwa $0 + W$ czyli W.
+
+\end{tcolorbox}
+Powyzszy fakt nalezy udowodnic, aby tego dokonac nalezy sprawdzic ze dzialania sa dobrze okreslone, czyli ich wynik nie zalezy od wyboru reprezentanta oraz spradzic ze dzialania spelniaja aksjomaty przestrzeni liniowej.
+
+\textbf{Przyklad 10}
+
+Calka nieoznaczona to przeksztalcenie liniowe: $F: C(\mathbb{R}) \rightarrow C(\mathbb{R}/C)$, gdzie $C < C(\mathbb{R})$ to podprzestrzen funkcji stalych. Innymi slowy, calka nieoznaczona kazdej funkcji ciaglej $f$ przyporzadkowuje \textbf{warstwe} podprzestrzeni funkcji stalych, np. $F(cosx) =  sinx + C$, gdzie C to podprzestrzen (a nie liczba).
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 2.47 Wymiar przestrzeni ilorazowej]
+Niech $W<v$ bedzie podprzestrzenia przestrzeni liniowej $V$. Wowczas wymiar przestrzeni ilorazowej $V/W$ wynosi:$$dimV/W = dimV - dimW$$
+
+\end{tcolorbox}
+
+\textbf{Refleksja}
+
+Do tej pory skupialismy sie na rozwiazywaniu dowolnych ukladow rownan. W praktyce czest nie jest potrzebne pelne rozwiazanie, a jedynie informacja o istnieniu i liczbie rozwiazan, podzielimy ten problem na trzy czesc:
+
+\textbf{Pytanie 1} Czy rozwazany uklad jest niesprzeczny, tzn czy ma przynajmniej jedno rozwiazanie?
+
+\textbf{Pytanie 2} Ile ma rozwiazan rozwazany uklad? 
+
+Poniewaz niesprzeczny uklad rownan liniowych ma 1 albo $\infty$ rozwiazan, wiec precyzyjniejsze pytanie bedzie brzemiac: Jaki jest wymiar przestrzeni (lub warstwy) wszystkich rozwiazan?
+
+\textbf{Pytanie 3} Jakie jest rozwiazanie ogolne ukladu?
+
+Dotychaczasowy rezultat(wzory Cramera) daje czesciowa odpowiedz w odniesieniu do ukladow n rownan z n niewiadomymi. Oznaczajac macierz glowna tego ukladu przez A, wiemy ze:
+
+1. Uklad jest sprzeczny $\iff detA \neq 0$ (nie mamy odpowiedzi w przypadku gdy $detA = 0$)
+
+2. Uklad ma jedno rozwiazanie(0- wymiarowa przestrzen/warstwa) $\iff detA \neq 0$
+
+3. W przypadku gdy $detA \neq 0$ rozwiazanie ukladu dane jest wzorem (wzory Cramera)
+
+Znamy rowniez odpowiedz na pytanie 1 w odniesieniu dowolnego ukladu jednorodnegi. Uklad jednorodny jest zawsze niesprzeczny, gdyz $ \begin{pmatrix} 0 \\  \vdots \\ 0 \end{pmatrix}$ jest jego rozwiazaniem. W ogolnym przypadku odpowiedz na pytanie 1 daje nam nastepujace twierdzenie:
+
+
+ \begin{tcolorbox}[colback=white!90!blue,colframe=black!35!blue,title=Twierdzenie Kroneckera-Capellego v1]
+
+Uklad rownan liniowych z niewiadomymi $x_{1},...,x_{n}$ o macierzy glownej $A = a_{ij}$ i macierzy rozszerzonej $(A|b)$:
+
+$$ \begin{cases}
+a_{11}x_{1} + ... + a_{1n}x_{n} = b_{1} \\
+\vdots \\
+a_{m1}x_{1} + ... + a_{mn}x_{n} = b_{m}
+\end{cases} $$
+ma rozwiazanie wtedy i tylko wtedy, gdy
+$$
+rank(A) = rank(A|b)
+$$
+ 
+ \end{tcolorbox}
+
+\textbf{Refleksja}
+
+Jesli do macierzy $A$ dolaczymy kolumne(kolumna b), to rzad macierzy $A$ albo pozostanie niezmieniony, albo wzrosnie o jeden(zgodnie z definicja, rzad macierzy to maksymalna liczba kolumn liniowo niezaleznych- dolaczenie jedenej kolumny moze zwiekszyc te liczbe conajwyzej o 1). W zwiazku z tym mozemy przeformulowac tw. Kroneckera-Capellego:
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=black!35!blue,title=Twierdzenie Kroneckera-Capellego v2]
+
+Uklad rownan liniowych z niewiadomymi $x_{1},...,x_{n}$ o macierzy glownej $A = a_{ij}$ i macierzy rozszerzonej $(A|b)$:
+
+$$ \begin{cases}
+a_{11}x_{1} + ... + a_{1n}x_{n} = b_{1} \\
+\vdots \\
+a_{m1}x_{1} + ... + a_{mn}x_{n} = b_{m}
+\end{cases} $$
+
+jest niesprzeczny wtedy i tylko wtedy, gdy:
+$$rank(A|b) = rank(A) $$
+oraz sprzeczny wtedy i tylko wtedy, gdy:
+$$rank(A|b) = rank(A) + 1$$
+
+\end{tcolorbox}
+
+Intuicja zwiazana z odpowiedzia na pytanie 2 jest nastepujaca: jesli uklad rownan jest niesprzeczny, to wymiar zbioru (warstwy) rozwiazan jest rowny minimalnej liczbie parametrow potrzebnych do opisania tego zbioru rozwiazan. Rozwiazujac uklad metoda podstawiania, kazde rownanie wykorzystujemy do zmniejszenia liczby niewiadomych o jeden. W zwiazku z tym zazwyczaj rozwiazanie zawiera liczbe parametrow wynoszaca: $$\text{liczba niewiadomych - liczba rownan}$$
+Jest to prawidlowy wynik o ile wszystkie rownania sa liniowo niezalezne(w szczegolnosci liczba rownan nie przekracza liczby niewiadomych). Ponizszy fakt formalizuje i uogolnia ten rezultat:
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 2.50 Zbior rozwiazan ukladu rownan liniowych]
+Dany jest uklad $m$ rownan liniowych z $n$ niewiadomymi $x_{1},...,x_{n}$:
+$$Nr 1 \begin{cases}
+a_{11}x_{1} + ... + a_{1n}x_{n} = b_{1} \\
+\vdots \\
+a_{m1}x_{1} + ... + a_{mn}x_{n} = b_{m}
+\end{cases} $$
+gdzie $A = (a_{ij})$ jest macierza glowna ukladu. Jesli uklad Nr 1 jest niesprzeczny, to zbior jego rozwiazan jest warstwa podprzestrzeni wymiaru $n-rank(A)$
+
+\end{tcolorbox}
+\vspace{19mm}
+W ramach cwiczenia napiszemy dowod
+Zatem: zbior rozwiazan jest warstwa przestrzeni $kerA$. Rozwazmy przeksztalcenie $F_{A} : \mathbb{R}^n \rightarrow \mathbb{R}^{m}$ o macierzy $A$. Obraz $ImF_{A}$ jest generowany przez kolumny macierzy $A$, czyli $dimImF_{A} = rankA$. Zgodnie z tw o indeksie:
+$$ n = dimkerF_{A} + dimImF_{A} = dimkerA + rankA$$
+czyli
+$$ dimkerA = n - rankA$$
+Oznacza to, ze zbior rozwiazan(warstwa przestrzeni $kerA$) ma wymiar $n - rankA$. Zwrocmy uwage, ze powyzszy rachunek odnosi sie wylacznie do ukladu, o ktorym uprzednio przekonalismy sie(np. przez uzycie tw, Kroneckera-Capellego) ze jest niesprzeczny.
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 2.51 Macierz schodkowa]
+
+Macierz (prostokatna) nazywamy macierza schodkowa, jesli kazdy wiersz tej macierzy zaczyna sie wieksza liczba zer niz wiersz poprzedni(za wyjatkiem pierwszego wiersza, ktory nie ma poprzednika oraz wiersz zlozonych z samych zer, ktorych dowolna ilosc moze znajdowac sie na koncu macierzy). Pierwszy niezerowy wyraz w kazdym niezerowym wierszu nazywamy wyrazem wiodacym
+
+\end{tcolorbox}
+
+Odpowiedznie na pytanie 3 dostarzczy metoda eliminacji Gaussa, opisana w kolejnym fakcie.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Metoda eliminacji Gaussa]
+
+Rozwiazanie ogolne ukladu $m$ rownan liniowych z $n$ niewiadomymi $x_{1},...,x_{n}$ o macierzy glownej $A = (a_{ij})$ oraz macierzy rozszerzonej $(A|b)$:
+$$ \begin{cases}
+a_{11}x_{1} + ... + a_{1n}x_{n} = b_{1} \\
+\vdots \\
+a_{m1}x_{1} + ... + a_{mn}x_{n} = b_{m}
+\end{cases} $$
+otrzymujemy postepujac w nastepujacy sposob:
+
+1) Przy pomocy elementarnych operacji wierszowych sprowadzamy macierz rozszerzona $(A|b)$ ukladu do postaci macierzy schodkowej $(A^{\prime}|b^{\prime})$.
+
+2) Zapisujemy uklad rownan o macierzy rozszerzonej $(A^{\prime}|b^{\prime})$. Zmienne odpowiadajace kolumnom $A^{\prime}$ zawierajacym wyrazy wiodace, nazywamy zmiennymi zaleznymi(zwiazanymi), a pozostale zmienne- zmiennymi niezaleznymi(wolnymi).
+
+3) Wyrazamy zmienne zwiazane przy pomocy zmiennych wolnych, otrzymujac w ten sposob rozwiazanie ogolne ukladu.
+
+\end{tcolorbox}
+
+Metoda eliminacji Gaussa nie wymaga wczesniejszego sprawdzenia niesprzecznosci ukladu. Jesli zastosujemy te metode do ukladu sprzecznego, to w kroku (2) otrzymamy uklad rownan zawierajacy rownanie sprzeczne. 
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 2.53 Fundamentalny uklad rozwiazan]
+Fundamentalnym ukladem rozwiazan ukladu jednorodnego nazywamy baze przestrzeni rozwiazan tego ukladu, tzn baze $kerA$ gdzie $A$ jest macierza glowna ukladu.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 2.54 Charakteryzacja podprzestrzeni]
+
+Kazda k-wymiarowa podprzestrzen przestrzeni $\mathbb{R}^{n}$ mozna opisac przy pomocy jednorodnego ukladu $n-k$ rownan liniowych. Ponizej podamy przyklad.
+\end{tcolorbox}
+
+\textbf{Przyklad 18}
+
+Opiszemy przy pomocy ukladu rownan liniowych podprzestrzen $$W = Lin\left\{ \begin{pmatrix} 1 \\ 2 \\ 1 \\ 1 \\ 3 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ -1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 3 \\ 2 \\ 1 \end{pmatrix} \right\} \text{ przestrzeni } \mathbb{R}^{5}$$
+Podane wektory sa liniowo niezalezne co mozna latwo sprawdzic. Wobec tego, $dimW = 3$. Zgodnie z faktem 2.54, podprzestrzen $W$ mozna opisac przy pomocy jednorodnego ukladu $5-3 = 2$ rownan liniowych. Kazde z tych rownan jest postaci:
+$$a_{1}x_{1} + a_{2}x_{2} + a_{3}x_{3} + a_{4}x_{4} + a_{5}x_{5} = 0$$ 
+i musi byc spelnione przez kazdy z wektorow:
+$$\begin{pmatrix} 1 \\ 2 \\ 1 \\ 1 \\ 3 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ -1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 3 \\ 2 \\ 1 \end{pmatrix} $$
+Wspolczynniki kazdego z szukanych rownan, spelniaja warunki:
+
+$$
+\begin{cases}
+a_{1} + 2a_{2} + a_{3} + a_{4} + 3a_{5} = 0 \\
+a_{1} + a_{2} - a_{3} + a_{4} + a_{5} = 0 \\
+a_{2} + 3a_{3} + 2a_{4} + a_{5} = 0 
+\end{cases}
+$$
+
+Potrzebujemy wyznaczyc dwa liniowo niezalezne rownani, czyli znalezc dwa liniowo niezalezne rozwiazania powyzszego ukladu- wspolczynniki dwoch szukanych rownan. Powyzszy uklad rozwiazujemy metoda eliminacji Gaussa, skad otrzymujemy:
+
+$$
+\begin{pmatrix} a_{1} \\ a_{2} \\ a_{3} \\ a_{4} \\ a_{5} \end{pmatrix} = 
+\begin{pmatrix} -7s + 4t \\ 4s - 4t \\ -2s + t \\ s \\ t \end{pmatrix} =
+s \begin{pmatrix} -7 \\ 4 \\ -2 \\ 1 \\ 0 \end{pmatrix} +
+t \begin{pmatrix} 4 \\ -4 \\ 1 \\ 0 \\ 1 \end{pmatrix}
+$$
+Fundamentalnym ukladem rozwiazan sa wektory $$\begin{pmatrix} -7 \\ 4 \\ -2 \\ 1 \\ 0 \end{pmatrix} \text{ oraz } \begin{pmatrix} 4 \\ -4 \\ 1 \\ 0 \\ 1 \end{pmatrix}$$ Stad szukanym ukladem dwoch rownan liniowych opisujacych podprzestrzen $W$ jest:
+$$
+\begin{cases}
+-7x_{1} + 4x_{2} - 2x_{3} + x_{4} = 0 \\
+4x_{1} - 4x_{2} + x_{3} + x_{5} = 5
+\end{cases}
+$$
+\end{document}
+
+
+
+
+
