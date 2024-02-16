@@ -766,6 +766,134 @@ $$
 4x_{1} - 4x_{2} + x_{3} + x_{5} = 5
 \end{cases}
 $$
+
+\vspace{10mm}
+\textbf{Diagonalizacja}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 3.1 Wartosci i wektory wlasne- rzeczywiste]
+
+Niech $V$ bedzie przestrzena liniowa. Wektor wlasny przeksztalcenia liniowego $F:V \rightarrow V$ to wektor $v \in V$ spelniajacy warunek: $$F(v) = \lambda \cdot v$$
+dla pewnej rzeczywistej $\lambda$. Jesli $v \neq 0$, to liczbe $\lambda$ nazywamy wartoscia wlasna przeksztalcenia $F$, zas $v$ wektorem wlasnym dla wartosci wlasnej $\lambda$. 
+
+Zbior wszystkich wektorow wlasnych dla wartosci wlasnej $\lambda$ nazywamy przestrzenia wlasna dla$ \lambda$ i oznaczamy $V^{\lambda}$
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 3.1-3.2 Przestrzen wlasna i jej przekroj.]
+
+Niech $F:V \rightarrow V$ bedzie przeksztalceniem liniowym a $\lambda$ wartoscia wlasna $F$. Wowczas przestrzen wlasna $V^{\lambda}$ jest podprzestrzenia $V$.
+
+Jesli $ {\lambda}_{1} \neq {\lambda}_{2}$ sa wartosciami wlasnymi przeksztalcenia liniowego $F: V \rightarrow V$, to $$ V^{{\lambda}_{1}} \cap V^{{\lambda}_{2}} = \left\{0\right\}$$
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 3.4 Wielomian charakterystyczny]
+
+Niech $V$ bedzie przestrzenia liniowa, zas $B$ jej baza. Wowczas wartosci wlasne przeksztalcenia liniowego $F: V \rightarrow V$ to pierwiastki wielomianu charakterystycznego tego przeksztalcenia, czyli wielomianu: 
+$${\chi}_{F}(\lambda) = det(m_{B}^{B}(F) - \lambda I)$$ 
+Wielomian charakterystyczny nie zalezy od wyboru bazy $B$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Wniosek 3.5 Liczba wartosci wlasnych]
+bv
+Niech $V$ bedzie przestrzenia liniowa wymiaru $n$, zas $F: V \rightarrow V$ przeksztalceniem liniowym. Wowczas $F$ ma co najwyzej $n$ rzeczywistych wartosci wlasnych(liczac z krotnosciami)
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 3.6. Liniowo niezalezne wektory wlasne v1]
+
+Jesli $v_{1},..., v_{k} \in V$ sa niezerowymi wektorami przeksztalcenia $F; V \rightarrow V$ dla parami roznych wartosci wlasnych $ {\lambda}_{1},..., {\lambda}_{k} \in \mathbb{R}$ to wektory $v_{1},..., v_{k} \in V$ sa liniowo niezalezne. 
+ 
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=black!35!blue,title=Twierdzenie 3.7: Twierdzenie o diagonalizacji macierzy v1]
+
+Jesli macierz $A \in M_{n \times n}$ ma parami rozne wartosci wlasne ${\lambda}_{1},..., {\lambda}_{n}$, to:
+$$
+A = PDP^{-1} \text{, gdzie } P = (v_{1},...,v_{n}),  
+D = \begin{pmatrix}
+{\lambda}_{1} & & \\
+& \ddots & \\
+& & {\lambda}_{n} \\  
+\end{pmatrix}
+$$
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=black!35!blue,title=Twierdzenie 3.8: Twierdzenie o diagonalizacji macierzy v2]
+
+Macierz $A \in M_{n \times n}$ mozna zapisac w postaci diagonalnej (nazywamy ja wowczas macierza diagonalizowalna):
+$$
+A = PDP^{-1} \text{, gdzie } P = (v_{1},...,v_{n}),
+D = \begin{pmatrix}
+{\lambda}_{1} & & \\
+& \ddots & \\
+& & {\lambda}_{n} \\  
+\end{pmatrix}
+$$
+wtedy i tylko wtedy, gdy wektory $v_{1},...,v_{n}$ tworza baze $\mathbb{R}^{n}$
+zlozona z wektorow wlasnych macierzy $A$, zas ${\lambda}_{1},...,{\lambda}_{n}$
+to wartosci wlasne macierzy $A$, odpowiednio dla wektorow $v_{1},...,v_{n}$, W szczegolnosci macierz $A \in M_{n \times n}$ jest diagonalizowalna, gdy ma $n$ roznych wartosci wlasnych. 
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 3.10 Potegowanie macierzy]
+
+Jesli macierz $A \in M_{n \times n}$ jest diagonalizowalna, a jej wartosciami wlasnymi (niekoniecznie roznymi) sa ${\lambda}_{1},...,{\lambda}_{n}$, to kazdy wyraz macierzy $A^{k}$ jest postaci:
+$${\alpha}_{1}{\lambda}^{k}_{1}+ \dots + {\alpha}_{n}{\lambda}^{k}_{n}$$
+przy czym wspolczynniki ${\alpha}_{1}, \dots , {\alpha}_{n}$ nie zaleza od wykladnika $k$.
+
+Czyli wyrazy macierzy $A^{n}$ to kombinacje liniowe jej wartosci wlasnych podniesonych do potegi $n$
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=black!35!blue,title=Twierdzenie 3.11 Twierdzenie o diagonalizacji przeksztalcenia]
+
+Dana jest przestrzen liniowa $V$, jej baza $B = (b_{1},...,b_{n})$ oraz przeksztalcenie liniowe $F: V \rightarrow V$.
+\begin{enumerate}
+\item Macierz $m^{B}_{B}(F)$ przeksztalcenia $F$ w bazie $B$ jest diagonalna wtedy i tylko wtedy, gdy baza $B$ jest zlozona z wektorow wlasnych przeksztalcenia $F$. Przeksztalcenie, ktore w pewnej bazie ma macierz diagonalna nazywamy przeksztalceniem diagonalizowalnym.
+\item Jesli wektory $b_{1},...,b_{n}$ sa wektorami wlasnymi przeksztalcenia $F$, to dla kazdej bazy $C$ zachodzi:
+$$m_{C}^{C}(F) = PDP^{-1}$$  $$ \text{gdzie } D = \begin{pmatrix}
+{\lambda}_{1} & & \\
+& \ddots & \\
+& & {\lambda}_{n} \\    
+\end{pmatrix} \text{ oraz } P = ([b_{1}]_{C},\dots, [b_{n}]_{C}) 
+$$
+gdzie ${\lambda}_{1},\dots,{\lambda}_{n} \in \mathbb{R}$ to wartosci wlasne przeksztalcenia $F$ odpowiadajce wektorom wlasnym $b_{1},..,b_{n} \in V.$
+
+\end{enumerate}
+
+
+\end{tcolorbox}
+
+Dla sorawdzenia diagonalizowalnosci macierzy lub przeksztalcenia wystarczy porownanie wymiarow przestrzeni wlasnych i krotnosci wartosci wlasnych, co pokazuje Wniosek 3.15. Dla jego dowodu potrzebujemy nastepujacego faktu:
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 3.12: Liniowo niezalezne wektory wlasne v2]
+
+Jesli ${\lambda}_{1},\dots,{\lambda}_{k}$ to parami rozne wartosci wlasne przeksztalcenia liniowego $F:V \rightarrow V$, zas $B_{1},\dots,B_{k}$ to bazy przestrzeni wlasnych $V^{{\lambda}_{1}},\dots,V^{{\lambda}_{k}}$ to zbior $B_{1} \cup \dots \cup B_{k}$ jest liniowo niezaleznym zbiorem wektorow..
+\end{tcolorbox} 
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja 3.13 Krotnosc wartosci wlasnej]
+Krotnoscia wartosci wlasnej $\lambda$ przeksztalcenia liniowego $F: V \rightarrow V$ nazywamy krotnosc $\lambda$ jako pierwiastka wielomianu charakterystycznego ${\chi}_{F}(x)$.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Fakt 3.14 Krotnosc wartosci wlasnej]
+
+Niech $V$ bedzie skonczenie wymiarowa przestrzenia liniowa, a $F: V \rightarrow V$ przeksztalceniem liniowym. Wowczas dla dowolnej wartosci wlasnej $\lambda$ przeksztalcenia $F$ zachodzi wzor: $$ 1 \leq dimV^{\lambda} \leq \text{ krotnosc wartosci wlasnej } \lambda $$
+W szczegolnosci, jezeli $\lambda$ jest jednokrotna wartoscia wlasna. to $dimV^{\lambda} = 1$
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Wniosek 3.15 Diagonalizowalnosc przeksztalcenia nad $\mathbb{R}$]    
+
+Niech $V$ bedzie skonczenie wymiarowa przestrzenia liniowa. Wowczas przeksztalcenie liniowe $F: V \rightarrow V$ jest diagonalizowalne nad $\mathbb{R}$ wtedy i tylko wtedy, gdy wszystkie pierwiastki wielomianu charakterystycznego ${\chi}_{F}$ sa liczbami rzeczywistymi oaz dla kazdego z nich zachodzi:
+$$dimV^{\lambda} = \text{ krotnosc wartosci wlasnej } \lambda$$
+
+\end{tcolorbox}
+
+
+
 \end{document}
 
 

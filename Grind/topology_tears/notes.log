@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.20)  11 FEB 2024 12:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.20)  16 FEB 2024 21:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**notatki.tex
-(./notatki.tex
+**notes.tex
+(./notes.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -22,6 +22,40 @@ File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
+)
+(/usr/share/texlive/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+)
+(/usr/share/texlive/texmf-dist/tex/latex/transparent/transparent.sty
+Package: transparent 2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2022/01/07 version 5.0.2 text color boxes
@@ -60,10 +94,7 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-))
+)
 \Gin@req@height=\dimen141
 \Gin@req@width=\dimen142
 )
@@ -120,23 +151,7 @@ File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 227.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
-Package xcolor Info: Model `RGB' extended on input line 1368.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-)
+))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
 
@@ -370,53 +385,69 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 LaTeX Info: Redefining \[ on input line 2938.
 LaTeX Info: Redefining \] on input line 2939.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+(/usr/share/texlive/texmf-dist/tex/latex/was/upgreek.sty
+Package: upgreek 2003/02/12 v2.0 (WaS)
+Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
+\symugrf@m=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
+(Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip52
+\enit@outerparindent=\dimen189
+\enit@toks=\toks35
+\enit@inbox=\box67
+\enit@count@id=\count287
+\enitdp@description=\count288
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-)
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count287
-\l__pdf_internal_box=\box67
+\l__color_backend_stack_int=\count289
+\l__pdf_internal_box=\box68
 )
-(./notatki.aux)
-\openout1 = `notatki.aux'.
+(./notes.aux)
+\openout1 = `notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count288
-\scratchdimen=\dimen189
-\scratchbox=\box68
-\nofMPsegments=\count289
-\nofMParguments=\count290
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count291
-\MPscratchDim=\dimen190
-\MPnumerator=\count292
-\makeMPintoPDFobject=\count293
-\everyMPtoPDFconversion=\toks36
+\scratchcounter=\count290
+\scratchdimen=\dimen190
+\scratchbox=\box69
+\nofMPsegments=\count291
+\nofMParguments=\count292
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count293
+\MPscratchDim=\dimen191
+\MPnumerator=\count294
+\makeMPintoPDFobject=\count295
+\everyMPtoPDFconversion=\toks37
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -426,118 +457,83 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8
-] [9] [10]
-Underfull \hbox (badness 7631) in paragraph at lines 453--454
-[]\OT1/cmr/m/n/10 Zbior rozwiazan jed-norod-nego uk-ladu $\OML/cmm/m/it/10 m$ \
-OT1/cmr/m/n/10 row-nan lin-iowych z
+)
+Underfull \hbox (badness 2626) in paragraph at lines 46--47
+[]\OT1/cmr/m/n/10 Niech $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 bedzie nie-pustym 
+zbiorem oraz $\OML/cmm/m/it/10 T$ \OT1/cmr/m/n/10 kolekcja wszys-t-kich
  []
 
-[11] [12] [13]
-Underfull \hbox (badness 1394) in paragraph at lines 568--569
-[]\OT1/cmr/m/n/10 Warstwy pod-przestrzeni $\OML/cmm/m/it/10 W$ \OT1/cmr/m/n/10 
-przestrzeni lin-iowej $\OML/cmm/m/it/10 V$ \OT1/cmr/m/n/10 zadaja rozk-lad
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (14.68126pt too wide) in paragraph at lines 142--144
+[]$[] \OML/cmm/m/it/10 A[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 A[] \OMS/cmsy/
+m/n/10 \ \OML/cmm/m/it/10 A[] \OT1/cmr/m/n/10 = [] = \OML/cmm/m/it/10 B \OMS/cm
+sy/m/n/10 \ \OML/cmm/m/it/10 A[]$ \OT1/cmr/m/n/10 Poniewaz $\OML/cmm/m/it/10 B 
+\OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 T[]A[] \OMS/cmsy/m/n/10 2
  []
 
-
-Underfull \hbox (badness 3118) in paragraph at lines 577--578
-[]\OT1/cmr/m/n/10 Zbior rozwiazan niejed-norod-nego uk-ladu $\OML/cmm/m/it/10 m
-$ \OT1/cmr/m/n/10 row-nan lin-iowych z
- []
-
-
-Underfull \hbox (badness 1466) in paragraph at lines 593--594
-[]\OT1/cmr/m/n/10 Nasze rozwaza-nia mozemy po-dus-mowac nastepu-ja-cym al-go-ry
-t-mem
+[3]
+Overfull \hbox (2.57455pt too wide) in paragraph at lines 147--148
+[]\OT1/cmr/m/n/10 Niech $\U/msb/m/n/10 R$ \OT1/cmr/m/n/10 bedzie zbiorem liczb 
+rzeczy-wistych. Udowod-nij ze kazdy z nastepu-
  []
 
 
-Underfull \hbox (badness 2564) in paragraph at lines 597--598
-[]\OT1/cmr/m/n/10 2) Wyz-nacz jedno rozwiazanie(szczegolne) $\OML/cmm/m/it/10 v
-$ \OT1/cmr/m/n/10 uk-ladu niejed-norod-
+Overfull \hbox (43.9729pt too wide) in paragraph at lines 160--161
+\OT1/cmr/m/n/10 sume teo-ri-omno-gosciowa skon-c-zona lub nie i (c') zamkni-eto
+sc na przekroj(skonczony) 
  []
 
 
-Underfull \hbox (badness 1603) in paragraph at lines 599--600
-[]\OT1/cmr/m/n/10 3) Zbiorem rozwiazan we-js-ciowego uk-ladu niejed-norod-nego 
-bedzie
+Overfull \hbox (5.79686pt too wide) in paragraph at lines 165--167
+\OT1/cmr/m/n/10 sowym, bedzie dowolna suma(skonczona badz nie) zbiorow. Rozwazm
+y
  []
 
-[14]
-Overfull \hbox (13.19495pt too wide) in paragraph at lines 632--633
-[]\OT1/cmr/m/n/10 Dotychaczasowy rezul-tat(wzory Cram-era) daje czesciowa odpow
-iedz w odniesie-
+[4]
+Overfull \hbox (1.0857pt too wide) in paragraph at lines 184--184
+[]\OT1/cmr/m/n/10 Wtedy, mam sprzecznosc, bo za-lozylismy, ze $\U/msb/m/n/10 R 
+[] \OML/cmm/m/it/10 T[]$\OT1/cmr/m/n/10 , z drugiej
  []
 
-[15]
-Overfull \hbox (2.24036pt too wide) in paragraph at lines 640--641
-\OT1/cmr/m/n/10 rozwiazaniem. W ogol-nym przy-padku odpowiedz na py-tanie 1 daj
-e nam nastepu-
- []
-
-[16]
-Overfull \hbox (12.21243pt too wide) in paragraph at lines 680--680
-\OT1/cmr/m/n/10 zm-niejszenia liczby niewiadomych o je-den. W zwiazku z tym za-
-zwyczaj rozwiazanie
- []
-
-[17]
-Overfull \hbox (22.45886pt too wide) in paragraph at lines 727--728
-[]\OT1/cmr/m/n/10 Metoda elim-i-nacji Gaussa nie wymaga wczes-niejszego sprawdz
-enia niesprzecznosci
- []
-
-[18]
-Overfull \hbox (11.86174pt too wide) in paragraph at lines 754--755
-\OT1/cmr/m/n/10 lin-iowo nieza-lezne rozwiaza-nia powyzszego ukladu- wspol-czyn
--niki dwoch szukanych
- []
-
-[19] [20] [21]
-Underfull \hbox (badness 1210) in paragraph at lines 862--864
-\OT1/cmr/m/n/10 gdzie $\OML/cmm/m/it/10 ^^U[]; [] ; ^^U[] \OMS/cmsy/m/n/10 2 \U
-/msb/m/n/10 R$ \OT1/cmr/m/n/10 to wartosci wlasne przek-sz-talcenia $\OML/cmm/m
-/it/10 F$
- []
-
-[22] [23] (./notatki.aux) ) 
+[5] [6] (./notes.aux) ) 
 Here is how much of TeX's memory you used:
- 12630 strings out of 480247
- 253770 string characters out of 5896150
- 526147 words of memory out of 5000000
- 30387 multiletter control sequences out of 15000+600000
- 471885 words of font info for 39 fonts, out of 8000000 for 9000
+ 13235 strings out of 480247
+ 264291 string characters out of 5896150
+ 533500 words of memory out of 5000000
+ 30954 multiletter control sequences out of 15000+600000
+ 479155 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,11n,104p,494b,473s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msbm10.pfb>
-Output written on notatki.pdf (23 pages, 195454 bytes).
+ 99i,8n,104p,467b,513s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/luke/.texlive2021/texmf-var/fonts/pk/ljfour/jkna
+ppen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb>
+Output written on notes.pdf (6 pages, 150424 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+ 91 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
