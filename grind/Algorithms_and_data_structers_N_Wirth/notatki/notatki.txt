@@ -1,0 +1,722 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+18.01.2023, Notatka numer 1
+1.2 POJECIE TYPU DANYCH
+
+Ponizej podano podstawowe cechy charakterystyczne pojecia typu danych uzywanych w tych notatkach.
+
+1. Typ danych okresla zbior wartosci, do ktorego nalezy stala badz ktore moze przyjmowac zmienna lub wyrazenie albo ktore moga byc generowane przez operator lub funkcje.
+2. Typ wartosci oznaczonej przez stala, zmienna lub wyrazenie mozna okreslic na podstawie ich postaci badz deklaracji, bez konieczosci wykonywania procesu obliczeniowego.
+3. Kazdy operator lub funkcja ma argumenty usatlonego typu jak rowniez daje wynik ustalonego typu, Jesli operator dopuszcza argumenty wielu typow(np. znak '+' oznacza dodawanie zarowno liczb calkowitych jak i rzeczywistych), to typ wyniku okreslony jest pewnymi specyficznymi dla jezyka regułami.
+
+Liczbe roznych wartosci nalezacych do typu T nazywamy moca T. Moc typu pozwala okreslic wielkosc pamieci potrzebnej do reprezentowania zmiennej x typu T (oznaczanej x : T). 
+
+Podstawowymi strukturami typow zlozonych, przedstawionymi w tych notatkach sa: tablica, rekord, zbior i ciag(plik). Bardziej skomplikowane struktury nie sa zwykle definiowane jako typy "statyczne", lecz sa "dynamiczne" generowane podczas wykonywania programu i moga w tym procesie zmieniac ksztalt i rozmiary.
+
+Test na rownosc oraz przypisanie to sa operatory proste. Oprocz nich wprowadza sie klase fundamentalnych operacji zwanych 'operatorami konwersji typow'. Sa one odwzorowaniami typow danych na inne typy. 
+Wartosci zlozone generuje sie z ich wartosci skladowych za pomoca 'konstruktorow', natomiast wartosci skladowe wybiera sie za pomoca 'selektorow'. Stanowia one zatem operacje konwersji typow bedace funkcjami z typow skladowych w zlozone i vice versa. Kazda metoda strukturyzacji wiaze sie z konkretna para zlozona z konstruktora i selektora, o wyraznie odrebnych oznaczeniach.
+
+1.3 PROSTE TYPY DANYCH
+
+Czasami stosuje sie liczby calkowite, gdy wlasnosci numeryczne nie sa potrzebne, a liczba calkowita reprezentuje tylko wybor sposrod pewnej malej liczby mozliwosci. W tych przypadkach mozemy wprowadzic sobie nowy, prosty typ tanych T wyliczajac(enumrate/enum w C) zbior wszystkich mozliwych wartosci c1, c2, ... , cn.
+Mianowicie: type T = (c1, c2, ... , cn)
+Moca typu T jest wartosc moc(T) = n
+Przyklady:
+
+type plec = (mezczyzna, kobieta)
+type dzientygodnia = (poniedzialek, wtorek, sroda, czwartek, piatek, sobota, niedziela)
+type Boolean = (false, true)
+
+Wprowadzamy nie tylko nowy identyfikator typu, ale jednoczesnie zbior identyfikatorow oznaczajacych poszczegolne wartosci definiowanego typu. Mozna ich uzywac w programie jako stalych i ich wystapenia czynia program bardziej czytelnym. Na przyklad wprowadzimy nowe zmienne p, r, q, s.
+
+var p: plec
+var d: dzientygodnia
+var b: Boolean
+
+Mozliwe sa wtedy nastepujace instrukcje przypisania:
+
+p := mezczyzna
+d := niedziela
+b := true
+
+Instrukcje te sa bardziej obrazowe niz ich numeryczne odpowiedniki
+
+p := 1 
+d := 7 
+b := 2
+
+1.4 STANDARDOWE TYPY PROSTE
+
+Sa to takie typy, ktore w wiekszosci komputerow wystepuja jako "mozliwosci wbudowane". Naleza do nich:
+zbior liczb calkowitych, zbior wartosci logicznych, zbior znakow drukarki. Na wiekszosci komputerach mozna korzysat z ulamkow. Czyli podsumowujac, mamy:
+
+- integer,
+- Boolean,
+- char,
+- real
+
+Dla celow pisania programow w postaci niezaleznej od komputera, bedziemy uzywac dwoch funkcji w konwersji pomiedzy typamie char i integer. Mianowicie:
+- ord(c) --> oznacza liczbe porzadkowa znaku c,
+- chr(i) --> oznacza i-ty znak ze zbioru char.
+
+Zauwazmy, ze:
+- f(c) = ord(c) - ord('0') --> f zwraca pozycje c wsrod cyfr
+- g(i) = chr(i) + chr('0') --> f zwraca i-ta cyfre
+
+1.5 TYPY OKROJONE
+
+Czesto zdarza sie ze zmienna przyjmuje wartosci jedynie z pewnego przedzialu wartosci okreslonego typu.
+Wyraza sie to definiujac typ tej zmiennej jako pewien typ okrojony, zgodny z formatem:
+    type T = min..max
+
+Przyklady:
+type rok = 1900..1999
+type litera = 'A'..'Z'
+
+Dla danych zmiennych:
+var y: rok
+var L: litera
+
+1.6 TABLICE
+
+Definicja typu tablicowego T zawiera wiec zarowno specyfikacje typu podstawowego T0, jak i typu indeksujacego I.    type T = array[I] of T0
+
+Przyklady:
+type Wiersz = array[1..5] of real
+type Karta = array[1..80] of char
+type alfa = array[1..10] of char
+
+Konkretna wartosc zmiennej:
+    var x: Wiersz
+
+Zlozona wartosc x typu T o wartosciach skladowych c1, c2, ... , cn, mozna oznaczy za pomoca konstruktora tablicowego i intrukcji przypisania:
+    x := T(c1, c2, ... , cn)
+Operatorem odwrotnym do konstruktora jest selektor : x[i] - wybiera skladowa tablicy o indeksie i
+
+Dla danych dwoch tablic x i y, relacja x < y zachodi iff gdy istnieje indeks k,
+taki że x[k] < y[k] oraz x[i] == y[i] dla wszystkich i < k
+
+Na przyklad:
+    (2, 3, 5, 7, 9) < (2, 3, 5, 7, 11)
+        'LABEL'     <      'LIBEL'
+Moc typu zlozonego otrzymuje sie jako iloczyn mocy jego skladowych.
+Poniewaz wszystkie skladowe typu tablicowego A sa tego samego typu podstawowego B,
+wiec otrzymujemy    moc(A) = (moc(B))^n
+gdzie n = moc(I), I zas jest typem indeksujacym tablicy.
+
+Ponizszy program ilustruje uzycie selektora tablicowego. Program ma znalezc najmniejszy indeks i skladowej
+o wartosci x.
+
+var a: array[1..N] of T; {N>0}
+i := 0;
+repeat i := i+1 until (a[i] == x) v (i == N);
+if a[i] != x then "nie ma takiego elementu w a"
+
+Inny wariant to, tzw metoda z wartownikiem:
+
+var a: array[1..N+1] of T;
+i := 0;
+a[N+1] := x;
+repeat i := i+1 until a[i] == x;
+if i>N then "Nie ma takiego elementu w a"
+
+Przypisanie a[N+1] := x jest przykladem aktualizacji selektywnej, tzn. zmiany wybranej skladowej zmiennej zlozonej. Niezaleznie od tego, jak czesto powtorzylo sie wykonanie instrukcji i := i+1, spełniony jest warunek
+a[j] != x, dla j = 1...i-1
+Warunek ten jest spelniony w obu wersjach programu; nazywany jest niezmiennikiem petli.
+
+Jak elementy tablicy sa posortowane, to mozemy znacznie przyspieszyc nasz program uzywajac przeszukiwania binarnego, ponizej program. Gorna granica jest ceil(log_2{N}).
+
+i := 1; j := N
+repeat k := (i+j)div2;
+    if x>a[k[ then i := k+1 else j :=j-1
+until (a[k] == x) v (i>j)
+
+W przypadku bisekcji odpowiednim warunkiem niezmienniczym na wejsciu do instrukcji iteracyjnej repeat jest:
+Jesli x znajduje sie w x, to
+    a[h] < x    dla h = 1...i-1
+    a[h] > x    dla h = j+1...N
+
+Skladowe typow tablicowych moga byc rowniez zlozone. Tablice, ktorej skladowe sa rowniez tablicami, nazywa sie macierz.
+Na przyklad:
+M: array[1..10] of Wiersz
+Selektorem jest M[i][j] lub w skrocie mozna napisac M[i, j]
+
+Podobnie deklaracja
+    M: array[1..10] of array[1..5] of real
+moze byc zapisana w sposob bardziej zwiezly:
+    M: array [1..10, 1..5] of real
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+19.01.2023, Notatka numer 2
+
+Zalozmy, ze ulamek f jest reprezentowany tablica d, w ten sposob, ze 
+    f = suma od i = 1 do k-1 z: di * 10*{-i}
+Czyli po prostu w tablicy d sa wagi i mnozymy je przez kolejne ujemne potegi 10,
+w skrocie jest reprezentowany przez swoje k-1 cyfrowe rozwiniece dziesietne.
+Nastepnie f chcemy podzielic przez 2. Dokonuje sie tego powtarzajac operacje dzielenia dla wszstkich k-1 cyfr,
+poczawszy od i=1. Operacja ta polega na podzieleniu cyfry przez 2 z uwzglednieniem ewentualnego przeniesienia z 
+poprzedniej pozycji i zachowaniem ewentualnej reszty r do nastepnego kroku:
+
+    r := 10*r + d[i] // przy pierwszej iteracji r=0, czyli po przypisaniu mamy r=d[i]
+    d[i] := r div 2 // dzielimy r przez dwa calkowicie
+    r := r - 2*d[i] // do r przypisujemy r - 2*(rdiv2)
+Wyglada zawile, ale jest to po prostu zapisane dzielenie "pod kreska". Dzielimy w tym przypadku przez 10
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Program 1.1 Obliczanie poteg liczby 2
+
+program potega(output):
+{reprezentacja dziesietna ujemnych poteg liczby 2}
+const n = 10;
+type cyfra = 0..9;
+var i, k, r: integer;
+    d: array [1..n] of cyfra;
+begin for k := 1 to n do:
+    begin write('.'); r := 0;
+        for i := 1 to k-1 do
+            begin r := 10*r + d[i]; d[i] := r div 2;
+                  r := r - 2*d[i]; write(chr(d[i] + ord('0')))
+            end;
+        d[k] := 5; writeln('5')
+    end
+end.
+
+oraz wersja w pythonie
+
+!!!
+TODO TODO
+!!!
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1.7. Rekordy
+
+Najbardziej ogolna metoda tworzenia typow zlozonych jest laczenie w typ zlozony elementow o dowolnych, byc moze
+zlozonych typach. Przykladami z matematyki sa liczby zespolone zlozone z dwoch liczb rzeczywistych. W matematyce taki typ zlozony nazywa sie iloczynem kartezjanskim typow skladowych. Wyplywa to z faktu, ze zbior wartosci definujacy ten typ sklada sie ze wszystkich mozliwych kombinacji wartosci wzietych odpowiednio ze wszystkich typow skladowych. Moc to iloczyn mocy typow skladowych.
+
+Ogolnie, typ rekordowy T jest zdefiniowany w sposob nastepujacy:
+    
+    type T = record s1 : T1;    
+                    s2 : T2;
+                      ...
+                    sn : Tn
+             end
+
+moc(T) = moc(T1) * ... * moc(Tn)
+
+Przyklady:
+    type Zespolona = record re: real;
+                            im: real
+                     end
+
+    type Data = record   dzien: 1..31;
+                       miesiac: 1..12;
+                           rok: 1..2000
+                end
+    type Osoba = record nazwisko: alfa; 
+                        imie: alfa;
+                        dataurodzenia: Data;
+                        plec: (mezczyzna, kobieta);
+                        stancywilny: (wolny, zonaty, owdowialy, rozwiedizony)
+                end
+Za pomoca konstruktora rekordowego mozna utworzyc wartosc typu T, a nastepnie przypisac ja jakiejs zmiennej
+tego typu:
+    x := T(x1, x2, ... , xn)
+gdzie xi sa odpowienio wartosciami z typow skladowych Ti.
+Dla danych zmiennych rekordowych
+    
+    z: Zespolona
+    d: Data
+    p: Osoba
+
+konkretne wartosci moga byc przypisane np. tak jak ponizej:
+
+    z := Zespolona(1.0, -1.0)
+    d := Data(1,4,1973)
+    p := Osoba('WIRTH', 'CHRIS', Data(18,1,1966), mezczyzna, wolny)
+
+Identyfikatory s1, ... , sn wprowadzone w definicji typu rekordowego stanowia nazwy przydzielone poszczegolnym
+skladowym zmiennych tego typu; stosuje sie je w selektorach rekordowych odnoszacych sie do zmiennych rekordowych.
+Dla danej zmiennej x: T, jej i-ta skladowa jest oznaczana przez x.si
+Czyli kropoka to taki operator wyluskania.
+Aktualizacje selektywna x prowadzi sie przy uzyciu tego samego oznacznika selektora po lewej stronie instrukcji przypisania:
+    x.si := xi
+gdzie xi jest wartoscia(wyrazeniem) typu Ti
+
+Dla danych zmiennych rekordowych
+    z: Zespolona
+    d: Data
+    p: Osoba
+
+selektory niektorych skladowych sa nastepujace:
+
+    z.im                  (typu real)
+    d.miesiac             (typu 1..12)
+    p.nazwisko            (typu alfa)
+    p.dataurodzenia       (typu Data)
+    p.dataurodzenia.dzien (typu 1..31)
+Ostani przyklad pokazuje nam ze selektory mozna skladac.
+
+Napiszemy teraz krotkie programy aby zobaczyc pewien niuans.
+Ich zadaniem jest zliczenie "Osob" reprezentowanych w tablicy a jako kobiety wolne:
+
+    var a: array [1..N] of Osoba:
+        licznik: integer;
+    licznik := 0;
+    for i:=1 to N do
+        if (a[i].plec == kobieta) && (a[i].stancywilny == wolny)
+        then licznik := 1
+
+Niezmiennikiem petli jest tu C(i) = licznik
+gdzie C(i) jest to liczba elementow a1, ... ,ai bedacych kobietami w stanie wolnym
+
+W innym wariancie powyzszego fragmentu programu korzysta sie z konstrukcji 
+zwanej instrukcja wiazaca with:
+
+    for i:=1 to N do
+        with a[i] do
+    if (plec == kobieta) && (stancywilny == wolny) then
+        licznik := licznik + 1
+
+I to jest wlasnie ten niuans, czyli kosntrukcja with.
+Konstrukcja with r do s oznacza, ze mozna uzywac nazw selektorow typu zmiennej r bez poprzedzania ich nazwa zmiennej, poniewaz wiadomo, ze beda sie do nie odnosily.
+
+1.8 Rekordy z wariantami
+
+Często wygodnie i naturalnie okazuje sie traktowanie dwoch typow jako wariantow tego samego typu.
+Na przyklad typ Wspolrzednie mozna traktowac jako sume dwoch wariantow, mianowicie wspolrzednych kartezjanskich
+i biegunowych, ktorych skladowymi sa odpowiednio (a) dwie wielkosci liniowe i (b) wielkosc liniowa i katowa. 
+W celu rozpoznania wariantu, ktory aktualnie jest wartoscia zmiennej, wprowadza sie trzecia skladowa zwana
+wyroznikiem typu albo polem znacznikowym.
+
+    type Wspolrzedne=
+         record case rodzaj: (kartezjanskie, biegunowe) of
+                     kartezjanskie: (x, y; real);
+                     biegunowe: (r: real, phi: real)
+        end
+
+W tym przypadku nazwa pola znacznikowego jest rodzaj, a nazwy wspolrzednych stanowia albo x i y - wartosci
+wspolrzednych kartezjanskich albo r i phi- wartosci wspolrzednych biegunowych.
+Zbior wartosci typu Wspolrzedne jest suma dwoch typow
+
+    T1 == (x, y: real)
+    T2 == (r: real; phi: real)
+
+a jego moc jest suma mocy T1 i T2.
+
+Czesto jednak nie mamy do czynienia z dwoma calkowicie roznymi typami, lecz raczej z typami o czesciowo identycznych skladowych. Stad nazwa- rekord z wariantami. Przykladem jest typ Osoba, w ktorym informacje zapisywanie w pliku zaleza od plci osoby,
+Definicja takiego typu wygladala by nastepujaco:
+
+    type Osoba =
+         record naziwsko, imie: alfa;
+                dataurodzenia: Data;
+                stancywilny: (wolny, zonat, owdowialy, rozwiedziony);
+            case plec: (mezczyzna, kobieta) of
+            mezczyzna: (waga: real;
+                        brodaty: Boolean);
+            kobieta: (wymiary: array [1..3] of integer)
+        end
+
+Oto jak wyglada ogolna postac definicji rekordu z wariantami:
+    
+    type T=
+        record s1 : T1; ... ; sn-1 : Tn-1;
+            case sn: Tn of
+            c1:(s11:T11; ... ; s1n1: T1n1);
+            .............................
+            cm:(sm1:Tm1; ... ; smnm:Tnmn)
+        end
+
+Identyfikatory si i sij sa nazwami skladowych dla typow Ti i Tij, natomiast sn jest nazwa wyrozniajcego pola
+znacznikowego o typie Tn, Stale c1, ... , cm oznaczaja wartosci typu (skalarnego) Tn. 
+Zmienna x typu T zawiera skladowe: x.s1, x.s2, ... , x.sn-1, x.sk1, ... , x.sknk
+wtedy i tylko wtedy, jesli (aktualna) wartosc x.sn jest rowna ck. Skladowe x.s1,..., x.sn-1 tworza czesc wspolna wariantow.
+
+Trzeba uwazac przy odwolywaniu sie do zmiennych rekordu, aby czasem nie odwolac sie do nie tego co trzeba(cos jak z wskaznikami
+
+Przytoczony ponizej fragment programu ma za zadanie oblicznie odleglosci miedzy punktami A i B zadanymi w postaci zmiennych a i b typu Wspolrzedne, bedacego rekordem z wariantami, Procedura obliczen jest odpowiednio odmienna dla kazdej z cezterech mozliwcych kombinacji okreslania zmiennych za pomoca wspolrzednych karezjanskich lub biegunowych.
+
+    case a.rodzaj of
+        karezjanskie: case b.rodzaj of
+                      karezjanskie: d:=sqrt(...);// tutja obliczanie wspolrzednych
+                      biegunowe: d:=sqrt(...);   // za duzo pisania
+                      end;
+        biegunowe:    case b.rodzaj of
+                      kartezjanskie: d:= sqrt(...);
+                      biegunowe:     d:= sqrt(...);
+                      end
+    end
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+21.02.24 Notatka numer 3
+
+1.9 Zbiory
+
+Trzecia podstawowa struktura danych- oprocz tablicy i rekordu- jest struktura zbioru. 
+Definiujemy ja za pomoca tego typu deklaracji:
+    
+    type T = set of T0
+
+Wartosciami zmienej x typu T sa zbiory elementow typu T0. Zbior wszystkich mozliwych podzbiorow elementow T0 nazywa sie zbiorem potegowym T0. W zwiazku z tym typ T stanowi zbior potegowy swego typu podstawowego T0.
+Przyklady:
+    type zbiorcalk   = set of 0..30
+    type zbiorznakow = set of char
+    type stantasmy   = set of wyjatek
+
+Podstawe dla drugiego przykladu stanowi standardowy zbior znakow oznaczony typem char; podstawa dla trzeciego przykladu jest zbior warunkow wyjatkowych, ktory mozna zdefiniowac jako typ skalarny
+
+    type wyjatek = (niezaladowana, recznam, parzystosc, skos)
+opisujacy rozne stany wyjatkowe w jakich moze znajdowac sie stacja tasmy magnetycznej.
+
+moc(T) = 2^moc(T0)
+
+Na wszystkich typach zbiorowych sa okreslone nastepujace operatory elementarne:
+    
+    * - przekroj zbiorow
+    + - suma zbiorow
+    - - roznica zbiorow
+    in - nalezenie do zbioru
+
+in laczy najslabiej, - i + tak samo, lacza w lewo, * laczy najmocniej
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Analizator leksykalny
+Naszym pierwszym przykladem na zastosowanie struktury zbioru jest program prostego analizatora leksykalnego dla pewnego translatora. Bedziemy zakladali, ze zadaniem analizatora leksykalnego jest przetlumaczenie ciagu znakow
+na ciag jednostek tekstowych tlumaczonego jezyka, tj. atomow leksykalnych, zwanych tu symbolami. Analizator leksykalny powinien byc procedura, ktora przy kazdym wywolaniu wczytuje pewna liczbe znakow wejsciowych, potrzebnych do wygenerowania nastepnego symbolu wyjsciowego. Ponizej podajemy szczegolowo zasady tlumaczenia.
+
+(1) Zbior symbolu wyjsciowych zawiera takie elementy, jak identyfikator, liczba, mniejszyrowny, wiekszyrowny, stajesie i inne, odpowiadajace roznym pojedynczym znakom takim, jak +, -, * itd.
+(2) Symbol identyfikator generuje sie po przeczytaniu ciagu liter i cyfr, zaczynajacego sie od litery.
+(3) Symbol liczba generuje sie po przeczytaniu ciagu cyfr.
+(4) Symbole mniejszyrownym, wiekszyrowny i stajesie, generuje sie odpowiednio po przeczytaniu nastepujacych par znakow: <=, >=, :=.
+(5) Odstepy i symbole konca wiersza sa opuszczane.
+
+Mamy do dyspozycji prosta procedure czytaj(x), ktora pobiera kolejny znak z ciagu wejsciowego i przypisuje go zmiennej x. Wynikowy symbol wyjsciowy jest przypisany zmiennej globalnej o nazwie sym. Ponadto, korzysta sie ze zeminnych globalnych id i licz, ktorych przeznaczenie wyniknie z analizy programy 1.2 oraz ze zmiennej zn, reprezentujacej aktualnie analizowany znak ciagu wejsciowego. S oznacza odwzorowanie ze zbioru znakow w zbior symboli, tzn. jednowymiarowa tablice symboli, dla ktorej dziedzina indeksu sa wszystkie znaki rozne od liter i cyfr. 
+Uzycie zbiorow znakow ilustruje, w jaki sposob mozna zaprogramowac analizator leksykalny niezaleznie od uporzadkowania znakow w zadanym zbiorze znakow
+
+Program 1.2. Analizator leksykalny
+
+    var zn: char;
+        sym: symbol;
+        licz: integer;
+        id: record
+                k: 0..maxk;
+                a: array [1..maxk] of char
+            end;
+    procedure analeks;
+        var zn1: char;
+    begin {pomin spacje}
+        while zn == ' ' do read(zn);
+        if zn in ['A'..'Z'] then
+            with id do
+            begin sym ;= indentyfikator; k := 0;
+               repeat if k < maxk then
+                      begin k := k + 1; a[k] := zn
+                      end;
+              
+                   read(zn)
+               until ~(zn in ['A'..'Z', '0'..'9'])
+            end else
+        if zn in ['0'..'9'] then
+            begin sym := liczba; licz := 0;
+                repeat licz := 10*licz + ord(zn) - ord('0');
+                       read(zn)
+                until ~(zn in ['0'..'9']
+            end else
+        if zn in ['<', ':', '>'] then
+            begin zn1 := zn; read(zn);
+               if zn = '=' then
+               begin
+                  if zn1 = '<' then sym := mr else
+                  if zn1 = '>' then sym := wr else sym := stajesie;
+                  read(zn)
+               end
+               else sym := S[znl1]
+            end else
+        begin {inne symbole}
+           sym := S[zn]; read(zn)
+        end
+    end {analeks}
+
+SKONCZYLISMY NA STRONIE 38, ZOSTALO NIE CALE 30 STRON DO KONCA ROZDZIALU, ALE MOZNA PRZESKOCZYC DALEJ
+DO SORTOWAN
+TUTAJ MIEJSCE NA PLIKI SEKWENCYJNE
+ZACZYNAMY SORTOWANIA OD STRONY 70
+
+2.2 Sortowanie tablic
+
+Dane sa obiekty a1, a2, ... , an
+Sortowanie polega na permutowaniu tvch obiektow, az do chwili osiagniecia uporzadkowania a1, a2, ... , an
+takiego, ze f(a_k1) <= f(a_k2) <= ... <= f(a_kn)
+
+Na ogol nie oblicza sie wartosci funkcji porzadkujacej wedlug okreslonego pola, ale przechowuje sie je w jawnej postaci jako sklasowe (pola) kazdego obiekt. Wartosci tej funkcji nazywa sie kluczem obiektu.
+Dlatego bedziemy uzywac typu obiekt:
+
+    type obiekt = record: klucz; integer;
+                      {deklaracje innych zmiennych}
+                  end
+
+Metode sortowania nazywamy stabilna jesli podczas sortowania pozostaje niezmieniony wzzgledny porzadek obiektow o identycznych kluczach.
+
+Metody sortowania przeznaczone do sortowania obiektow in situ mozna podzielic na trzy zasadnicze grupy:
+
+1) Sortowanie przez wstawianie.
+2) Sortowanie przez wybieranie.
+3) Sortowanie przez zamiane.
+
+2.2.1 Sortowanie przez proste wstawianie.
+
+Ogolna idea tego sortowania:
+    
+    for i := n do
+        begin x := a[i];
+            "wstaw x w odpowiednim miejscu w a1...an"
+        end
+
+Komentarz:
+    Podczas znajdowania odpowieedniego miejsca wygodnie jest stosowac na przemian porownanie i przesunieca tzn "przesiewac" x przez porownanie x z nastepnym obiektem aj;
+nastepnie albo wstawic x, albo przesunac aj na prawo, po czym postapic analogicznie z kolejnym obiektem na lewo, Zauwazmy ze zakonczenie procesu przesiewania moze nastapic z dwoch powodow:
+1) Znaleziono obiekt aj z kluczem mniejszym niz klucz x.
+2) Osiagnieto lewy koniec ciagu wynikowego.
+
+Mozemy tu uzyc metody z wartownikiem, Latwo ja w tym przypadku zastosowac przez utworzenie obiektu wartownika a0 = x (w tym wypadku trzeba rozszerzyc tablice o jeden w lewo)
+
+Pelny algorytm ponizej:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Program 2.1 Sortowanie przez proste wstawianie
+
+    procedure prostewstawianie;
+        var i, j: indeks; x: obiekt;
+    begin
+        for i := 2 to n do      
+        begin x := a[i]; a[0] := x; j := i-1;
+            while x.klucz < a[j].klucz do
+                    begin a[j+1] := a[j]; j := j - 1
+                    end
+            a[j+1] := x
+        end
+    end
+
+TUTAJ RESZTA KOMENTARZA Z PODRECZNIKA JEST POMINIETA
+
+Program 2.2 Sortowanie przez wstawianie polowkowe(binarne)
+
+LATER 
+PRZESKAKUJEMY DO BACKTRACKINGU ROZDZIAL NR 3
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+28.01,24. Notatka numer iles tam
+
+Problem obejscia szachownicy n na n w taki sposob aby skoczek kazde pole odwiedzil i kazde tylko raz.
+
+Pierwsza wersja algorytmu:
+
+    procedure proboj nastepny ruch;
+    begin zapoczatkuj wybieranie ruchow;
+        repeat wybierz nastepnego kandydata z listy nastepnych ruchow;
+            if dopuszczalny then
+            begin zapisz ruch;
+                if na szachownicy sa wolne pola then
+                begin probuj nastepny ruch;
+                    if nieudany then
+                        wykresl ostatni zapis ruchu
+                end
+            end
+        until (ruch byl udanyl) or (nie ma nastepnego kandydata)
+    end
+
+Musimy teraz podjac pewne decyzje dotyczace reprezentowania danych. 
+Szachownice bedziemy reprezentowac za pomoca macierzy h. Do oznaczania wartosci indeksowych wprowadzimy sobie typ indeks.
+
+    type indeks=1..n
+    var h: array [indeks, indeks] of integer
+
+Reprezentowanie kazdego pola liczba calkowita zamiast wartosci logicznej (ktora by mowila czy pole jest zajete), pozwala nam zapisac historie kolejnych 
+posuniec na szachownicy. Wprowadzimy nastepujace ustalenie:
+
+    h[x,y]=0: pole <x,y> nie zostalo jeszcze odwiedzone
+    h[x,y]=i: pole <x.y> zostalo odwiedzone w i-tym ruchu
+
+Nastepnie musimy podjac decyzje wyboru parametrow. Powinny one:
+    -> okreslac warunki poczatkowe dla nastepnego ruchu
+    -> przekazywac inforamcje o tym czy ruch byl poprawny
+
+W celu realizacji pierwszego zadania wprowadzamy wspolrzedne x,y- okreslajace aktualna pozycje skoczka oraz zmienna i,
+bedaca numerem kolejnego ruchu(w celu jego zapisania).
+W zwiazku z drugim zadaniem, wprowadzimy parametr logiczny q przekazujacy wynik dzialania procedury:
+    q=true oznacza sukces;
+    q=false oznacza brak sukcesu.
+
+Ktore instrukcje moga byc sprecyzowane na podstawie tych decyzji?
+Warunek "na szachownicy sa wolne pola" mozemy wyrazic jako "i < n^2".
+Ponadto jesli wprowadzimy dwie zmienne lokalne u i v na oznaczenie wspolrzednych nastepnego pola (okreslonego zgodnie z zasadami poruszania sie skoczka),
+to predykat "dopuszczalny" moze byc wyrazony jako logiczne polaczenie warunkow:
+    1) to nowe pole lezy na szachownicy, tzn 1<=u<=n oraz 1<=v<=n;
+    2) to pole jeszcze nie zostaloodwiedzone, tzn h[u,v] = 0
+Operacje zapisania ruchu poprawnego mozemy zapisac jako h[u,v]:=i, usuniecie zas tego zapisu jako h[u,v]:=0
+Jezeli wprowadzimy zmienna lokalna q1 i uzyjemy jej jako parametru wynikowego w rekurencyjnym wywolaniu procedury realizujacej ten algorytm,
+to warunek "ruch byl udany" mozemy zastapic zmienna q1. Uzyskujemy w ten sposob nastepujace sformulowanie algorytmu:
+
+    procedure proboj(i: integer; x,y: indeks; var q: boolean); 
+    var u,v: integer, q1: boolean;
+    begin zapoczatkuj wybieranie ruchow;
+        repeat niech u,v beda wspolrzednymi nastepnego ruchu okreslonego regulami szachowami;
+            if (1<=u<=n) and (1<=v<=n) and (h[u,v]=0) then
+            begin h[u,v]:=i;
+                if i < n*n then
+                    begin proboj(i+1, u, v, q1); //q1 jest pass by reference, czyli funkcja proboj zmienia wartosc zmiennej q1
+                        if not q1 then h[u,v]:=0
+                    end else q1:=true
+            end
+        until q1 or (nie ma nastepnego kandydata);
+        q:=q1
+    end
+
+Notatka z dnia 12.02.2024
+Zagadenie obejscia n^2 pol szchownicy w sposob oczywisty redukuje sie do zadania wykonania nastepnego ruchu lub ewentualnego wykazania, ze taki ruch nie jest mozliwy. Zajmijmy sie wiec algorytmem probojacym wykonac nastepny ruch.
+
+
+    procedure probuj nastepny ruch;
+    begin rozpocznij wykonanie ruchow;
+        repeat wybierz nastepnego kandydata z listy dostepnych ruchow;
+            if dopuszczalny then
+                zapisz ruch
+                if na szachownicy sa wolne pola then
+                    proboj nastepny ruch
+                        if nieudany then
+                            wykresl ruch
+        until ruch byl udany or nie ma nastepnego kandydata
+
+Sprobujemy teraz zrobic to dla hetmanow
+
+    procedure probuj nastepny ruch;
+    begin rozpocznij wstawianie hetmana na szachownice;
+        repeat wybierz nastepnego kandydata z listy dostepnych pozycji
+            if dopuszczalna then
+                zapisz ruch
+                if na szachownicy jest miejsce then
+                    probuj nastepny ruch
+                        if nieudany then
+                            wykresl ruch
+        until rich byl udany or nie ma nastepnego kandydata
+
+Sprobujmy to zrobic dla 8 hetmanow
+
+    procedure probuj(i: integer);
+    begin rozpocznij wstawianie i-tego hetmana na szachownice     k := 0
+        repat wybierz kandydata z listy dostepnych pozycji        k := k+1
+            if pozycja i-tego hetmana bezpieczna then             
+                zapisz ruch                                       tab[k][i] := 1 
+                if na szachownicy wolne pole then                 i < 8
+                    probuj(i+1) 
+                    if nie udany then
+                        wykresl ruch                              tab[k][i] := 0
+        until proba udana or brak kandydatow na pozycje           proba udana or k == 8
+
+
+    procedure probuj(i: integer);        //proba wstawienia hetmana w i-ta kolumne
+    begin k:=-1;                       
+        repeat k:= k+1 q := false
+            if isfree(tab, i, k)         
+                tab[k][i] := 1
+                if i < 8    
+                    proboj(i+1)
+                    if not q 
+                        tab[k][i] := 0
+                else q := true
+        until q or k == 8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
