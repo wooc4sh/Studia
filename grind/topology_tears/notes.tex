@@ -6,6 +6,7 @@
 \usepackage{tcolorbox} %wazne ramki kolorowe
 \usepackage{amsmath} %wazne matematyka
 \usepackage{upgreek} %nie pamietam, chyba duze litery greckie
+\usepackage{alphalph} %zeby numerowanie moglo byc dluzesze niz 50
 \usepackage{enumitem} %nie pamietam, chyba to wymieniania
 \usepackage{amssymb} %wazne matematyka
 \usepackage[margin=0.25in]{geometry} %wazne marginesy
@@ -590,111 +591,118 @@ Mozna tu dostrzec pewna analogie pomiedzy przestrzenia topologiczna i zbiorami o
 TODO
 
 \hrulefill
+
+
 \textbf{Cwiczenie 1.2:}
 \begin{enumerate}%poczatek zadan
 
 \item Wypisz wszystkie 64 podzbiory zbioru $X = \left\{a,b,c,d,e,f \right\}$. Obok kazdego zbioru wypisz czy jest 
     \begin{itemize}
-        \item clopen
-        \item ani clopen ani open
-        \item open ale nie closed
-        \item closed ale nie open
+        \item clopen (czyli otwarty i domkniety)
+        \item ani domkniety ani otwarty
+        \item otwarty ale nie domkniety
+        \item domkniety ale nie otwarty
     \end{itemize}
+dla topologii $T$ zadanej na $X$, takiej, ze: $$T = \left\{ X, \emptyset, \left\{ a \right\}, \left\{ c,d \right\}, \left\{ a,c,d \right\}, \left\{ b,c,d,e,f \right\} \right\}$$
 
 \textbf{Odpowiedz:}
-\begin{enumerate} %poczatek wymieniania zbiorow
+\begin{enumerate}[label=\arabic*.] %poczatek wymieniania zbiorow
     
-\item $\emptyset$:
-\item $\left\{ a \right\}$:
-\item $\left\{ b \right\}$:
-\item $\left\{ c \right\}$:
-\item $\left\{ d \right\}$:
-\item $\left\{ e \right\}$:
-\item $\left\{ f \right\}$:
+\item $\emptyset$: jest clopen, bo jest otwarty czyli nalezy do $T$ oraz domkniety bo jego dopelnienie, czyli $X$ nalezy do $T$.
+\item $\left\{ a \right\}$: jest clopen, bo jest otwarty czyli nalezy do $T$ oraz domkniety bo jesgo dopelnienie $\left\{ b,c,d,e,f \right\}$ nalezy do $T$.
+\item $\left\{ b \right\}$: nie jest otwarty bo nie nalezy do $T$ oraz nie jest domkniety, bo jego domkniecie tez nie nalezy do $T$
+\item $\left\{ c \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ d \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,b \right\}$:
-\item $\left\{ a,c \right\}$:
-\item $\left\{ a,d \right\}$:
-\item $\left\{ a,e \right\}$:
-\item $\left\{ a,f \right\}$:
+\item $\left\{ a,b \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,c \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,d \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ b,c \right\}$:
-\item $\left\{ b,d \right\}$:
-\item $\left\{ b,e \right\}$:
-\item $\left\{ b,f \right\}$:
+\item $\left\{ b,c \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,d \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ c,d \right\}$:
-\item $\left\{ c,e \right\}$:
-\item $\left\{ c,f \right\}$:
+\item $\left\{ c,d \right\}$: jest otwarty bo nalezy do $T$, ale nie jest domkniety bo jego dopasowanie $\left\{ a,b,e,f \right\}$ nie nalezy do $T$
+\item $\left\{ c,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ c,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ d,e \right\}$:
-\item $\left\{ d,f \right\}$:
+\item $\left\{ d,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ e,f \right\}$:
+\item $\left\{ e,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,b,c \right\}$:
-\item $\left\{ a,b,d \right\}$:
-\item $\left\{ a,b,e \right\}$:
-\item $\left\{ a,b,f \right\}$:
+\item $\left\{ a,b,c \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,b,d \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,b,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,b,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,c,e \right\}$:
-\item $\left\{ a,c,d \right\}$:
-\item $\left\{ a,c,f \right\}$:
+\item $\left\{ a,c,d \right\}$: jest otwarty bo nalezy do $T$, ale nie jest domkniety bo jego dopelnienie $\left\{ b,e,f \right\}$ nie nalezy do $T$
+\item $\left\{ a,c,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,c,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,d,e \right\}$:
-\item $\left\{ a,d,f \right\}$:
+\item $\left\{ a,d,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,e,f \right\}$:
+\item $\left\{ a,e,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ b,c,d \right\}$:
-\item $\left\{ b,c,e \right\}$:
-\item $\left\{ b,c,f \right\}$:
+\item $\left\{ b,c,d \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,c,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,c,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ b,d,e \right\}$:
-\item $\left\{ b,d,f \right\}$:
+\item $\left\{ b,d,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ b,e,f \right\}$:
+\item $\left\{ b,e,f \right\}$: nie jest otwary, bo nie nalezy do $T$, ale jest domkniety bo jego dopelnienie, czyli $\left\{ a,c,d \right\}$ nalezy do $T$.
 
-\item $\left\{ c,d,e \right\}$:
-\item $\left\{ c,d,f \right\}$:
+\item $\left\{ c,d,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ c,d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ c,e,f \right\}$:
+\item $\left\{ c,e,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ d,e,f \right\}$:
+\item $\left\{ d,e,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,b,c,d \right\}$:
-\item $\left\{ a,b,c,e \right\}$:
-\item $\left\{ a,b,c,f \right\}$:
+\item $\left\{ a,b,c,d \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,b,c,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,b,c,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,b,d,e \right\}$:
-\item $\left\{ a,b,d,f \right\}$:
+\item $\left\{ a,b,d,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,b,d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,b,e,f \right\}$:
+\item $\left\{ a,b,e,f \right\}$: nie jest otwarty bo nie nalezy do $T$, ale jest domkniety bo jego dopelnienie czyli ${c,d}$ nalezy do $T$
 
-\item $\left\{ a,c,e,d \right\}$:
-\item $\left\{ a,c,e,f \right\}$:
+\item $\left\{ a,c,e,f \right\}$: nie jest otwarty ani domkniety 
 
-\item $\left\{ a,c,d.f \right\}$:
+\item $\left\{ a,c,d.e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,c,d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,d,e \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-\item $\left\{  \right\}$
-
+\item $\left\{ a,c,e,f \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,d,e,f \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,c,d,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,c,d,f \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,c,e,f \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,d,e,f \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ c,d,e,f \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,b,c,d,e \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,b,c,d,f \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,b,d,e,f \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ a,c,d,e,f \right\}$: nie jest otwarty ani domkniety
+\item $\left\{ b,c,d,e,f \right\}$: jest clopen, bo nalezy do $T$ oraz jest domkniety bo jego dopelnienie $\left\{ a \right\}$ nalezy do $T$
+\item $\left\{ a,b,c,d,e,f \right\}$: jest clopen, nalezy do $T$ oraz jest domkniety bo jego dopelnienie czyli $\emptyset$ nalezy do $T$
 
 \end{enumerate} %koniec wymieniania zbiorow
 \item Niech $(X,T)$ bedzie przestrzenia topologiczna z wlasnoscia taka, ze kazdy podzbior jest domkniety(closed). Udowodnij ze jest to przestrzen dyskretna.
 \item Pokaz ze jesli $(X,T)$ jest przestrzenia dyskretna lub przestrzenia nie dyskretna, wtedy kazdy otwarty(open) zbior jest clopen zbiorem. Znajdz topologia $T$ na zbiorze $X = \left\{ a,b,c,d \right\}$, ktora nie jest dyskretna oraz nie jest nie dyskretna ale ma wlasnosc taka, ze kazdy zbior otwarty(open) jest clopen.
+
+\textbf{Odpowiedz:}
+
+Zalozmy, ze $(X,T)$ jest przestrzenia topologiczna taka, ze kazdy jej podzbior jest domkniety. Skoro kazdy podzbior jest domkniety, to kazdy podzbior jest otwarty. Czyli kazdy podzbior $X$ nalezy do $T$. Zatem $(X,T)$ jest przestrzenia dyskretna. 
 \item Niech $X$ bedzie zbiorem nieskonczonym. Jesli $T$ jest topologia na $X$ taka ze kazdy nieskonczony podzbior $X$ jest domkniety(closed), udowodnij ze $T$ jest topologia dyskretna.
+ 
 \item Niech $X$ bedzie nieskonczonym zbiorem oraz $T$ topologia na $X$ z wlasnoscia taka, ze jedynym nieskonczonym podzbiorem $X$, ktory jest otwarty jest $X$. Czy $(X, T)$ musi byc przestrzenia niedyskretna?
 \item Niech $T$ bedzie topologia na zbiorze $X$ taka, ze ma tylko 4 zbiory; dokladnie, $T = \left\{ X, \emptyset, A, B \right\}$ gdzie $A$ i $B$ to niepuste rozlaczne, podzbiory \textbf{wlasciwe}(czyli nie moga byc rowne $X$) $X$.
 
@@ -715,5 +723,38 @@ Korzystajac z powyzszego zadania, wypisz wszystkie topolobia na $X = \left\{ 1,2
     \end{itemize}
 \end{enumerate}%koniec zadan
 \subsection{Skonczenie-domknieta topologia(ang. The Finite-Closed Topology): definicje lematy, zadania i rozwiazania.}
+
+Do tej pory definiowalismy topologie poprzez okreslanie ktore zbiory sa otwarte. Czasami jest bardziej naturalnie opisac topologie poprzez okreslenie ktore zbiory sa domkniete. 
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.3.1 Definicja: Skonczenie domknieta topologia(finite-closed topology(cofinite topology))]
+
+Niech $X$ bedzie nie pustym zbiorem. Mowimy ze topologia $T$ na $X$ jest \textbf{skonczenie-domknieta topologia lub koskonczona topologia}(ang. finite-closed topology or cofinite topology) jesli domknietymi podzbiorami $X$ sa $X$ oraz wszystkie skonczone podzbiory $X$; czyli otwartymi zbiorami sa $\emptyset$ oraz wszystkie podzbiory $X$, ktore maja skonczone dopelnienia.
+
+Inaczej:
+
+    $$T = \left\{ A \subseteq X: A = \emptyset \text{ or }X \setminus A\text{ jest skonczony} \right\}$$
+\end{tcolorbox}
+
+\textbf{Dowod, ze T z tej definicji jest rzeczywiscie topologia} TODO
+
+\textbf{Komentarz:}
+
+Zauwazmy, ze definicja 1.3.1 nie mowi nam, ze kazda topologia ktora zawiera w sobie $X$ oraz domkniete skonczone podzbiory $X$ jest skonczenie-domknieta topologia. Chodzi o to, ze domknietymi zbiorami musza byc tylko skonczone podzbiory $X$. W skonczenie-wymiarowej topologi wszystkie skonczone zbiory sa domkniete. Jednakze ponizszy przyklad pokazuje ze nieskonczone podzbiory nie musza byc otwarte.
+
+\textbf{1.3.2 Przyklad} Rozwazmy zbior $\mathbb{N}$. Wtedy zbiory $\left\{ 1 \right\}, \left\{ 5,6,7 \right\}, \left\{ 2,4,6,8 \right\}$ sa skonczone wiec sa domkniete w skonczenie-domknietej topologii. Zatem ich dopelnienia:
+$$\left\{ 2,3,4,\dots \right\}, \left\{ 1,2,3,4,8,9,\dots \right\}, \left\{ 1,3,5,7,\dots \right\}$$ sa otwarte w skonczenie-domknietej topologii. Z drugiej strony, zbior parzystych liczb naturalnych nie jest domknietem zbiorem poniewaz nie jest skonczony wiec jego dopelnienie, zbior liczb nieparzystych nie jest zbiorem domknietym w skonczenie-wymiarowej topologii. Wiec wszystkie skonczone zbiory sa domkniete, ale nie wszystkie nieskonczone zbiory sa otwarte. 
+
+\textbf{1.3.3 Przyklad}
+
+Niech $T$ bedzie skonczenie-wymiarowa topologia na zbiorze $X$. Jesli $X$ ma przynajmniej 3 rozne clopen podzzbiory, udowodnij ze $X$ jest skonczonym zbiorem.
+
+
+\hrule
+
+\textbf{Cwiczenia 1.3}
+
+TODO
+
+
 
 \end{document} %end calego dokumentu
