@@ -1,2 +1,0 @@
-Znajduje sie tutaj prymitywna implementacja listy i operacji na listach. 
-Opis funkcji w plik list.h. Jest to wersja pierwsza, nastepna bedzie ulepszona.
