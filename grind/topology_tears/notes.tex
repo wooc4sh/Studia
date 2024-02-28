@@ -483,15 +483,58 @@ Z dowolnosci $x$, wnioskujemy, ze $T$ zawiera dowolny singleton $\left\{x\right\
 
 \begin{enumerate}[label={$T_{\arabic*} :$}]
 \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(a,b)$ gdzie $a,b \in \mathbb{R}$ oraz $a < b$;
+
+\textbf{Nie:}
+
+Wezmy sobie zbior $A = \left\{ 1,2 \right\}$ oraz $B = \left\{ 4,5 \right\}$. Oczywiscie $A \in T_{1}$ oraz $B \in T_{1}$, ale suma $A \cup B = \left\{ 1,2 \right\} \cup \left\{ 4,5 \right\} \notin T_{1}$
 \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{R}}^{+}$;
+
+\textbf{Tak:}
+
+\begin{itemize}
+    \item Z definicjie $\mathbb{R} \in T_{2}$ oraz $\emptyset \in T_{2}$
+    \item Wezmy dowolna $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$, gdzie $U_{\alpha} \in T_{2}$ oraz $A$ jest pewnym zbiorem indeksowym. Wtedy jesli pewien $U_{\alpha} = \mathbb{R}$ to $U = \mathbb{R} \in T_{2}$. W przeciwnym przypadku, jesli kazdy $U_{\alpha} = \emptyset$ to $U = \emptyset \in T_{2}$. W przeciwnym przypadku, jesli nie kazdy $U_{\alpha} = \emptyset$ wtedy rozwazmy przypadki: jesli zbior indeksow $r$, dla ktorych $U_{\alpha} = (-r,r)$, jest ograniczony, to wiemy, ze istnieje indeks $q \in  \mathbb{R}$, taki ze $(\forall \alpha in A)(U_{\alpha} \subseteq (-q,q))$ oraz $(-q,q) \in T_{2}$. Z drugiej strony jesli zbior indeksow $r$, dla ktorych $U_{\alpha} = (-r,r)$, jest nieograniczony, to $U = \mathbb{R} \in T_{2}$. 
+    \item Wezmy dowolne dwa zbiory $A \in T_{2}$ oraz $B \in T_{2}$. Wtedy jesli ktorys z nich jest $\emptyset$ to $A \cap B = \emptyset$. Jesli zaden z nich nie jest $\emptyset$, to albo oba sa $\mathbb{R}$, wtedy $A \cap B = \mathbb{R} \in T_{2}$ albo ktorys z nich nie jest $ \mathbb{R}$. Wtedy albo jeden z nich jest postaci $(-r,r)$ albo oba sa tej postaci, $(-r,r), (-q,q)$. W kazdym przypadku zauwazamy, ze $A \cap B = (-r,r) \in T_{2}$ lub $A \cap B = (-min(r,q), min(r,q)) \in T_{2}$
+\end{itemize}
 \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{Q}}^{+}$;
+
+\textbf{Odpowiedz:}
+
+        Nie. Rozwazmy ciag liczb wymiernych $r_{n}$ dazacy do liczby niewymiernej $r$. Dodatkowo rozwazmy nieskonczona sume zbiorow $\bigcup\limits_{i=1}^{\infty}(-r_{n}, r_{n})$. Wtedy przy $n \rightarrow \infty, (-r_{n}, r_{n}) \rightarrow (-r, r)$. Kazdy zbior z  $\bigcup\limits_{i=1}^{infty}(-r_{n}, r_{n})$ jest w $T_{3}$ ale $(-r, r)$ juz nie jest.
 \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-r,r]$ gdzie $r \in {\mathbb{Q}}^{+}$;
+
+\textbf{Odpowiedz:}
+
+        Nie. Rozwazmy ciag liczb wymiernych $r_{n}$ dazacy do liczby wymiernej $r$. Dodatkowo rozwazmy nieskonczona sume zbiorow $\bigcup\limits_{i=1}^{\infty}[-r_{n} + \frac{1}{n}, r_{n} - \frac{1}{n}]$. Wtedy przy $n  \rightarrow \infty, [-r_{n} + \frac{1}{n}, r_{n} - \frac{1}{n}] \rightarrow (-r, r)$. Kazdy zbior z sumy  $\bigcup\limits_{i=1}^{\infty}[-r_{n} + \frac{1}{n}, r_{n} - \frac{1}{n}]$ jest w $T_{4}$, ale $(-r, r)$ juz nie jest.
 \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{R}}^{+} \setminus \mathbb{Q}$;
+ 
+\textbf{Odpowiedz:}
+
+        Nie. Rozwazmy ciag liczb niewymiernych dazacy do liczby wymiernej. Niech $r_{n}$ bedzie ciagiem liczb wymiernych dazacym do $\sqrt{2}$. Nastepnie rozwazmy ciag $g_{n} = 2+\sqrt{2} - r_{n}$. Wtedy $\bigcup\limits_{i=1}^{\infty}(-g_{n}, g_{n})$ dazy do $(-2,2)$ przy $n \rightarrow \infty$. Argumentacja podobna jak w przykladzie 4.
 \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-r,r]$ gdzie $r \in {\mathbb{R}}^{+} \setminus \mathbb{Q}$;
+
+\textbf{Odpowiedz:}
+
+        Nie. Rozwazmy ciag liczb niewymiernych dazacy do liczby wymiernej $g_{n}$. Rozwazmy nieskonczona sume $\bigcup\limits_{i=1}^{\infty}[-g_{n} + \frac{1}{n}, g_{n} - \frac{1}{n}]$. Suma ta dazy do $[-g, g]$, gdzie $g$ jest liczba wymierna.
 \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-r,r)$ gdzie $r \in {\mathbb{R}}^{+}$;
+
+\textbf{Odpowiedz:}
+
+Nie. Przyklad z podpunktu 4 tutaj zadziala.
 \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r]$ gdzie $r \in {\mathbb{R}}^{+}$;
+ 
+    \textbf{Odpowiedz:}
+Nie. Przyklad z podpunktu 4 takza tutaj zadziala.
 \item zawiera $\mathbb{R}, \emptyset$, kazdy przedzial $[-r,r]$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{R}}^{+}$;
+
+\textbf{Odowiedz:}
+
+Tak. Mozna tu zrobic dowod w stylu tych poprzednich- czyli przeanalizowac wszystkie przypadki, ale poczekam na cos lepszego. Zostanie to tutaj uzupelnione.
 \item zawiera $\mathbb{R}, \emptyset$, kazdy przedzial $[-n,n]$ oraz kazdy przedzial $(-r,r)$ gdzie $n \in {\mathbb{N}}^{+}$ oraz  $r \in {\mathbb{R}}^{+}$;
+
+\textbf{Odpowiedz:}
+
+ Tak. Mozna tu zrobic dowod w stylu tych poprzednich- czyli przeanalizowac wszystkie przypadki, ale poczekam na cos lepszego. Zostanie to tutaj uzupelnione.
 \end{enumerate}
 
 
@@ -517,24 +560,24 @@ Niech $(X, T)$ bedzie przestrzenia topologiczna. Wtedy
 \textbf{Dowod:}
 Wynika to wprost z definicji. Podpunkt trzeci wynika z zadania 4.
 
-\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.2.3 Definicja: Zbior zamkniety- closed set]
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.2.3 Definicja: Zbior domkniety- closed set]
 
-Niech $(X,T)$ bedzie przestrzenia topologiczna. Podzbior $S$ zbioru $X$ jest \textbf{zbiorem zamknietym} w $(X, T)$ jesli jego dopelnienie w $X$, $X\setminus S$, jest zbiorem otwartym w $(X, T)$
+Niech $(X,T)$ bedzie przestrzenia topologiczna. Podzbior $S$ zbioru $X$ jest \textbf{zbiorem domknietym} w $(X, T)$ jesli jego dopelnienie w $X$, $X\setminus S$, jest zbiorem otwartym w $(X, T)$
 \end{tcolorbox}
 \textbf{Komentarz}
 
-Czyli mowimy, ze $S$, bedace podzbiorem $X$, jest zbiorem zamknietym w $(X,T)$ jesli jego dopelnienie w $X$, czyli $X\setminus S$ jest otwarte, czli jesli $X\setminus S \in T$
+Czyli mowimy, ze $S$, bedace podzbiorem $X$, jest zbiorem domknietym w $(X,T)$ jesli jego dopelnienie w $X$, czyli $X\setminus S$ jest otwarte, czli jesli $X\setminus S \in T$
 
-Zauwazmy, ze jesli $(X,T)$ jest przestrzenia dyskretna, wtedy kazdy podzbior $X$ jest zbiorem zamknietym. Jednakze w przestrzeni niedyskretnej, $(X,T)$, jedynymi zbiorami zamknietymi sa $X$ oraz $\emptyset$
+Zauwazmy, ze jesli $(X,T)$ jest przestrzenia dyskretna, wtedy kazdy podzbior $X$ jest zbiorem domknietym. Jednakze w przestrzeni niedyskretnej, $(X,T)$, jedynymi zbiorami domknietymi sa $X$ oraz $\emptyset$
 
-\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=1.2.5 Lemat: Przestrzen topologiczna i zbiory zamkniete]
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=1.2.5 Lemat: Przestrzen topologiczna i zbiory domkniete]
 
 Niech $(X,T)$ bedzie przestrzenia topologiczna. Wtedy
 
 \begin{itemize}%poczatek lematu
-\item $\emptyset$ oraz $X$ sa zbiorami zamknietymi
-\item przekroj skonczonej lub nieskonczonej liczby zbiorow zamknietych jest zbiorem zamknietym
-\item suma skonczonej liczby zbiorow zamknietych jest zbiorem zamknietym
+\item $\emptyset$ oraz $X$ sa zbiorami domknietymi
+\item przekroj skonczonej lub nieskonczonej liczby zbiorow domknietych jest zbiorem domknietym
+\item suma skonczonej liczby zbiorow zamknietych jest zbiorem domknietym
     
 \end{itemize}%koniec letmatu
 \end{tcolorbox}
@@ -548,7 +591,7 @@ TODO
 
 \hrulefill
 \textbf{Cwiczenie 1.2:}
-\begin{enumerate}
+\begin{enumerate}%poczatek zadan
 
 \item Wypisz wszystkie 64 podzbiory zbioru $X = \left\{a,b,c,d,e,f \right\}$. Obok kazdego zbioru wypisz czy jest 
     \begin{itemize}
@@ -557,14 +600,120 @@ TODO
         \item open ale nie closed
         \item closed ale nie open
     \end{itemize}
+
+\textbf{Odpowiedz:}
+\begin{enumerate} %poczatek wymieniania zbiorow
+    
+\item $\emptyset$:
+\item $\left\{ a \right\}$:
+\item $\left\{ b \right\}$:
+\item $\left\{ c \right\}$:
+\item $\left\{ d \right\}$:
+\item $\left\{ e \right\}$:
+\item $\left\{ f \right\}$:
+
+\item $\left\{ a,b \right\}$:
+\item $\left\{ a,c \right\}$:
+\item $\left\{ a,d \right\}$:
+\item $\left\{ a,e \right\}$:
+\item $\left\{ a,f \right\}$:
+
+\item $\left\{ b,c \right\}$:
+\item $\left\{ b,d \right\}$:
+\item $\left\{ b,e \right\}$:
+\item $\left\{ b,f \right\}$:
+
+\item $\left\{ c,d \right\}$:
+\item $\left\{ c,e \right\}$:
+\item $\left\{ c,f \right\}$:
+
+\item $\left\{ d,e \right\}$:
+\item $\left\{ d,f \right\}$:
+
+\item $\left\{ e,f \right\}$:
+
+\item $\left\{ a,b,c \right\}$:
+\item $\left\{ a,b,d \right\}$:
+\item $\left\{ a,b,e \right\}$:
+\item $\left\{ a,b,f \right\}$:
+
+\item $\left\{ a,c,e \right\}$:
+\item $\left\{ a,c,d \right\}$:
+\item $\left\{ a,c,f \right\}$:
+
+\item $\left\{ a,d,e \right\}$:
+\item $\left\{ a,d,f \right\}$:
+
+\item $\left\{ a,e,f \right\}$:
+
+\item $\left\{ b,c,d \right\}$:
+\item $\left\{ b,c,e \right\}$:
+\item $\left\{ b,c,f \right\}$:
+
+\item $\left\{ b,d,e \right\}$:
+\item $\left\{ b,d,f \right\}$:
+
+\item $\left\{ b,e,f \right\}$:
+
+\item $\left\{ c,d,e \right\}$:
+\item $\left\{ c,d,f \right\}$:
+
+\item $\left\{ c,e,f \right\}$:
+
+\item $\left\{ d,e,f \right\}$:
+
+\item $\left\{ a,b,c,d \right\}$:
+\item $\left\{ a,b,c,e \right\}$:
+\item $\left\{ a,b,c,f \right\}$:
+
+\item $\left\{ a,b,d,e \right\}$:
+\item $\left\{ a,b,d,f \right\}$:
+
+\item $\left\{ a,b,e,f \right\}$:
+
+\item $\left\{ a,c,e,d \right\}$:
+\item $\left\{ a,c,e,f \right\}$:
+
+\item $\left\{ a,c,d.f \right\}$:
+
+\item $\left\{ a,d,e \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+\item $\left\{  \right\}$
+
+
+\end{enumerate} %koniec wymieniania zbiorow
 \item Niech $(X,T)$ bedzie przestrzenia topologiczna z wlasnoscia taka, ze kazdy podzbior jest domkniety(closed). Udowodnij ze jest to przestrzen dyskretna.
 \item Pokaz ze jesli $(X,T)$ jest przestrzenia dyskretna lub przestrzenia nie dyskretna, wtedy kazdy otwarty(open) zbior jest clopen zbiorem. Znajdz topologia $T$ na zbiorze $X = \left\{ a,b,c,d \right\}$, ktora nie jest dyskretna oraz nie jest nie dyskretna ale ma wlasnosc taka, ze kazdy zbior otwarty(open) jest clopen.
 \item Niech $X$ bedzie zbiorem nieskonczonym. Jesli $T$ jest topologia na $X$ taka ze kazdy nieskonczony podzbior $X$ jest domkniety(closed), udowodnij ze $T$ jest topologia dyskretna.
 \item Niech $X$ bedzie nieskonczonym zbiorem oraz $T$ topologia na $X$ z wlasnoscia taka, ze jedynym nieskonczonym podzbiorem $X$, ktory jest otwarty jest $X$. Czy $(X, T)$ musi byc przestrzenia niedyskretna?
-\item 
-\end{enumerate}
-\subsection{Skonczenie-domknieta topologia(ang. The Finite-Closed Topology): definicje lematy, zadania i rozwiazania.}
+\item Niech $T$ bedzie topologia na zbiorze $X$ taka, ze ma tylko 4 zbiory; dokladnie, $T = \left\{ X, \emptyset, A, B \right\}$ gdzie $A$ i $B$ to niepuste rozlaczne, podzbiory \textbf{wlasciwe}(czyli nie moga byc rowne $X$) $X$.
 
-Zwykle definiujemy topologe na zbiorze przez okreslenie, ktore zbiory sa otwarte. Czasami bardziej naturalnie jest zdefiniowac topologie przez okreslenie, ktore zbiory sa domkniete.
+Udowodnij ze $A$ i $B$ spelniaja tylko jeden z wymienionych kryteriow:
+\begin{itemize}
+    \item $B = X \setminus A$;
+    \item $A \subset B$;
+    \item $B \subset A$.
+\end{itemize}
+
+Korzystajac z powyzszego zadania, wypisz wszystkie topolobia na $X = \left\{ 1,2,3,4 \right\}$ zawierajace dokladnie 4 zbiory.
+
+\item
+    \begin{itemize}
+        \item Uzywajac indukcji, udowodnij ze wraz ze wzrostem $n$, gdzie n to liczba elementow zbioru $X$, liczba topologii na zbiorze $X$ wzrasta.
+        \item Uzywajac indukcji udowonij ze jesli skonczony zbior $X$ ma $n \in \mathbb{N}$ punktow, to ma conajmniej $(n-1)!$ roznych topologii.
+        \item Jesli zbior $X$ jest dowolnym nieskonczonym zbiorem o mocy(cardinality) $\aleph$, czyli jest przeliczalny. Udowodnij, ze jest conajmniej $2^{\aleph}$ roznych topologii na $X$. Wywnioskuj ze kazdy nieskonczony zbior ma nieprzeliczlanie duzoe roznych topologii na sobie.
+    \end{itemize}
+\end{enumerate}%koniec zadan
+\subsection{Skonczenie-domknieta topologia(ang. The Finite-Closed Topology): definicje lematy, zadania i rozwiazania.}
 
 \end{document} %end calego dokumentu
