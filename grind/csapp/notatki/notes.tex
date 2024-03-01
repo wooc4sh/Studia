@@ -1,0 +1,247 @@
+\documentclass{article}
+
+\usepackage{import}
+\usepackage{transparent}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage[margin=0.5in]{geometry}
+
+%Commands definitions
+\newcommand{\setbackgroundcolour}{\pagecolor[rgb]{0.19, 0.19, 0.19}}
+\newcommand{\settextcolour}{\color[rgb]{0.87, 0.87, 0.87}}
+\newcommand{\invertbackgroundtext}{\setbackgroundcolour\settextcolour}
+
+%Command execution
+%If this line is commented, then the appearance remaind as usual.
+\invertbackgroundtext
+
+\author{Lukasz Kopyto}
+\title{CSAPP}
+
+\setcounter{section}{1}
+
+\begin{document} %Poczatek calego dokumentu
+\maketitle
+
+\section{Rozdzial 2. Reprezentacja i Manipulacja Danymi.}[start = 2]
+\subsection{Przechowywanie informacji}
+Komputery uzywaja 8-bitowych blokow nazywanych bajtami, jako najmniejsze adresowane jednostki pamieci. Program na poziomie maszynowym widzi pamiec jako bardzo duza tablice bajtow, zwana pamiecia wirtualna(ang. virtual memory). Kazdy bajt pamieci ma swoj unikatowy numer, nazywany adresem. Zbior wszystkich mozliwych adresow jest nazwany jako przestrzen adresow wirtualnych(virtual address space).
+
+\subsubsection{Notacja szesnastkowa/hexadecymalna}
+
+
+
+\textbf{Tabelka 2.2. Trzeba ja miec w glowie.}
+
+\vspace{5mm}
+$$
+\begin{tabular}{|c|c|c|}
+\hline
+    \textbf{Dziesietnie}  & \textbf{Binarnie} & \textbf{Szesnastkowo} \\
+\hline
+
+0 & 0000 & 0 \\
+
+1 & 0001 & 1 \\
+
+2 & 0010 & 2 \\
+
+3 & 0011 & 3 \\
+
+4 & 0100 & 4 \\
+
+5 & 0101 & 5 \\
+
+6 & 0110 & 6 \\
+
+7 & 0111 & 7 \\
+
+8 & 1000 & 8 \\
+
+9 & 1001 & 9 \\
+
+10 & 1010 & A \\
+
+11 & 1011 & B \\
+
+12 & 1100 & C \\
+
+13 & 1101 & D \\
+
+14 & 1110 & E \\
+
+15 & 1111 & F \\
+
+\hline
+\end{tabular}$$
+
+Zwykle zapisujemy liczbe szesnastkowa z przedrostkiem 0x.
+
+Na przyklad wezmy liczbe zapisana w systemie szesnatkowym: 0x173A4C. Chcemy ja zamienic na system binarny. Bierzemy kazda cyfre z liczby w zapisie szesnastkowym i zamieniamy ja na odpowiadajacy kwartet binarny. 
+
+Dla liczby 0x173A4C wyglada to tak:
+$1 \rightarrow 0001$
+
+$7 \rightarrow 0111$
+
+$3 \rightarrow 0011$
+
+$A \rightarrow 1010$
+
+$4 \rightarrow 0100$
+
+$C \rightarrow 1100$
+
+Po ustawieniu kolejno kwartetow, otrzymujemy liczbe w zapisie binarnym:
+$$000101110011101001001100_{2}$$
+
+Dla odwrotnej konwersji dziala to analogicznie. Dzielimy liczbe w zapisie binarnym na kwartety, od najmniej znaczacego bitu. Po czym zamieniamy kwartety na odpowiadajace im cyfry w zapisie szesnastkowym. 
+\begin{tcolorbox}[colback=white!90!blue,colframe=white!35!blue,title=Cwiczenie 2.1]
+Dokonaj ponizszych konwersji
+\begin{itemize}
+    \item 0x25B9D2 to binary:
+
+     Kazda cyfre szesnastkowo zamieniamy na 'kwartet binarny':
+     $$ 0x25B9D2 \rightarrow 0010 0101 1011 1001 1101 0010$$
+ \item binary 1010111001001001 to hexadecimal:
+
+     Z liczby binarnej wydzielamy kwartety, poczawszy od LSB(least significent bit-najmniej znaczacy bit). Jesli liczba bitow nie jest podzielna przez 4 to dopelniamy zerami:
+
+        $$ 1010111001001001 \rightarrow  1010 1110 0100 1001 \rightarrow 0xAE49$$   \item 0xA8B3D to binary:
+
+    $$0xA8B3D  \rightarrow 1010 1000 1011 0011 1101$$
+    
+\item binary 1100100010110110010110 to hexadecimal
+   $$1100100010110110010110 \rightarrow 0011 0010 0010 1101 1001 0110 \rightarrow 0x322D95$$   
+\end{itemize}
+\end{tcolorbox}
+
+Kiedy x jest potega dwojki tzn $x = 2^{n}$ mozna latwo to przepisac na wartosc szesnastkowa pamietajac, ze binarnie x to bedzie 1 i $n$ zer. Wiec dla n zapisanego w formie $i + 4j$ gdzie $0 \leq i \leq 3$, mozemy zapisac x w formie szesnastkowej biorac za pierwsza cyfre szesnastkowa 1 gdy i = 0, 2 gdy i = 1, 4 gdy i = 2 oraz 8 gdy i = 3 dodajac pozniej j zer(szesnastkowych). Jako przyklad spojrzmy na $x = 2048 = 2^{11}$. Mamy tu $n = 3 + 2*4$, zatem x szesnastkowo to 0x800.
+
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=white!35!blue,title=Cwiczenie 2.2]
+
+Uzupelnij ponizsza tabelke:
+
+$$
+    \begin{tabular}{|c|c|c|}
+    
+    \hline 
+    \textbf{n} & \textbf{$2^{n}(decimal)$} & \textbf{$2^{n}(hexadecimal)$} \\
+    \hline 
+        5 & 32 & $2^{1 + 1*4} = 0x20$ \\
+        23 & $2^{23}$ duzo & $2^{23} = 2^{3 + 5*4} = 0x800000$ \\
+        15 & 32768 & $2^{15} = 2^{3 + 3*4} = 0x8000$ \\
+        12 & 4096 & $2^{12} = 2^{0 + 3*4} = 0x1000$ \\
+        6 & 64 & $2^{6} = 2^{2 + 1*4} = 0x40$ \\ 
+        8 & 256 & $2^{8} = 2^{0 + 2*4} =  0x100$ \\
+    \hline
+    \end{tabular}
+$$
+\end{tcolorbox}
+
+\subsection{Rozmiary danych}
+
+Kazdy komputer posiada jakis rozmiar slowa maszynowego, ktory okresla nominalny rozmiar wskaznika na dane. Poniewaz adres wirtualny jest zakodowany poprzez to slowo, najwazniejszym parametrem systemu zdeterminowanym poprzez rozmiar slowa maszynowego jest maxymalny rozmiar przestrzeni adresow wirtualnych. Zatem dla maszyny z w-bitowym rozmiarem slowa maszynowego, adresy wirtualne sa z zakresu od 0 do $2^{w} -1$, co daje programowi dostep do co najwyzej $2^{w}$ bajtow.
+
+\vspace{5mm}
+
+Wiekszosc 64-bitowych maszyn moze korzystac z programow skompilowanych dla 32-bitowych maszyn. Jest to forma wstecznej kompatybilnosci.
+
+Jezyk C wspiera roznorakie formaty danych dla calkowitych jak i zmiennoprzecinkowych danych. Tabelka 2.3 pokazuje typowoa liczbe bajtow zarezerwowanych dla roznych typow danych w C. W pozniejszym rozdziale zostanie przerobiona to co jest zagwarantowane przez standard C a co jest typowe. Dokladna liczba bajtow dla poszczegolnych typow danych zalezy od tego jak program zostal skompilowany.
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=white!35!blue,title=Tabelka 2.3: Typowe rozmiary w bajtach standardowych typow danych w C]
+
+Liczba bajtow zarezerwowanych zalezy od tego jak program zostal skompilowany. Ponizsza tabelka pokazuje wartosci typowe dla 32 i 64 bitowych programow.
+$$
+    \begin{tabular}{|c|c|c|c|}
+
+    \hline
+    C Signed & C Unsigned & 32-bit & 64- bit \\
+    \hline
+    [signed] char & unsigned char & 1 & 1 \\
+    short & unsigned short & 2 & 2 \\
+    long & unsigned long & 4 & 8 \\
+    int32\textunderscore t & uint32\textunderscore t & 4 & 4 \\
+    int64\textunderscore t & uint64\textunderscore t & 8 & 8 \\
+    char* & & 4 & 8 \\
+    float & & 4 & 4 \\
+    double & & 8 & 8 \\
+    \hline
+
+    \end{tabular}
+$$
+\end{tcolorbox}
+
+\vspace{5mm}
+
+Aby uniknac polegania na "typowych" rozmiarach danych i roznych ustawieniach kompilatora, standard ISO C99 wprowadzil nowa klase typow danych, gdzie rozmiar danych jest ustalonyy bezwzgledu na ustawienia kompilatora oraz maszyny. Wsrod nich sa miedzy innymi int32\textunderscore t oraz int64\textunderscore t, ktore maja dokladnie 4 oraz 8 bajtow kolejno. 
+
+Wiekoszosc typow danych jest domyslnie ze znakiem, chyba ze poprzedzona slowem zastrzezonym unsigned lub specjalna forma deklaracji dla ustwionych typow(uint32\textunderscore t etc.). Wyjatkiem jest jednak typ char. Pomimo iz wiekszosc kompilatorow i maszyn traktuje char jako wartosc ze znakiem, standard C nie gwarantuje tego. Zamiast tego, aby zagwarantowac to aby char byl 1-bajtowym typem ze znakiem, programisci powinni uzywac deklaracji $[\text{signed}]$ tak jak zostalo to pokazane w tabelce 2.3. W wielu przypadkach program to olewa czy char jest signed czy unsigned, ale trzeba miec to na uwadze.
+
+Jezyk C pozwala na rozne sposoby deklarowac ten sam typ oraz wprowadzac lub nie opcjonalne slowa kluczowe. Jako przyklad ponizsze deklarace maja to samo znaczenie:
+\begin{itemize}
+    \item unsigned long
+    \item unsigned long int
+    \item long unsigned
+    \item long unsigned int
+\end{itemize}
+
+Standardy jezyka C ustalaja dolne granice wartosci roznych typow danych(pozniej to bedzie dokladniej przerobione). Trzeba miec na uwadze, ze nie ustalaja pne gornych granic(z wyjatkiem typow z ustawionym rozmiarem). 
+
+Miedzy 1980 a 2010 32-bitowe maszyny z 32-bitowymi prgramami byly dominujace. Wiele programow zostalo napisanych z zalozeniem, ze slowo maszynowe ma 32 bity. Z zmiana na 64-bity, pojawilo sie wiele problemow. Na przyklad, wiele programistow zakladalo, ze obiekt typu int, moze byc uzywany do przechowywania wskaznika. To dziala dobrze dla wiekszosci 32-bitowych programow, ale bedzie to prowadzilo do problemow w 64-bitowych programach.
+
+\subsection{Adresowanie oraz uporzadkowanie bajtow (Addressing and Byte Ordering)}
+
+Wielo bajtowy obiekt jest przechowywany jako ciag bajtow z adresem bedacym najnizszym adresem z uzytych bajtow. Naprzyklad zalozmy ze zmienna x jest typu int i ma adres 0x100; tzn wartoscia wyrazenia adresu \& x jest 0x100. Wtedy, zakladajac ze int ma 32-bitowa reprezentacje, 4 bajty na ktorych jest zapoisany x, beda przechowywane pod adresami 0x100, 0x101, 0x102, 0x103.
+
+Zeby uporzadkowac bajty reprezentujace jakis obiekt, sa dwie znane konwencje. Rozwazmy w-bitowa liczbe calkowita, ktora ma reprezentacje w bitach $[x_{w-1}, x_{w-2},\dots, x_{1}, x_{0}]$, gdzie $x_{w-1}$ jest najbardziej znaczacym bitem(MSB most significant bit) oraz $x_{0}$ bedacym najmniej znaczacym bitem(LSB least significat bit). Zakladajac ze w jest wielokrotnoscia 8, bity zmiennej x moga byc pogupowane jako bajty z najbardziej znaczacym bajtem majacym bity $[x_{w-1}, x_{w-2}, \dots, x_{w-8}]$ oraz najmniej znaczacym bajtem majacym bity $[x_{7}, x_{6}, \dots, x_{0}]$ oraz pozostalymi bajtami majacymi kolejne bity ze srodka. Konwencja ta nazywa sie \textbf{big endian}. Konwencja odwrotna, w ktorej najmniej znaczacy bity sa z przodu nazywa sie \textbf{little endian}. Zobaczmy to na przykladzie.
+
+Zalozmy ze zmienna x typu int o adresie 0x100 ma wartosc szesnastkowa 0x01234567. Uporzadkowanie bajtow o adresach od 0x100 do 0x103 zalezy od typu maszyny:
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=white!35!blue,title=Big endian:]
+$$    
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+  \dots  & 0x100 & 0x101 & 0x102 & 0x103 & \dots \\
+\hline
+    \dots & 01 & 23 & 45 & 67 & \dots \\
+\hline    
+\end{tabular}
+$$    
+\end{tcolorbox}
+
+oraz:
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=white!35!blue,title=Little endian:]
+$$    
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+  \dots  & 0x100 & 0x101 & 0x102 & 0x103 & \dots \\
+\hline
+    \dots & 67 & 45 & 23 & 01 & \dots \\
+\hline    
+\end{tabular}
+$$    
+\end{tcolorbox}
+
+Zauwazmy ze w slowie 0x01234567 high-order bit ma wartosc szesnastkowa 0x01, a low-order bit ma wartosc 0x67
+
+Uporzadkowanie bitow czasami jest problemem. 
+
+Jednym z przykladow takich problemow jest wtedy kiedy dane w formie binarnej sa przesylane w sieci pomiedzy roznymi maszynami. Problemem jest odbior danych w zapisanych w formacie big endian przez maszyne, ktora operajue w formacie little endian i vice versa. Zeby uniknac tych problemow kod napisany dla takich aplikacji musi przestrzegac pewnych konwencji. Przyjrzymy sie temu w rozdziale 11. 
+
+Drugim waznym miejscem gdzie porzadek bitow jest kluczowy, jest wtedy gdy patrzymy na ciagi bajtow reprezentujacych liczby calkowite(integer data). To sie zdarza czesto gdy patrzymy na kod maszynow programow. Jako przyklad spojrzmy na wiersz pochodzacy z pliku ktory zwraca w formie tekstu kod maszynowy dla procesora Intel x86-64:
+$$\text{4004d3: \hspace{5mm}01 05 43 0b 20 00 \hspace{10mm}      add\hspace{5mm} \%eax,0x200b43(\%rip)}$$
+
+Wiersz ten zostal wygenerowany przez disassembler, narzedzie sluzace do okreslenia ciagu instrukcji reprezentowanych przez plik wykonywalny(exeucatble file). 
+Wiersz ten mowi nam, ze szesnastkowa wartosc ciagu bitow: 01 05 43 0b 20 00 bitowa reprezentacja instrukcji ktora dodaje jedno slowo danych do wartosci przechowywanej pod adresem obliczonym przez dodanie 0x200b43 do aktualnej wartosci 'program counter'- licznik programu?, adresu nastepnej instrukcji do wykonania. 
+
+Jesli wezmiemy ostatnie 4 bajty z ciagu 43 0b 20 00 i zapiszemy je odwrotnie, dostaniemy 00 20 0b 43. Ignorujac poczatkowe zera otrzymamy wartosc 0x200b43, czyli wartosc liczbowa po prawet stronie instrukcji. 
+Wystepowanie bajtow w odwrotnej kolejnosci jest czestym zjawiskiem przy czytaniu kodu maszynowego wygenerowanego dla little-endian maszyny, takiej jak ta powyzej. Naturalny sposob na zapisanie bajtow jest taki, ze najnizej numerowany bit jest po lewej stronie a najwyzej numerowany jest po prawej. Jest to sprzeczne z normalnym zapisemliczb, gdze najbardziej znaczaca cyfra jest po lewej a najmniej znaczaca po prawej.
+
+\end{document} %Koniec calego dokumentu
