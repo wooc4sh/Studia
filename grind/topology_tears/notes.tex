@@ -10,6 +10,7 @@
 \usepackage{enumitem} %nie pamietam, chyba to wymieniania
 \usepackage{amssymb} %wazne matematyka
 \usepackage[margin=0.25in]{geometry} %wazne marginesy
+\usepackage{graphicx} %zeby szlo obrazek wkleic
 
 
 
@@ -34,40 +35,40 @@
 \subsection{Topologia: definicje, lematy, zadania i rozwiazania}
 \begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.1.1 Definicja: Topologia]
 
-Niech $X$ bedzie niepustym zbiorem. Mowimy, ze zbior $T$ zawierajacy podzbiory $X$ jest topologia na $X$ jesli:
-\begin{itemize}
-\item $X$ oraz zbior pusty $\emptyset$, naleza do $T$,
-\item suma skonczona badz nie zbiorow z $T$ nalezy do $T$,
-inaczej $T$ jest zamkniety na sume, i ta suma moze byc nieskonczona
-\item przekroj dowolnych dwoch zbiorow z $T$ nalezy do $T$, inaczej $T$ jest zamkniety na przekroj, ale przekroj skonczony
-\end{itemize}
+    Niech $X$ bedzie niepustym zbiorem. Mowimy, ze zbior $T$ zawierajacy podzbiory $X$ jest topologia na $X$ jesli:
+    \begin{itemize}
+        \item $X$ oraz zbior pusty $\emptyset$, naleza do $T$,
+        \item suma skonczona badz nie zbiorow z $T$ nalezy do $T$,
+            inaczej $T$ jest zamkniety na sume, i ta suma moze byc nieskonczona
+        \item przekroj dowolnych dwoch zbiorow z $T$ nalezy do $T$, inaczej $T$ jest zamkniety na przekroj, ale przekroj skonczony
+    \end{itemize}
 
-Para $(X,T)$ nazywamy \textbf{przestrzenia topologiczna.}
+    Para $(X,T)$ nazywamy \textbf{przestrzenia topologiczna.}
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.1.6 Definicja: Topologia dyskretna(discrete topology)]
 
-Niech $X$ bedzie niepustym zbiorem oraz $T$ kolekcja wszystkich podzbiorow $X$. Wtedy mowimy, ze $T$ jest \textbf{topologia dyskretna} na zbiorze $X$. Przestrzen topologiczna $(X,T)$ jest nazywana \textbf{przestrzenia dyskretna}
+    Niech $X$ bedzie niepustym zbiorem oraz $T$ kolekcja wszystkich podzbiorow $X$. Wtedy mowimy, ze $T$ jest \textbf{topologia dyskretna} na zbiorze $X$. Przestrzen topologiczna $(X,T)$ jest nazywana \textbf{przestrzenia dyskretna}
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.1.7 Definicja: Topologia niedyskretne(indiscrete topology)]
 
-Niech $X$ bedzie niepustym zbiorem oraz $T= \left\{X, \emptyset\right\}$. Wtedy mowimy, ze $T$ jest \textbf{topologia niedyskretna} oraz $(X,T)$ jest \textbf{przestrzenia niedyskretna} 
+    Niech $X$ bedzie niepustym zbiorem oraz $T= \left\{X, \emptyset\right\}$. Wtedy mowimy, ze $T$ jest \textbf{topologia niedyskretna} oraz $(X,T)$ jest \textbf{przestrzenia niedyskretna} 
 
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=1.1.9 Lemat: Topologia dyskretna i singletony]
 
-Jezeli $(X,T)$ jest przestrzenia topologiczna, taka ze, dla kazdego $x \in X$, singleton $x$, $\left\{x\right\}$ jest w $X$, to $X$ jest topologia dyskretna.
+    Jezeli $(X,T)$ jest przestrzenia topologiczna, taka ze, dla kazdego $x \in X$, singleton $x$, $\left\{x\right\}$ jest w $X$, to $X$ jest topologia dyskretna.
 
 \end{tcolorbox}
 \textbf{Dowod:}
 
 Wystarcz sprawdzic prawdziwosc trzech warunkow, z definicji $1.1.1$.
 \begin{enumerate}
-\item Z definicji $T$ jest topologia, wiec zawiera $X$ oraz $\emptyset$.
-\item Niech $S$ bedzie suma skonczona lub nie dowolnej liczby zbiorow z $T$. Poniewaz mozemy zapisac $S$ jako $S = \bigcup\limits_{x \in S}\left\{x\right\}$, a kazdy singleton $\left\{x\right\} \in X$, wnioskujemy stad, ze $S \in T$ 
-\item Analogicznie dowodzimy, ze przekroj dowolnych dwoch zbiorow z $T$ nalezy do $T$
+    \item Z definicji $T$ jest topologia, wiec zawiera $X$ oraz $\emptyset$.
+    \item Niech $S$ bedzie suma skonczona lub nie dowolnej liczby zbiorow z $T$. Poniewaz mozemy zapisac $S$ jako $S = \bigcup\limits_{x \in S}\left\{x\right\}$, a kazdy singleton $\left\{x\right\} \in X$, wnioskujemy stad, ze $S \in T$ 
+    \item Analogicznie dowodzimy, ze przekroj dowolnych dwoch zbiorow z $T$ nalezy do $T$
 \end{enumerate}
 
 \hrulefill
@@ -75,468 +76,468 @@ Wystarcz sprawdzic prawdziwosc trzech warunkow, z definicji $1.1.1$.
 \textbf{Cwiczenia 1.1}
 
 \begin{enumerate}
-\item Niech $X = \left\{a,b,c,d,e,f\right\}.$ Ustal czy podane kolekcje podzbiorow $X$ sa topologia na $X$
-
-\begin{enumerate}[label=(\alph*)]
-\item $T_{1} = \left\{X, \emptyset, \left\{a\right\}, \left\{a,f\right\}, \left\{b,f\right\}, \left\{a,b,f\right\}\right\}$
-\item  $T_{2} = \left\{X, \emptyset, \left\{a,b,f\right\}, \left\{a,b,d\right\}, \left\{a,b,d,f\right\}\right\}$
-\item $T_{3} = \left\{X, \emptyset, \left\{f\right\}, \left\{e,f\right\}, \left\{a,f\right\} \right\}$
-    
-\end{enumerate}
-\textbf{Odpowiedz:}
-\begin{enumerate}[label=(\alph*)]
-\item Jest topologia.
-\item Nie jest, bo $\left\{a,b,f\right\} \cap \left\{a,b,d\right\}= \left\{a,b\right\} \notin T_{2}$ 
-\item Nie jest, bo $\left\{e,f\right\} \cup \left\{a,f\right\}=\left\{a,e,f\right\} \notin T_{3}$ 
-    
-\end{enumerate} 
-\item Niech $X = \left\{a,b,c,d,e,f\right\}.$ Wskaz i uzasadnij ktore kolekcje podzbiorow $X$ sa topologia na $X$
-
-\begin{enumerate}[label=(\alph*)]
-\item $T_{1} = \left\{X, \emptyset, \left\{c\right\}, \left\{b,d,e\right\}, \left\{b,c,d,e\right\}, \left\{b\right\}\right\}$
-\item  $T_{2} = \left\{X, \emptyset,\left\{a\right\}, \left\{b,d,e\right\}, \left\{a,b,d\right\}, \left\{a,b,d,e\right\}\right\}$
-\item $T_{3} = \left\{X, \emptyset,\left\{b\right\}, \left\{a,b,c\right\}, \left\{d,e,f\right\}, \left\{b,d,e,f\right\} \right\}$
- 
-\end{enumerate}
-
-\textbf{Odpowiedz:}
-
-\begin{enumerate}[label=(\alph*)]
-\item Nie, bo $\left\{c\right\} \cup \left\{b\right\} = \left\{b,c\right\} \notin T_{1}$
-\item Nie, bo $\left\{b,d,e\right\} \cap \left\{a,b,d\right\} = \left\{b,d\right\} \notin T_{2}$
-\item Jest topologia.
-\end{enumerate}
+    \item Niech $X = \left\{a,b,c,d,e,f\right\}.$ Ustal czy podane kolekcje podzbiorow $X$ sa topologia na $X$
 
-\item Niech $X = \left\{a,b,c,d,e,f\right\}$ oraz $T$ bedzie topologia dyskretna na $X$, ktore z ponizszych podpunktow sa prawdziwe?
+        \begin{enumerate}[label=(\alph*)]
+            \item $T_{1} = \left\{X, \emptyset, \left\{a\right\}, \left\{a,f\right\}, \left\{b,f\right\}, \left\{a,b,f\right\}\right\}$
+            \item  $T_{2} = \left\{X, \emptyset, \left\{a,b,f\right\}, \left\{a,b,d\right\}, \left\{a,b,d,f\right\}\right\}$
+            \item $T_{3} = \left\{X, \emptyset, \left\{f\right\}, \left\{e,f\right\}, \left\{a,f\right\} \right\}$
 
-\begin{enumerate}[label=(\alph*)]
-\item $X \in T$- Prawda
-\item $\left\{X\right\} \in T$- Falsz
-\item $\left\{ \emptyset\right\} \in T$- Falsz
-\item $\emptyset \in T$- Prawda
-\item $\emptyset \in X$- Falsz 
-\item $\left\{ \emptyset\right\} \in X$- Falsz
-\item $\left\{a \right\} \in T$- Prawda
-\item $a  \in T$- Falsz
-\item $\emptyset \subseteq X$- Prawda
-\item $\left\{a \right\} \in X$- Falsz
-\item $\left\{\emptyset \right\} \subseteq X$- Falsz
-\item $a \in X$- Prawda
-\item $X \subseteq T$- Falsz
-\item $\left\{a \right\} \subseteq T$- Falsz
-\item $\left\{X\right\} \subseteq T$- Prawda
-\item $a \subseteq T$- Falsz
-\end{enumerate}
+        \end{enumerate}
+        \textbf{Odpowiedz:}
+        \begin{enumerate}[label=(\alph*)]
+            \item Jest topologia.
+            \item Nie jest, bo $\left\{a,b,f\right\} \cap \left\{a,b,d\right\}= \left\{a,b\right\} \notin T_{2}$ 
+            \item Nie jest, bo $\left\{e,f\right\} \cup \left\{a,f\right\}=\left\{a,e,f\right\} \notin T_{3}$ 
 
-\item Niech $(X, T)$ bedzie dowolna przestrzenia topologiczna. Udowodnij, ze \textbf{przekroj skonczonej liczby(dowolnej) elementow z $T$ jest elementem $T$}
+        \end{enumerate} 
+    \item Niech $X = \left\{a,b,c,d,e,f\right\}.$ Wskaz i uzasadnij ktore kolekcje podzbiorow $X$ sa topologia na $X$
 
-\textbf{Odpowiedz:}
+        \begin{enumerate}[label=(\alph*)]
+            \item $T_{1} = \left\{X, \emptyset, \left\{c\right\}, \left\{b,d,e\right\}, \left\{b,c,d,e\right\}, \left\{b\right\}\right\}$
+            \item  $T_{2} = \left\{X, \emptyset,\left\{a\right\}, \left\{b,d,e\right\}, \left\{a,b,d\right\}, \left\{a,b,d,e\right\}\right\}$
+            \item $T_{3} = \left\{X, \emptyset,\left\{b\right\}, \left\{a,b,c\right\}, \left\{d,e,f\right\}, \left\{b,d,e,f\right\} \right\}$
 
-Udowodnimy to przez indukcje wzgledem liczby elementow przekroju.
+        \end{enumerate}
 
-\textbf{Teza:} Dla przestrzeni topologicznej $(X,T)$ przekroj skonczonej liczby elementow z $T$ jest elementem $T$.
+        \textbf{Odpowiedz:}
 
-\textbf{Podstawa indukcji:} dla n = 2, mamy $\bigcap\limits_{i = 1}^{2}A_{i} \text{, gdzie } A_{i} \in T \text{, } A_{i}$ sa dowolnymi zbiorami nalezacymi do $T$. Poniewaz $T$ jest topologia na $X$ wiec z definicji, przekroj dowolnych dwoch zbiorow nalezacych do $T$, nalezy do $T$, zatem $\bigcap\limits_{i = 1}^{2}A_{i} \in T$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Nie, bo $\left\{c\right\} \cup \left\{b\right\} = \left\{b,c\right\} \notin T_{1}$
+            \item Nie, bo $\left\{b,d,e\right\} \cap \left\{a,b,d\right\} = \left\{b,d\right\} \notin T_{2}$
+            \item Jest topologia.
+        \end{enumerate}
 
-\textbf{Krok indukcyjny:}
-Ustalmy teraz dowolne $n \in  \mathbb{N}$ i zalozmy, ze $\bigcap\limits_{i = 1}^{n}A_{i} \in T$. Pokaze ze dla $n+1$ teza zachodzi.
-Oznaczmy sobie $B = \bigcap\limits_{i = 1}^{n}A_{i}$.
-Dla $n+1$ mamy:
+    \item Niech $X = \left\{a,b,c,d,e,f\right\}$ oraz $T$ bedzie topologia dyskretna na $X$, ktore z ponizszych podpunktow sa prawdziwe?
 
-$\bigcap\limits_{i = 1}^{n+1}A_{i} = \bigcap\limits_{i = 1}^{n}A_{i} \cap A_{n+1} = \text{ zal. ind. } = B \cap A_{n+1}$
-Poniewaz $B \in T \text{ oraz } A_{n+1} \in T$ wiec z definicji topologi, $B \cap A_{n+1} \in T$  
+        \begin{enumerate}[label=(\alph*)]
+            \item $X \in T$- Prawda
+            \item $\left\{X\right\} \in T$- Falsz
+            \item $\left\{ \emptyset\right\} \in T$- Falsz
+            \item $\emptyset \in T$- Prawda
+            \item $\emptyset \in X$- Falsz 
+            \item $\left\{ \emptyset\right\} \in X$- Falsz
+            \item $\left\{a \right\} \in T$- Prawda
+            \item $a  \in T$- Falsz
+            \item $\emptyset \subseteq X$- Prawda
+            \item $\left\{a \right\} \in X$- Falsz
+            \item $\left\{\emptyset \right\} \subseteq X$- Falsz
+            \item $a \in X$- Prawda
+            \item $X \subseteq T$- Falsz
+            \item $\left\{a \right\} \subseteq T$- Falsz
+            \item $\left\{X\right\} \subseteq T$- Prawda
+            \item $a \subseteq T$- Falsz
+        \end{enumerate}
 
-Zatem na mocy zasady indukcji matematycznej, dla przestrzeni topologicznej $(X,T)$ przekroj skonczonej liczby elementow z $T$ jest elementem $T$.
+    \item Niech $(X, T)$ bedzie dowolna przestrzenia topologiczna. Udowodnij, ze \textbf{przekroj skonczonej liczby(dowolnej) elementow z $T$ jest elementem $T$}
 
-\item Niech $\mathbb{R}$ bedzie zbiorem liczb rzeczywistych. Udowodnij ze kazdy z nastepujacych kolekcji podzbiorow $\mathbb{R}$ jest topologia.
+        \textbf{Odpowiedz:}
 
-\begin{enumerate}[label=(\alph*)]
-\item $T_{1}$ zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-n, n)$, dla dowolnego $n \in {\mathbb{N}}^{+}$, gdzie $(-n, n)$ oznacza zbior $\left\{x \in \mathbb{R}: -n < x <n\right\}$
- 
-\item $T_{2}$ zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-n, n]$, dla dowolnego $n \in {\mathbb{N}}^{+}$, gdzie $[-n, n]$ oznacza zbior $\left\{x \in \mathbb{R}: -n \leq x \leq n\right\}$
-       
-\item $T_{3}$ zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[n, \infty)$, dla dowolnego $n \in {\mathbb{N}^{+}}$, gdzie $[n, \infty)$ oznacza zbior $\left\{x \in \mathbb{R}: n \leq x\right\}$
-    
-\end{enumerate}
+        Udowodnimy to przez indukcje wzgledem liczby elementow przekroju.
 
-\textbf{Odpowiedz:}
+        \textbf{Teza:} Dla przestrzeni topologicznej $(X,T)$ przekroj skonczonej liczby elementow z $T$ jest elementem $T$.
 
-Trzeba kazdy podpunkt sprawdzic z definicji topologii, czyli w kazdym podpunkcie sprawdzic czy (a') $X$ oraz $\emptyset$ naleza do $T$, (b') zamknietosc na sume teoriomnogosciowa skonczona lub nie i (c') zamknietosc na przekroj(skonczony)
+        \textbf{Podstawa indukcji:} dla n = 2, mamy $\bigcap\limits_{i = 1}^{2}A_{i} \text{, gdzie } A_{i} \in T \text{, } A_{i}$ sa dowolnymi zbiorami nalezacymi do $T$. Poniewaz $T$ jest topologia na $X$ wiec z definicji, przekroj dowolnych dwoch zbiorow nalezacych do $T$, nalezy do $T$, zatem $\bigcap\limits_{i = 1}^{2}A_{i} \in T$.
 
-\textbf{dla $T_{1}$ mamy:}
-\begin{enumerate}[label=(\alph*')]
-\item Z opisu $T_{1}$ mamy, ze $ \mathbb{R} \in T_{1}$ oraz $\emptyset \in T_{1}$
-\item Niech $U = \bigcup\limits_{\alpha \in A} U_{\alpha}$ gdzie $A_{\alpha} \in T_{1}$ oraz $A$ jest pewnym zbiorem indeksowym, bedzie dowolna suma(skonczona badz nie) zbiorow. Rozwazmy przypadki:
-\begin{itemize}
-\item $U_{\alpha} = \mathbb{R}$ dla pewnego $\alpha \in A$. 
+        \textbf{Krok indukcyjny:}
+        Ustalmy teraz dowolne $n \in  \mathbb{N}$ i zalozmy, ze $\bigcap\limits_{i = 1}^{n}A_{i} \in T$. Pokaze ze dla $n+1$ teza zachodzi.
+        Oznaczmy sobie $B = \bigcap\limits_{i = 1}^{n}A_{i}$.
+        Dla $n+1$ mamy:
 
-Wtedy $ \bigcup\limits_{\alpha \in A} U_{\alpha} = \mathbb{R} \in T_{1}$
-\item $U_{\alpha} \neq \mathbb{R}$ dla kazdego $\alpha \in A$.
+        $\bigcap\limits_{i = 1}^{n+1}A_{i} = \bigcap\limits_{i = 1}^{n}A_{i} \cap A_{n+1} = \text{ zal. ind. } = B \cap A_{n+1}$
+        Poniewaz $B \in T \text{ oraz } A_{n+1} \in T$ wiec z definicji topologi, $B \cap A_{n+1} \in T$  
 
-Wtedy mamy przypadki:
+        Zatem na mocy zasady indukcji matematycznej, dla przestrzeni topologicznej $(X,T)$ przekroj skonczonej liczby elementow z $T$ jest elementem $T$.
 
-\begin{itemize}
-    \item $U_{\alpha} = \emptyset$ dla kazdego $\alpha \in A$. 
+    \item Niech $\mathbb{R}$ bedzie zbiorem liczb rzeczywistych. Udowodnij ze kazdy z nastepujacych kolekcji podzbiorow $\mathbb{R}$ jest topologia.
 
-Wtedy $\bigcup\limits_{\alpha \in A} U_{\alpha} = \emptyset \in T_{1}$  
-    \item $U_{\alpha} \neq \emptyset$ dla pewnego $\alpha \in A$ oraz zbior $$B = \left\{n: U_{\alpha} = (-n, n)  \land n \in \mathbb{N} \land \alpha \in A\right\}$$ jest ograniczony z gory.
+        \begin{enumerate}[label=(\alph*)]
+            \item $T_{1}$ zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-n, n)$, dla dowolnego $n \in {\mathbb{N}}^{+}$, gdzie $(-n, n)$ oznacza zbior $\left\{x \in \mathbb{R}: -n < x <n\right\}$
 
-Wtedy, z tego ze zbior $B$ jest ograniczony z gory i zawiera liczby naturalne, wiemy ze istnieje najmniejsza liczba naturalna $m$, ktora ogranicza ten zbior z gory. Wezmy zatem liczbe $m$. Zauwazmy, ze $m$ jest jednoczesnie maximum zbioru B. Z definicji zbioru $T_{1}$ mamy, ze $(-m, m) \in T_{1}$ oraz z tego, ze $B$ jest ograniczony z gory, wnioskujemy $$\bigcup\limits_{\alpha \in A} U_{\alpha} = (-m,m) \in T_{1}$$
+            \item $T_{2}$ zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-n, n]$, dla dowolnego $n \in {\mathbb{N}}^{+}$, gdzie $[-n, n]$ oznacza zbior $\left\{x \in \mathbb{R}: -n \leq x \leq n\right\}$
 
-    \item $U_{\alpha} \neq \emptyset$ dla pewnego $\alpha \in A$ oraz zbior $$B = \left\{n: U_{\alpha} = (-n, n) \land n \in \mathbb{N} \land \alpha \in A\right\}$$ jest nieograniczony z gory.
+            \item $T_{3}$ zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[n, \infty)$, dla dowolnego $n \in {\mathbb{N}^{+}}$, gdzie $[n, \infty)$ oznacza zbior $\left\{x \in \mathbb{R}: n \leq x\right\}$
 
-Wtedy, mam sprzecznosc, bo zalozylismy, ze $\mathbb{R} \notin T_{1}$, z drugiej strony zbior $B$ jest nieograniczony, a $$\bigcup\limits_{\alpha \in A}U_{\alpha} = \bigcup\limits_{n=1}^{\infty}(-n, n) = \mathbb{R}$$ 
-Zatem ten podpunkt odpada.
+        \end{enumerate}
 
-\end{itemize}
+        \textbf{Odpowiedz:}
 
-Sprawdzilismy zatem wszystkie mozliwosci i otrzymalismy, ze zbior $T_{1}$ jest zamkniety na sume(skonczona badz nie)
+        Trzeba kazdy podpunkt sprawdzic z definicji topologii, czyli w kazdym podpunkcie sprawdzic czy (a') $X$ oraz $\emptyset$ naleza do $T$, (b') zamknietosc na sume teoriomnogosciowa skonczona lub nie i (c') zamknietosc na przekroj(skonczony)
 
-\end{itemize}
-\item Wezmy dwa dowolne zbiory $B \in T_{1}$ oraz $C \in T_{1}$. Pokazemy, ze $B \cap C \in T_{1}$
+        \textbf{dla $T_{1}$ mamy:}
+        \begin{enumerate}[label=(\alph*')]
+            \item Z opisu $T_{1}$ mamy, ze $ \mathbb{R} \in T_{1}$ oraz $\emptyset \in T_{1}$
+            \item Niech $U = \bigcup\limits_{\alpha \in A} U_{\alpha}$ gdzie $A_{\alpha} \in T_{1}$ oraz $A$ jest pewnym zbiorem indeksowym, bedzie dowolna suma(skonczona badz nie) zbiorow. Rozwazmy przypadki:
+                \begin{itemize}
+                    \item $U_{\alpha} = \mathbb{R}$ dla pewnego $\alpha \in A$. 
 
-Rozwazmy przypadk:
-\begin{itemize}
-    
-\item $B \lor C = \emptyset$
+                        Wtedy $ \bigcup\limits_{\alpha \in A} U_{\alpha} = \mathbb{R} \in T_{1}$
+                    \item $U_{\alpha} \neq \mathbb{R}$ dla kazdego $\alpha \in A$.
 
-Wtedy: $B \cap C = \emptyset \in T_{1}$
-\item $B \land C \neq \emptyset$ Wtedy mamy przypadki:
+                        Wtedy mamy przypadki:
 
-\begin{itemize}
+                        \begin{itemize}
+                            \item $U_{\alpha} = \emptyset$ dla kazdego $\alpha \in A$. 
 
-\item $B \land C = \mathbb{R}$ 
+                                Wtedy $\bigcup\limits_{\alpha \in A} U_{\alpha} = \emptyset \in T_{1}$  
+                            \item $U_{\alpha} \neq \emptyset$ dla pewnego $\alpha \in A$ oraz zbior $$B = \left\{n: U_{\alpha} = (-n, n)  \land n \in \mathbb{N} \land \alpha \in A\right\}$$ jest ograniczony z gory.
 
-Wtedy $B \cap C = \mathbb{R} \in T_{1}$
+                                Wtedy, z tego ze zbior $B$ jest ograniczony z gory i zawiera liczby naturalne, wiemy ze istnieje najmniejsza liczba naturalna $m$, ktora ogranicza ten zbior z gory. Wezmy zatem liczbe $m$. Zauwazmy, ze $m$ jest jednoczesnie maximum zbioru B. Z definicji zbioru $T_{1}$ mamy, ze $(-m, m) \in T_{1}$ oraz z tego, ze $B$ jest ograniczony z gory, wnioskujemy $$\bigcup\limits_{\alpha \in A} U_{\alpha} = (-m,m) \in T_{1}$$
 
-\item $B \lor C \neq \mathbb{R}$ 
+                            \item $U_{\alpha} \neq \emptyset$ dla pewnego $\alpha \in A$ oraz zbior $$B = \left\{n: U_{\alpha} = (-n, n) \land n \in \mathbb{N} \land \alpha \in A\right\}$$ jest nieograniczony z gory.
 
-Wtedy ktorys ze zbiorow(byc moze oba) jest postaci $(-m,m)$ dla $m \in \mathbb{N}$. Jesli $B = \mathbb{R}$ i $C = (-m,m), m\in \mathbb{N}$ to $B \cap C = (-m,m) \in T_{1}$.
-Drugi przypadek to gdy oba sa postaci prostej, czyli $B = (-m,m)$ oraz $C = (-n,n)$ dla $m,n \in \mathbb{N}$. Wtedy niech $k = min(m,n)$, mamy $B \cap C = (-k,k) \in T_{1}$
+                                Wtedy, mam sprzecznosc, bo zalozylismy, ze $\mathbb{R} \notin T_{1}$, z drugiej strony zbior $B$ jest nieograniczony, a $$\bigcup\limits_{\alpha \in A}U_{\alpha} = \bigcup\limits_{n=1}^{\infty}(-n, n) = \mathbb{R}$$ 
+                                Zatem ten podpunkt odpada.
 
-\end{itemize}
-\end{itemize}
-Zatem $T_{1}$ zamkniete na przekroj.    
-\end{enumerate}
-$T_{1}$ jest zatem topologia. c.b.d.u.
+                        \end{itemize}
 
-\textbf{dla $T_{2}$ mamy:} 
+                        Sprawdzilismy zatem wszystkie mozliwosci i otrzymalismy, ze zbior $T_{1}$ jest zamkniety na sume(skonczona badz nie)
 
-Dowod bedzie analogiczny do tego z $T_{1}$. Postaram sie go bardziej ladnie zrobic.
+                \end{itemize}
+            \item Wezmy dwa dowolne zbiory $B \in T_{1}$ oraz $C \in T_{1}$. Pokazemy, ze $B \cap C \in T_{1}$
 
-\begin{enumerate}[label=(\alph*')]%poczatek dowodu dla T2
+                Rozwazmy przypadk:
+                \begin{itemize}
 
-\item Z opisu $T_{2}$ wnioskujemy, ze $\mathbb{R} \in T_{2}$ oraz $\emptyset \in T_{2}$.
-\item Niech $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$, gdzie $U_{\alpha} \in T_{2}$ oraz $A$ jest pewnym zbiorem indeksowym. Rozwazmy przypadki:
+                    \item $B \lor C = \emptyset$
 
-\begin{itemize}%poczatek pierwszych przypadkow
-   
-\item $U_{\alpha} = \mathbb{R}$ dla pewnego $\alpha \in A$. Wtedy:
+                        Wtedy: $B \cap C = \emptyset \in T_{1}$
+                    \item $B \land C \neq \emptyset$ Wtedy mamy przypadki:
 
-$U = \mathbb{R} \in T_{2}$
-\item $U_{\alpha} \neq \mathbb{R}$ dla kazdego $\alpha \in A$ Wtedy:
+                        \begin{itemize}
 
-Rozwazmy przypadki:
-\begin{itemize}%poczatek drugich przypadkow
+                            \item $B \land C = \mathbb{R}$ 
 
-\item $U_{\alpha} = \emptyset$ dla kazdego $\alpha \in A$ Wtedy:
+                                Wtedy $B \cap C = \mathbb{R} \in T_{1}$
 
-$U = \emptyset \in T_{2}$
-\item $U_{\alpha} \neq \emptyset$ dla pewnego $\alpha$ Wtedy:
+                            \item $B \lor C \neq \mathbb{R}$ 
 
-Wprowadzmy sobie funkcje zdaniowa $$P(x) = (\exists \alpha \in A)(U_{\alpha} = [-x,x])$$ oraz zbior $$B = \left\{n : P(n) \land n \in \mathbb{N}\right\}$$ jako zbior indeksow $n$ dla ktorych istnieje $\alpha \in A$ taka ze $U_{\alpha} = [-n,n]$.
+                                Wtedy ktorys ze zbiorow(byc moze oba) jest postaci $(-m,m)$ dla $m \in \mathbb{N}$. Jesli $B = \mathbb{R}$ i $C = (-m,m), m\in \mathbb{N}$ to $B \cap C = (-m,m) \in T_{1}$.
+                                Drugi przypadek to gdy oba sa postaci prostej, czyli $B = (-m,m)$ oraz $C = (-n,n)$ dla $m,n \in \mathbb{N}$. Wtedy niech $k = min(m,n)$, mamy $B \cap C = (-k,k) \in T_{1}$
 
-Nastepnie rozwazmy dwa przypadki:
+                        \end{itemize}
+                \end{itemize}
+                Zatem $T_{1}$ zamkniete na przekroj.    
+        \end{enumerate}
+        $T_{1}$ jest zatem topologia. c.b.d.u.
 
-I. Zbior $B$ jest ogranioczony z gory.
-Wtedy z tego, ze $B$ jest ograniczony oraz $B$ zawiera tylko liczby naturalne, wnioskujemy, ze istnieje w $B$ maximum. Niech $m = max(B)$. Wtedy $U = [-m,m] \in T_{2}$ 
-\vspace{5mm}
+        \textbf{dla $T_{2}$ mamy:} 
 
-II. Zbior $B$ jest nieograniczony z gory.
-Wtedy $U = \bigcup\limits_{\alpha \in A}U_{\alpha} = \bigcup\limits_{n=1}^{\infty}[-n,n] = \mathbb{R}$, lecz zalozylismy, ze $U \neq \mathbb{R}$. Zatem sprzecznosc, wiec ten przypadek nam odpada.
+        Dowod bedzie analogiczny do tego z $T_{1}$. Postaram sie go bardziej ladnie zrobic.
 
-\end{itemize}%koniec drugich przypadkow
-Zatem $T_{2}$ jest zamkniety na sume.
+        \begin{enumerate}[label=(\alph*')]%poczatek dowodu dla T2
 
-\end{itemize}%koniec pierwszych przypadkow
-\item Wezmy dowolne dwa zbiory $B \in T_{2}$ oraz $C \in T_{2}$. Wtedy:
+            \item Z opisu $T_{2}$ wnioskujemy, ze $\mathbb{R} \in T_{2}$ oraz $\emptyset \in T_{2}$.
+            \item Niech $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$, gdzie $U_{\alpha} \in T_{2}$ oraz $A$ jest pewnym zbiorem indeksowym. Rozwazmy przypadki:
 
-Rozwazmy przypadki:
+                \begin{itemize}%poczatek pierwszych przypadkow
 
-\begin{itemize}%poczatek trzecich przypadkow
+                    \item $U_{\alpha} = \mathbb{R}$ dla pewnego $\alpha \in A$. Wtedy:
 
-\item $B = \mathbb{R} \land C = \mathbb{R}$. Wtedy:
+                        $U = \mathbb{R} \in T_{2}$
+                    \item $U_{\alpha} \neq \mathbb{R}$ dla kazdego $\alpha \in A$ Wtedy:
 
-$B \cap C = \mathbb{R} \in T_{2}$.
-\item WLOG zalozmy, ze $B \neq \mathbb{R}$. Wtedy:
+                        Rozwazmy przypadki:
+                        \begin{itemize}%poczatek drugich przypadkow
 
-Rozwazmy przypadki:
-\begin{itemize}%poczatek czwartych przypadkow
-    
-\item $B = \emptyset$. Wtedy bezwzgledu na $C$:
+                            \item $U_{\alpha} = \emptyset$ dla kazdego $\alpha \in A$ Wtedy:
 
-$B \cap C = \emptyset \in T_{2}$
-\item $B = [-n,n]$ dla pewnego $n \in \mathbb{N}$. Wtedy:
+                                $U = \emptyset \in T_{2}$
+                            \item $U_{\alpha} \neq \emptyset$ dla pewnego $\alpha$ Wtedy:
 
-I. Jesli $C = \emptyset$ to:
+                                Wprowadzmy sobie funkcje zdaniowa $$P(x) = (\exists \alpha \in A)(U_{\alpha} = [-x,x])$$ oraz zbior $$B = \left\{n : P(n) \land n \in \mathbb{N}\right\}$$ jako zbior indeksow $n$ dla ktorych istnieje $\alpha \in A$ taka ze $U_{\alpha} = [-n,n]$.
 
-$B\cap C = \emptyset \in T_{2}$.
-\vspace{5mm}
+                                Nastepnie rozwazmy dwa przypadki:
 
-II. Jesli $C = [-m,m]$ dla pewnego $m \in \mathbb{N}$, Wtedy:
+                                I. Zbior $B$ jest ogranioczony z gory.
+                                Wtedy z tego, ze $B$ jest ograniczony oraz $B$ zawiera tylko liczby naturalne, wnioskujemy, ze istnieje w $B$ maximum. Niech $m = max(B)$. Wtedy $U = [-m,m] \in T_{2}$ 
+                                \vspace{5mm}
 
-Niech $k = min(m, n)$, mamy $B\cap C = [-k,k] \in T_{2}$
-\end{itemize}%koniec czwartych przypadkow
-\vspace{5mm}
+                                II. Zbior $B$ jest nieograniczony z gory.
+                                Wtedy $U = \bigcup\limits_{\alpha \in A}U_{\alpha} = \bigcup\limits_{n=1}^{\infty}[-n,n] = \mathbb{R}$, lecz zalozylismy, ze $U \neq \mathbb{R}$. Zatem sprzecznosc, wiec ten przypadek nam odpada.
 
-Zatem $T_{2}$ jest zamkniete na skonczone przekroje.  
-\end{itemize}%koniec trzecich przypadkow
+                        \end{itemize}%koniec drugich przypadkow
+                        Zatem $T_{2}$ jest zamkniety na sume.
 
-Podsumowujac, sprawdzilismy z definicji topologii i otrzymalismy ze $T_{2}$ jest topologia. c.b.d.u.
+                \end{itemize}%koniec pierwszych przypadkow
+            \item Wezmy dowolne dwa zbiory $B \in T_{2}$ oraz $C \in T_{2}$. Wtedy:
 
-\end{enumerate}%koniec dowodu dla T2
+                Rozwazmy przypadki:
 
-\textbf{dla $T_{3}$ mamy:}
+                \begin{itemize}%poczatek trzecich przypadkow
 
-\begin{enumerate}[label=(\alph*')] %poczatek dowodu dla T3
-    
-\item Z opisu $T_{3}$ mamy, ze $\mathbb{R} \in T_{3}$ oraz $\emptyset \in T_{3}$
-\item Niech $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$, gdzie $U_{\alpha} \in T_{2}$ oraz $A$ jest pewnym zbiorem indeksowym.
+                    \item $B = \mathbb{R} \land C = \mathbb{R}$. Wtedy:
 
-Wprowadzmy sobie funkcje zdaniowa $$P(x) = (\exists \alpha \in A)(U_{\alpha} = [x, \infty])$$
-oraz zbior
-$$B = \left\{n: P(n) \land n \in {\mathbb{N}}^{+}\right\}$$
-$B$ to zbior wszystkich indeksow $n$ dla ktorych $U_{\alpha} = [n, \infty]$.
-Poniewaz zbior ten zawiera tylko liczby naturalne, wiec ma minimum. Niech $m = min(B)$. Wtedy $U = [m, \infty] \in T_{3}$. Zatem $T_{3}$ jest zamkniety na sume.
-\item Wezmy sobie dowolne zbiory $B \in T_{3}$ oraz $C \in T_{3}$. Niech $b = min(B)$ oraz $c = min(C)$. Wtedy $B\cap C = [min(b,c), \infty] \in T_{3}$ bo $min(b,c) \in \mathbb{N}$. Zatem $T_{3}$ jest zamkniety na przekroj.
+                        $B \cap C = \mathbb{R} \in T_{2}$.
+                    \item WLOG zalozmy, ze $B \neq \mathbb{R}$. Wtedy:
 
-Podsumowujac, rozwazylismy wszystkie mozliwosci i otrzymalsmy, ze $T_{3}$ jest topologia.
+                        Rozwazmy przypadki:
+                        \begin{itemize}%poczatek czwartych przypadkow
 
-\end{enumerate} %koniec dowodu dla T3
+                            \item $B = \emptyset$. Wtedy bezwzgledu na $C$:
 
-\item Niech $\mathbb{N}$ bedzie zbiorem liczb naturalnych dodatnich. Udowodnij ze kazda z nastepujacych kolekcji(w ramkach) podzbiorow $\mathbb{N}$ jest topologia.
+                                $B \cap C = \emptyset \in T_{2}$
+                            \item $B = [-n,n]$ dla pewnego $n \in \mathbb{N}$. Wtedy:
 
-\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja: \textbf{Initial segment topology}; poki co brak polskiego tlumaczenia]
-$T_{1}$ zawiera $\mathbb{N}$ oraz $\emptyset$ oraz kazdy zbior $\left\{1,2,3,\dots,n\right\}$, dla dowolnego $n$ naturalnego dodatniego.
-\end{tcolorbox}
-\textbf{Dowod:}
+                                I. Jesli $C = \emptyset$ to:
 
-\begin{itemize}%poczatek dowodu dla T1 
-    
-\item Z opisu mamy, ze $\emptyset \in T_{1}$ oraz $\mathbb{N} \in T_{1}$
-\item Niech $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$ dla pewnego zbioru indeksowego $A$ i $U_{\alpha} \in T_{1}$. Wprowadzmy sobie funkcje zdaniowa
-$$P(x) = (\exists \alpha \in A)(U_{\alpha} = \left\{1,2,3,\dots,x\right\}$$
-oraz zbior
-$$B = \left\{n: P(n) \land n \in {\mathbb{N}}^{+}\right\}$$
-Rozwazmy przypadki:
-\begin{itemize}%poczatek przypadkow dla sumy
-   
-\item Zbior $B$ jest ogranioczony z gory.
+                                $B\cap C = \emptyset \in T_{2}$.
+                                \vspace{5mm}
 
-Poniewaz $B$ zawiera liczby naturalne dodatnie i jest ograniczony z gory wiec
-zawiera maximum. Niech $m = max(B)$. Zatem dla pewnego $\alpha, U_{\alpha} = \left\{1,2,\dots,m\right\}$. Wtedy $U = \left\{1,2,\dots,m\right\} \in T_{1}$.
-\item Zbior $B$ jest nieograniczony z gory.
+                                II. Jesli $C = [-m,m]$ dla pewnego $m \in \mathbb{N}$, Wtedy:
 
-Poniewaz zbior $B$ zawiera liczby naturalne dodatnie(od 1 wzwyz) i nie jest ograniczony z gory, wiec $B = \mathbb{N}$. Zatem dla dowolnej $\alpha \in A$ istnieje ${\alpha}^{\prime} \in A$ taka ze, $U_{\alpha} \subset U_{{\alpha}^{\prime}}$. Zatem $U = \mathbb{N}$.
-\end{itemize}%koniec przypadkow dla sumy
-Zatem $T_{1}$ jest zamkniety na sume.
-\item Wezmy dowolne dwa zbiory $B \in T_{1}$ oraz $C \in T_{1}$
+                                Niech $k = min(m, n)$, mamy $B\cap C = [-k,k] \in T_{2}$
+                        \end{itemize}%koniec czwartych przypadkow
+                        \vspace{5mm}
 
-Rozwazmy przypadki:
-\begin{itemize}%poczatek przypadkow dla przekroju
-    
-\item $B = C = \mathbb{N}$. Wtedy:
+                        Zatem $T_{2}$ jest zamkniete na skonczone przekroje.  
+                \end{itemize}%koniec trzecich przypadkow
 
-$B\cap C = \mathbb{N} \in T_{1}$
-\item WLOG $B \neq \mathbb{N}$. Wtedy:
+                Podsumowujac, sprawdzilismy z definicji topologii i otrzymalismy ze $T_{2}$ jest topologia. c.b.d.u.
 
-Rozwazmy przypadki:
-\begin{itemize}%poczatek drugich przypadkow dla przekroju
+        \end{enumerate}%koniec dowodu dla T2
 
-\item $B = \emptyset$ Wtedy:
+        \textbf{dla $T_{3}$ mamy:}
 
-Bezwzgledu na $C$. $B\cap C = \emptyset \in T_{1}$
-\item $B \neq \emptyset$, czyli $B = \left\{1,2,\dots,n\right\}$ dla pewnego $n \in \mathbb{N}$ to:
+        \begin{enumerate}[label=(\alph*')] %poczatek dowodu dla T3
 
-Jesli $C = \emptyset$, to $B\cap C = \emptyset \in T_{1}$.
+            \item Z opisu $T_{3}$ mamy, ze $\mathbb{R} \in T_{3}$ oraz $\emptyset \in T_{3}$
+            \item Niech $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$, gdzie $U_{\alpha} \in T_{2}$ oraz $A$ jest pewnym zbiorem indeksowym.
 
-Jesli $C = \left\{1,2,\dots,m\right\}$ dla pewnego $m \in \mathbb{N}$, to $B\cap C = \left\{1,2,\dots,min(n,m)\right\} \in T_{1}$  
+                Wprowadzmy sobie funkcje zdaniowa $$P(x) = (\exists \alpha \in A)(U_{\alpha} = [x, \infty])$$
+                oraz zbior
+                $$B = \left\{n: P(n) \land n \in {\mathbb{N}}^{+}\right\}$$
+                $B$ to zbior wszystkich indeksow $n$ dla ktorych $U_{\alpha} = [n, \infty]$.
+                Poniewaz zbior ten zawiera tylko liczby naturalne, wiec ma minimum. Niech $m = min(B)$. Wtedy $U = [m, \infty] \in T_{3}$. Zatem $T_{3}$ jest zamkniety na sume.
+            \item Wezmy sobie dowolne zbiory $B \in T_{3}$ oraz $C \in T_{3}$. Niech $b = min(B)$ oraz $c = min(C)$. Wtedy $B\cap C = [min(b,c), \infty] \in T_{3}$ bo $min(b,c) \in \mathbb{N}$. Zatem $T_{3}$ jest zamkniety na przekroj.
 
-\end{itemize}%koniec drugich przypadkow dla przekroju
-\end{itemize}%koniec przypadkow dla przekroju
-Zatem $T_{1}$ jest zamkniety na przekroj.
+                Podsumowujac, rozwazylismy wszystkie mozliwosci i otrzymalsmy, ze $T_{3}$ jest topologia.
 
-Zatem $T_{1}$ to topologia.
-\end{itemize}%koniec dowodu dla T1
+        \end{enumerate} %koniec dowodu dla T3
 
-\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja:\textbf{Final segment topology}; poki co brak polskiego tlumaczenia]
-$T_{2}$ zawiera $\mathbb{N}$ oraz $\emptyset$ oraz kazdy zbior $\left\{n, n+1, n+2,\dots \right\}$, dla dowolnego $n$ naturalnego dodatniego.
-\end{tcolorbox}
-\textbf{Dowod:}
+    \item Niech $\mathbb{N}$ bedzie zbiorem liczb naturalnych dodatnich. Udowodnij ze kazda z nastepujacych kolekcji(w ramkach) podzbiorow $\mathbb{N}$ jest topologia.
 
-\begin{itemize}%poczatek dowodu dla T2
-    
-\item Z opisu mamy, ze $\emptyset \in T_{2}$ oraz $\mathbb{N} \in T_{2}$
-\item Niech $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$, gdzie $A$ jest pewnym zbiorem indeksowym oraz $U_{\alpha} \in T_{2}$. Wprowadzmy sobie funkcje zdaniowa
-$$P(x) = (\exists \alpha \in A)(U_{\alpha} = \left\{x, x+1, x+2, \dots\right\}$$
-oraz zbior
-$$B = \left\{n: P(n) \land n \in {\mathbb{N}}^{+}\right\}$$
+        \begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja: \textbf{Initial segment topology}; poki co brak polskiego tlumaczenia]
+            $T_{1}$ zawiera $\mathbb{N}$ oraz $\emptyset$ oraz kazdy zbior $\left\{1,2,3,\dots,n\right\}$, dla dowolnego $n$ naturalnego dodatniego.
+        \end{tcolorbox}
+        \textbf{Dowod:}
 
-Niech $m = min(B)$. Wtedy dla kazdego $\alpha \in A, U_{\alpha} \subset \left\{m, m+1, \dots\right\}$ oraz $U = \left\{m, m+1, \dots\right\} \in T_{2}$.
+        \begin{itemize}%poczatek dowodu dla T1 
 
-Zatem $T_{2}$ jest zamkniety na sume.
+            \item Z opisu mamy, ze $\emptyset \in T_{1}$ oraz $\mathbb{N} \in T_{1}$
+            \item Niech $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$ dla pewnego zbioru indeksowego $A$ i $U_{\alpha} \in T_{1}$. Wprowadzmy sobie funkcje zdaniowa
+                $$P(x) = (\exists \alpha \in A)(U_{\alpha} = \left\{1,2,3,\dots,x\right\}$$
+                oraz zbior
+                $$B = \left\{n: P(n) \land n \in {\mathbb{N}}^{+}\right\}$$
+                Rozwazmy przypadki:
+                \begin{itemize}%poczatek przypadkow dla sumy
 
-\item Wezmy dowolne $B \in T_{2}$ oraz $C \in T_{2}$.
+                    \item Zbior $B$ jest ogranioczony z gory.
 
-Rozwazmy przypadki:
+                        Poniewaz $B$ zawiera liczby naturalne dodatnie i jest ograniczony z gory wiec
+                        zawiera maximum. Niech $m = max(B)$. Zatem dla pewnego $\alpha, U_{\alpha} = \left\{1,2,\dots,m\right\}$. Wtedy $U = \left\{1,2,\dots,m\right\} \in T_{1}$.
+                    \item Zbior $B$ jest nieograniczony z gory.
 
-\begin{itemize}%poczatek przypadkow dla przekroju
-    
-\item $B = \emptyset \lor C = \emptyset$. Wtedy:
+                        Poniewaz zbior $B$ zawiera liczby naturalne dodatnie(od 1 wzwyz) i nie jest ograniczony z gory, wiec $B = \mathbb{N}$. Zatem dla dowolnej $\alpha \in A$ istnieje ${\alpha}^{\prime} \in A$ taka ze, $U_{\alpha} \subset U_{{\alpha}^{\prime}}$. Zatem $U = \mathbb{N}$.
+                \end{itemize}%koniec przypadkow dla sumy
+                Zatem $T_{1}$ jest zamkniety na sume.
+            \item Wezmy dowolne dwa zbiory $B \in T_{1}$ oraz $C \in T_{1}$
 
-$B\cap C = \emptyset \in T_{2}$
-\item $B = \mathbb{N} \land C = \mathbb{N}$. Wtedy:
+                Rozwazmy przypadki:
+                \begin{itemize}%poczatek przypadkow dla przekroju
 
-$B\cap C = \mathbb{N} \in T_{2}$
+                    \item $B = C = \mathbb{N}$. Wtedy:
 
-\item Zaden z nich nie jest pusty oraz oba nie sa zbiorem $\mathbb{N}$. Wtedy:
+                        $B\cap C = \mathbb{N} \in T_{1}$
+                    \item WLOG $B \neq \mathbb{N}$. Wtedy:
 
-Jesli $B = \left\{m, m+1, \dots\right\}$ dla pewnego $m \in \mathbb{N}$ oraz $C =  \left\{n, n+1, \dots\right\}$ dla pewnego $n \in \mathbb{N}$, to $B\cap C = \left\{max(m,n), max(m,n)+1, \dots\right\} \in T_{2}$
-\vspace{5mm}
+                        Rozwazmy przypadki:
+                        \begin{itemize}%poczatek drugich przypadkow dla przekroju
 
-Jesli WLOG $B = \left\{m, m+1, \dots\right\}$ dla pewnego $m \in \mathbb{N}$ oraz $C = \mathbb{N}$ to $B\cap C = \left\{m, m+1, \dots\right\} \in T_{2}$ 
-\end{itemize}%koniec przypadkow dla przekroju
-Zatem $T_{2}$ jest zamkniete na przekroj
+                            \item $B = \emptyset$ Wtedy:
 
-Zatem $T_{2}$ to topologia. c.b.d.u.
-\end{itemize}%koniec dowodu dla T2
+                                Bezwzgledu na $C$. $B\cap C = \emptyset \in T_{1}$
+                            \item $B \neq \emptyset$, czyli $B = \left\{1,2,\dots,n\right\}$ dla pewnego $n \in \mathbb{N}$ to:
 
-\item Wypisz wszystkie mozliwe topologie na ponizszych zbiorach:
+                                Jesli $C = \emptyset$, to $B\cap C = \emptyset \in T_{1}$.
 
-\begin{enumerate}[label=(\alph*)]%poczatek wymieniania zbiorow z polecenia
-\item $X = \left\{a,b\right\}$
+                                Jesli $C = \left\{1,2,\dots,m\right\}$ dla pewnego $m \in \mathbb{N}$, to $B\cap C = \left\{1,2,\dots,min(n,m)\right\} \in T_{1}$  
 
-\textbf{Odpowiedz:}
+                        \end{itemize}%koniec drugich przypadkow dla przekroju
+                \end{itemize}%koniec przypadkow dla przekroju
+                Zatem $T_{1}$ jest zamkniety na przekroj.
 
-Sa takie 4 topologie:
-\begin{enumerate}[label={$T_{\arabic*} = $}]%poczatek wymieniania odpowiedzi
-    
-\item $\left\{X, \emptyset\right\}$
-\item $\left\{X, \emptyset, \left\{a\right\}, \left\{b\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{b\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{a\right\} \right\}$
-\end{enumerate}%koniec wymieniania odpowiedzi
- 
-\item $X = \left\{a,b,c\right\}$   
+                Zatem $T_{1}$ to topologia.
+        \end{itemize}%koniec dowodu dla T1
 
-\textbf{Odpowiedz:}
+        \begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=Definicja:\textbf{Final segment topology}; poki co brak polskiego tlumaczenia]
+            $T_{2}$ zawiera $\mathbb{N}$ oraz $\emptyset$ oraz kazdy zbior $\left\{n, n+1, n+2,\dots \right\}$, dla dowolnego $n$ naturalnego dodatniego.
+        \end{tcolorbox}
+        \textbf{Dowod:}
 
-Jest takich 29 topologii:TODO PRZEPISAC Z KARTKI JE TUTAJ
-  
-TODO NAPISZ DOWOD ZE JEST ICH 29, NA WIKI SPRAWDZ: TOPOLOGIES ON SET WITH 3 ELEMENTS
-\begin{enumerate}[label = {$T_{\arabic*} = $}]%poczatek wymieniania odpowiedzi
-    
-\item $\left\{X, \emptyset\right\}$
-\item $\left\{X, \emptyset, \left\{a\right\}, \left\{b\right\}, \left\{c\right\}, \left\{a,b\right\},\left\{a,c\right\},\left\{b,c\right\},\right\}$
-\item $\left\{X, \emptyset, \left\{a\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{b\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{c\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{a\right\}, \left\{a,b\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{a\right\}, \left\{a,c\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{b\right\}, \left\{b,c\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{b\right\}, \left\{b,a\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{c\right\}, \left\{c,a\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{c\right\}, \left\{c,b\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{a\right\}, \left\{a,b,c\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{b\right\}, \left\{a,b,c\right\} \right\}$
-\item $\left\{X, \emptyset, \left\{c\right\}, \left\{a,b,c\right\} \right\}$
-\end{enumerate}%koniec wymieniania odpowiedzi 
+        \begin{itemize}%poczatek dowodu dla T2
 
-\end{enumerate}%koniec wymieniania zbiorow z polecenia
-\item Udowodnij ponizszy lemat.
-\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Lemat: Topologia dyskretna i podzbiory nieskonczone]
+            \item Z opisu mamy, ze $\emptyset \in T_{2}$ oraz $\mathbb{N} \in T_{2}$
+            \item Niech $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$, gdzie $A$ jest pewnym zbiorem indeksowym oraz $U_{\alpha} \in T_{2}$. Wprowadzmy sobie funkcje zdaniowa
+                $$P(x) = (\exists \alpha \in A)(U_{\alpha} = \left\{x, x+1, x+2, \dots\right\}$$
+                oraz zbior
+                $$B = \left\{n: P(n) \land n \in {\mathbb{N}}^{+}\right\}$$
 
-Niech $X$ bedzie zbiorem niesoknczonym oraz $T$ topologia na $X$. Jezeli kazdy nieskonczony podzbior $X$ nalezy do $T$, to $T$ jest topologia dyskretna.
+                Niech $m = min(B)$. Wtedy dla kazdego $\alpha \in A, U_{\alpha} \subset \left\{m, m+1, \dots\right\}$ oraz $U = \left\{m, m+1, \dots\right\} \in T_{2}$.
 
-\end{tcolorbox}
-\textbf{Dowod:}
+                Zatem $T_{2}$ jest zamkniety na sume.
 
-Zgodnie z ktoryms tam lematem(latwy dowod), jesli $T$ zawiera $\left\{x\right\}$ gdzie $x \in X$ jest dowolnym elementem $X$, to $T$ jest topologia dyskretna. 
+            \item Wezmy dowolne $B \in T_{2}$ oraz $C \in T_{2}$.
 
-Zatem wezmy dowolny element $x \in X$. Skoro $X$ jest nieskonczonym zbiorem i kazdy nieskonczony podzbior $X$ jest w $T$, to oznacza, ze mozemy sobie wybrac z $X$, nieskonczony ciag roznowartosciowy, w ktorym nie ma elementu $x$. 
+                Rozwazmy przypadki:
 
-Jak? Na przyklad tak:
-$$
-\begin{cases}
-    a_{1} = \begin{cases} 1 \text{ jesli } x \neq 1 \\ 0 \text{ jesli } x = 1   \end{cases} \\
-    a_{n} = min\left\{y: y \in X \land y \neq x \land (\forall i \in \left\{1,2,\dots,n-1\right\})(a_{i} \neq y)\right\}
-\end{cases}$$
+                \begin{itemize}%poczatek przypadkow dla przekroju
 
-Nastepnie rozwazmy dwa nieskonczone zbiory:
-$$A = \left\{a_{n}: n = 2\times k \land k \in \mathbb{Z}\right\} \cup \left\{x\right\}$$
-$$\text{ oraz }$$ 
-$$B = \left\{a_{n}: n = 2\times k + 1\land k \in \mathbb{Z}\right\} \cup \left\{x\right\} $$
-Wtedy oczywiscie $A \in T$ oraz $B \in T$ oraz $A \cap B = \left\{x\right\} \in T$
+                    \item $B = \emptyset \lor C = \emptyset$. Wtedy:
 
-Z dowolnosci $x$, wnioskujemy, ze $T$ zawiera dowolny singleton $\left\{x\right\}$ taki ze, $x \in X$. Zatem $T$ jest topologia dyskretna. c.b.d.u. 
+                        $B\cap C = \emptyset \in T_{2}$
+                    \item $B = \mathbb{N} \land C = \mathbb{N}$. Wtedy:
 
-\item Wskaz i udowodnij, ktore z ponizszych zbior liczb rzeczywistych $\mathbb{R}$ sa topologiami.
+                        $B\cap C = \mathbb{N} \in T_{2}$
 
-\begin{enumerate}[label={$T_{\arabic*} :$}]
-\item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(a,b)$ gdzie $a,b \in \mathbb{R}$ oraz $a < b$;
+                    \item Zaden z nich nie jest pusty oraz oba nie sa zbiorem $\mathbb{N}$. Wtedy:
 
-\textbf{Nie:}
+                        Jesli $B = \left\{m, m+1, \dots\right\}$ dla pewnego $m \in \mathbb{N}$ oraz $C =  \left\{n, n+1, \dots\right\}$ dla pewnego $n \in \mathbb{N}$, to $B\cap C = \left\{max(m,n), max(m,n)+1, \dots\right\} \in T_{2}$
+                        \vspace{5mm}
 
-Wezmy sobie zbior $A = \left\{ 1,2 \right\}$ oraz $B = \left\{ 4,5 \right\}$. Oczywiscie $A \in T_{1}$ oraz $B \in T_{1}$, ale suma $A \cup B = \left\{ 1,2 \right\} \cup \left\{ 4,5 \right\} \notin T_{1}$
-\item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{R}}^{+}$;
+                        Jesli WLOG $B = \left\{m, m+1, \dots\right\}$ dla pewnego $m \in \mathbb{N}$ oraz $C = \mathbb{N}$ to $B\cap C = \left\{m, m+1, \dots\right\} \in T_{2}$ 
+                \end{itemize}%koniec przypadkow dla przekroju
+                Zatem $T_{2}$ jest zamkniete na przekroj
 
-\textbf{Tak:}
+                Zatem $T_{2}$ to topologia. c.b.d.u.
+        \end{itemize}%koniec dowodu dla T2
 
-\begin{itemize}
-    \item Z definicjie $\mathbb{R} \in T_{2}$ oraz $\emptyset \in T_{2}$
-    \item Wezmy dowolna $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$, gdzie $U_{\alpha} \in T_{2}$ oraz $A$ jest pewnym zbiorem indeksowym. Wtedy jesli pewien $U_{\alpha} = \mathbb{R}$ to $U = \mathbb{R} \in T_{2}$. W przeciwnym przypadku, jesli kazdy $U_{\alpha} = \emptyset$ to $U = \emptyset \in T_{2}$. W przeciwnym przypadku, jesli nie kazdy $U_{\alpha} = \emptyset$ wtedy rozwazmy przypadki: jesli zbior indeksow $r$, dla ktorych $U_{\alpha} = (-r,r)$, jest ograniczony, to wiemy, ze istnieje indeks $q \in  \mathbb{R}$, taki ze $(\forall \alpha in A)(U_{\alpha} \subseteq (-q,q))$ oraz $(-q,q) \in T_{2}$. Z drugiej strony jesli zbior indeksow $r$, dla ktorych $U_{\alpha} = (-r,r)$, jest nieograniczony, to $U = \mathbb{R} \in T_{2}$. 
-    \item Wezmy dowolne dwa zbiory $A \in T_{2}$ oraz $B \in T_{2}$. Wtedy jesli ktorys z nich jest $\emptyset$ to $A \cap B = \emptyset$. Jesli zaden z nich nie jest $\emptyset$, to albo oba sa $\mathbb{R}$, wtedy $A \cap B = \mathbb{R} \in T_{2}$ albo ktorys z nich nie jest $ \mathbb{R}$. Wtedy albo jeden z nich jest postaci $(-r,r)$ albo oba sa tej postaci, $(-r,r), (-q,q)$. W kazdym przypadku zauwazamy, ze $A \cap B = (-r,r) \in T_{2}$ lub $A \cap B = (-min(r,q), min(r,q)) \in T_{2}$
-\end{itemize}
-\item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{Q}}^{+}$;
+    \item Wypisz wszystkie mozliwe topologie na ponizszych zbiorach:
 
-\textbf{Odpowiedz:}
+        \begin{enumerate}[label=(\alph*)]%poczatek wymieniania zbiorow z polecenia
+            \item $X = \left\{a,b\right\}$
 
-        Nie. Rozwazmy ciag liczb wymiernych $r_{n}$ dazacy do liczby niewymiernej $r$. Dodatkowo rozwazmy nieskonczona sume zbiorow $\bigcup\limits_{i=1}^{\infty}(-r_{n}, r_{n})$. Wtedy przy $n \rightarrow \infty, (-r_{n}, r_{n}) \rightarrow (-r, r)$. Kazdy zbior z  $\bigcup\limits_{i=1}^{infty}(-r_{n}, r_{n})$ jest w $T_{3}$ ale $(-r, r)$ juz nie jest.
-\item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-r,r]$ gdzie $r \in {\mathbb{Q}}^{+}$;
+                \textbf{Odpowiedz:}
 
-\textbf{Odpowiedz:}
+                Sa takie 4 topologie:
+                \begin{enumerate}[label={$T_{\arabic*} = $}]%poczatek wymieniania odpowiedzi
 
-        Nie. Rozwazmy ciag liczb wymiernych $r_{n}$ dazacy do liczby wymiernej $r$. Dodatkowo rozwazmy nieskonczona sume zbiorow $\bigcup\limits_{i=1}^{\infty}[-r_{n} + \frac{1}{n}, r_{n} - \frac{1}{n}]$. Wtedy przy $n  \rightarrow \infty, [-r_{n} + \frac{1}{n}, r_{n} - \frac{1}{n}] \rightarrow (-r, r)$. Kazdy zbior z sumy  $\bigcup\limits_{i=1}^{\infty}[-r_{n} + \frac{1}{n}, r_{n} - \frac{1}{n}]$ jest w $T_{4}$, ale $(-r, r)$ juz nie jest.
-\item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{R}}^{+} \setminus \mathbb{Q}$;
- 
-\textbf{Odpowiedz:}
+                    \item $\left\{X, \emptyset\right\}$
+                    \item $\left\{X, \emptyset, \left\{a\right\}, \left\{b\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{b\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{a\right\} \right\}$
+                \end{enumerate}%koniec wymieniania odpowiedzi
 
-        Nie. Rozwazmy ciag liczb niewymiernych dazacy do liczby wymiernej. Niech $r_{n}$ bedzie ciagiem liczb wymiernych dazacym do $\sqrt{2}$. Nastepnie rozwazmy ciag $g_{n} = 2+\sqrt{2} - r_{n}$. Wtedy $\bigcup\limits_{i=1}^{\infty}(-g_{n}, g_{n})$ dazy do $(-2,2)$ przy $n \rightarrow \infty$. Argumentacja podobna jak w przykladzie 4.
-\item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-r,r]$ gdzie $r \in {\mathbb{R}}^{+} \setminus \mathbb{Q}$;
+            \item $X = \left\{a,b,c\right\}$   
 
-\textbf{Odpowiedz:}
+                \textbf{Odpowiedz:}
 
-        Nie. Rozwazmy ciag liczb niewymiernych dazacy do liczby wymiernej $g_{n}$. Rozwazmy nieskonczona sume $\bigcup\limits_{i=1}^{\infty}[-g_{n} + \frac{1}{n}, g_{n} - \frac{1}{n}]$. Suma ta dazy do $[-g, g]$, gdzie $g$ jest liczba wymierna.
-\item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-r,r)$ gdzie $r \in {\mathbb{R}}^{+}$;
+                Jest takich 29 topologii:TODO PRZEPISAC Z KARTKI JE TUTAJ
 
-\textbf{Odpowiedz:}
+                TODO NAPISZ DOWOD ZE JEST ICH 29, NA WIKI SPRAWDZ: TOPOLOGIES ON SET WITH 3 ELEMENTS
+                \begin{enumerate}[label = {$T_{\arabic*} = $}]%poczatek wymieniania odpowiedzi
 
-Nie. Przyklad z podpunktu 4 tutaj zadziala.
-\item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r]$ gdzie $r \in {\mathbb{R}}^{+}$;
- 
-    \textbf{Odpowiedz:}
-Nie. Przyklad z podpunktu 4 takza tutaj zadziala.
-\item zawiera $\mathbb{R}, \emptyset$, kazdy przedzial $[-r,r]$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{R}}^{+}$;
+                    \item $\left\{X, \emptyset\right\}$
+                    \item $\left\{X, \emptyset, \left\{a\right\}, \left\{b\right\}, \left\{c\right\}, \left\{a,b\right\},\left\{a,c\right\},\left\{b,c\right\},\right\}$
+                    \item $\left\{X, \emptyset, \left\{a\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{b\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{c\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{a\right\}, \left\{a,b\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{a\right\}, \left\{a,c\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{b\right\}, \left\{b,c\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{b\right\}, \left\{b,a\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{c\right\}, \left\{c,a\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{c\right\}, \left\{c,b\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{a\right\}, \left\{a,b,c\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{b\right\}, \left\{a,b,c\right\} \right\}$
+                    \item $\left\{X, \emptyset, \left\{c\right\}, \left\{a,b,c\right\} \right\}$
+                \end{enumerate}%koniec wymieniania odpowiedzi 
 
-\textbf{Odowiedz:}
+        \end{enumerate}%koniec wymieniania zbiorow z polecenia
+    \item Udowodnij ponizszy lemat.
+        \begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=Lemat: Topologia dyskretna i podzbiory nieskonczone]
 
-Tak. Mozna tu zrobic dowod w stylu tych poprzednich- czyli przeanalizowac wszystkie przypadki, ale poczekam na cos lepszego. Zostanie to tutaj uzupelnione.
-\item zawiera $\mathbb{R}, \emptyset$, kazdy przedzial $[-n,n]$ oraz kazdy przedzial $(-r,r)$ gdzie $n \in {\mathbb{N}}^{+}$ oraz  $r \in {\mathbb{R}}^{+}$;
+            Niech $X$ bedzie zbiorem niesoknczonym oraz $T$ topologia na $X$. Jezeli kazdy nieskonczony podzbior $X$ nalezy do $T$, to $T$ jest topologia dyskretna.
 
-\textbf{Odpowiedz:}
+        \end{tcolorbox}
+        \textbf{Dowod:}
 
- Tak. Mozna tu zrobic dowod w stylu tych poprzednich- czyli przeanalizowac wszystkie przypadki, ale poczekam na cos lepszego. Zostanie to tutaj uzupelnione.
-\end{enumerate}
+        Zgodnie z ktoryms tam lematem(latwy dowod), jesli $T$ zawiera $\left\{x\right\}$ gdzie $x \in X$ jest dowolnym elementem $X$, to $T$ jest topologia dyskretna. 
+
+        Zatem wezmy dowolny element $x \in X$. Skoro $X$ jest nieskonczonym zbiorem i kazdy nieskonczony podzbior $X$ jest w $T$, to oznacza, ze mozemy sobie wybrac z $X$, nieskonczony ciag roznowartosciowy, w ktorym nie ma elementu $x$. 
+
+        Jak? Na przyklad tak:
+        $$
+        \begin{cases}
+            a_{1} = \begin{cases} 1 \text{ jesli } x \neq 1 \\ 0 \text{ jesli } x = 1   \end{cases} \\
+                a_{n} = min\left\{y: y \in X \land y \neq x \land (\forall i \in \left\{1,2,\dots,n-1\right\})(a_{i} \neq y)\right\}
+        \end{cases}$$
+
+        Nastepnie rozwazmy dwa nieskonczone zbiory:
+        $$A = \left\{a_{n}: n = 2\times k \land k \in \mathbb{Z}\right\} \cup \left\{x\right\}$$
+        $$\text{ oraz }$$ 
+        $$B = \left\{a_{n}: n = 2\times k + 1\land k \in \mathbb{Z}\right\} \cup \left\{x\right\} $$
+        Wtedy oczywiscie $A \in T$ oraz $B \in T$ oraz $A \cap B = \left\{x\right\} \in T$
+
+        Z dowolnosci $x$, wnioskujemy, ze $T$ zawiera dowolny singleton $\left\{x\right\}$ taki ze, $x \in X$. Zatem $T$ jest topologia dyskretna. c.b.d.u. 
+
+    \item Wskaz i udowodnij, ktore z ponizszych zbior liczb rzeczywistych $\mathbb{R}$ sa topologiami.
+
+        \begin{enumerate}[label={$T_{\arabic*} :$}]
+            \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(a,b)$ gdzie $a,b \in \mathbb{R}$ oraz $a < b$;
+
+                \textbf{Nie:}
+
+                Wezmy sobie zbior $A = \left\{ 1,2 \right\}$ oraz $B = \left\{ 4,5 \right\}$. Oczywiscie $A \in T_{1}$ oraz $B \in T_{1}$, ale suma $A \cup B = \left\{ 1,2 \right\} \cup \left\{ 4,5 \right\} \notin T_{1}$
+            \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{R}}^{+}$;
+
+                \textbf{Tak:}
+
+                \begin{itemize}
+                    \item Z definicjie $\mathbb{R} \in T_{2}$ oraz $\emptyset \in T_{2}$
+                    \item Wezmy dowolna $U = \bigcup\limits_{\alpha \in A}U_{\alpha}$, gdzie $U_{\alpha} \in T_{2}$ oraz $A$ jest pewnym zbiorem indeksowym. Wtedy jesli pewien $U_{\alpha} = \mathbb{R}$ to $U = \mathbb{R} \in T_{2}$. W przeciwnym przypadku, jesli kazdy $U_{\alpha} = \emptyset$ to $U = \emptyset \in T_{2}$. W przeciwnym przypadku, jesli nie kazdy $U_{\alpha} = \emptyset$ wtedy rozwazmy przypadki: jesli zbior indeksow $r$, dla ktorych $U_{\alpha} = (-r,r)$, jest ograniczony, to wiemy, ze istnieje indeks $q \in  \mathbb{R}$, taki ze $(\forall \alpha in A)(U_{\alpha} \subseteq (-q,q))$ oraz $(-q,q) \in T_{2}$. Z drugiej strony jesli zbior indeksow $r$, dla ktorych $U_{\alpha} = (-r,r)$, jest nieograniczony, to $U = \mathbb{R} \in T_{2}$. 
+                    \item Wezmy dowolne dwa zbiory $A \in T_{2}$ oraz $B \in T_{2}$. Wtedy jesli ktorys z nich jest $\emptyset$ to $A \cap B = \emptyset$. Jesli zaden z nich nie jest $\emptyset$, to albo oba sa $\mathbb{R}$, wtedy $A \cap B = \mathbb{R} \in T_{2}$ albo ktorys z nich nie jest $ \mathbb{R}$. Wtedy albo jeden z nich jest postaci $(-r,r)$ albo oba sa tej postaci, $(-r,r), (-q,q)$. W kazdym przypadku zauwazamy, ze $A \cap B = (-r,r) \in T_{2}$ lub $A \cap B = (-min(r,q), min(r,q)) \in T_{2}$
+                \end{itemize}
+            \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{Q}}^{+}$;
+
+                \textbf{Odpowiedz:}
+
+                Nie. Rozwazmy ciag liczb wymiernych $r_{n}$ dazacy do liczby niewymiernej $r$. Dodatkowo rozwazmy nieskonczona sume zbiorow $\bigcup\limits_{i=1}^{\infty}(-r_{n}, r_{n})$. Wtedy przy $n \rightarrow \infty, (-r_{n}, r_{n}) \rightarrow (-r, r)$. Kazdy zbior z  $\bigcup\limits_{i=1}^{infty}(-r_{n}, r_{n})$ jest w $T_{3}$ ale $(-r, r)$ juz nie jest.
+            \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-r,r]$ gdzie $r \in {\mathbb{Q}}^{+}$;
+
+                \textbf{Odpowiedz:}
+
+                Nie. Rozwazmy ciag liczb wymiernych $r_{n}$ dazacy do liczby wymiernej $r$. Dodatkowo rozwazmy nieskonczona sume zbiorow $\bigcup\limits_{i=1}^{\infty}[-r_{n} + \frac{1}{n}, r_{n} - \frac{1}{n}]$. Wtedy przy $n  \rightarrow \infty, [-r_{n} + \frac{1}{n}, r_{n} - \frac{1}{n}] \rightarrow (-r, r)$. Kazdy zbior z sumy  $\bigcup\limits_{i=1}^{\infty}[-r_{n} + \frac{1}{n}, r_{n} - \frac{1}{n}]$ jest w $T_{4}$, ale $(-r, r)$ juz nie jest.
+            \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{R}}^{+} \setminus \mathbb{Q}$;
+
+                \textbf{Odpowiedz:}
+
+                Nie. Rozwazmy ciag liczb niewymiernych dazacy do liczby wymiernej. Niech $r_{n}$ bedzie ciagiem liczb wymiernych dazacym do $\sqrt{2}$. Nastepnie rozwazmy ciag $g_{n} = 2+\sqrt{2} - r_{n}$. Wtedy $\bigcup\limits_{i=1}^{\infty}(-g_{n}, g_{n})$ dazy do $(-2,2)$ przy $n \rightarrow \infty$. Argumentacja podobna jak w przykladzie 4.
+            \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-r,r]$ gdzie $r \in {\mathbb{R}}^{+} \setminus \mathbb{Q}$;
+
+                \textbf{Odpowiedz:}
+
+                Nie. Rozwazmy ciag liczb niewymiernych dazacy do liczby wymiernej $g_{n}$. Rozwazmy nieskonczona sume $\bigcup\limits_{i=1}^{\infty}[-g_{n} + \frac{1}{n}, g_{n} - \frac{1}{n}]$. Suma ta dazy do $[-g, g]$, gdzie $g$ jest liczba wymierna.
+            \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $[-r,r)$ gdzie $r \in {\mathbb{R}}^{+}$;
+
+                \textbf{Odpowiedz:}
+
+                Nie. Przyklad z podpunktu 4 tutaj zadziala.
+            \item zawiera $\mathbb{R}, \emptyset$ oraz kazdy przedzial $(-r,r]$ gdzie $r \in {\mathbb{R}}^{+}$;
+
+                \textbf{Odpowiedz:}
+                Nie. Przyklad z podpunktu 4 takza tutaj zadziala.
+            \item zawiera $\mathbb{R}, \emptyset$, kazdy przedzial $[-r,r]$ oraz kazdy przedzial $(-r,r)$ gdzie $r \in {\mathbb{R}}^{+}$;
+
+                \textbf{Odowiedz:}
+
+                Tak. Mozna tu zrobic dowod w stylu tych poprzednich- czyli przeanalizowac wszystkie przypadki, ale poczekam na cos lepszego. Zostanie to tutaj uzupelnione.
+            \item zawiera $\mathbb{R}, \emptyset$, kazdy przedzial $[-n,n]$ oraz kazdy przedzial $(-r,r)$ gdzie $n \in {\mathbb{N}}^{+}$ oraz  $r \in {\mathbb{R}}^{+}$;
+
+                \textbf{Odpowiedz:}
+
+                Tak. Mozna tu zrobic dowod w stylu tych poprzednich- czyli przeanalizowac wszystkie przypadki, ale poczekam na cos lepszego. Zostanie to tutaj uzupelnione.
+        \end{enumerate}
 
 
 \end{enumerate}%koniec numeracji zadan
@@ -544,26 +545,26 @@ Tak. Mozna tu zrobic dowod w stylu tych poprzednich- czyli przeanalizowac wszyst
 \subsection{Zbiory otwarte: definicje, lematy, zadania i rozwiazania}
 \begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.2.1 Definicja: Zbior otwarty- open set]
 
-Niech $(X, T)$ bedzie przestrzenia topologiczna. Wtedy elementy $T$ nazywaja sie \textbf{zbiory otwarte.}
+    Niech $(X, T)$ bedzie przestrzenia topologiczna. Wtedy elementy $T$ nazywaja sie \textbf{zbiory otwarte.}
 
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=1.2.2 Lemat: Przestrzen topologiczna i zbiory otwarte]
-Niech $(X, T)$ bedzie przestrzenia topologiczna. Wtedy
+    Niech $(X, T)$ bedzie przestrzenia topologiczna. Wtedy
 
-\begin{itemize}%poczatek lematu
-       
-\item $X$ oraz $\emptyset$ sa zbiorami otwartymi.
-\item suma(skonczona lub nie) zbiorow otwartych jest zbiorem otwartym
-\item przekroj skonczony zbiorow otwartych jest zbiorem otwartym
-\end{itemize}%koniec lematu
+    \begin{itemize}%poczatek lematu
+
+        \item $X$ oraz $\emptyset$ sa zbiorami otwartymi.
+        \item suma(skonczona lub nie) zbiorow otwartych jest zbiorem otwartym
+        \item przekroj skonczony zbiorow otwartych jest zbiorem otwartym
+    \end{itemize}%koniec lematu
 \end{tcolorbox}
 \textbf{Dowod:}
 Wynika to wprost z definicji. Podpunkt trzeci wynika z zadania 4.
 
 \begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.2.3 Definicja: Zbior domkniety- closed set]
 
-Niech $(X,T)$ bedzie przestrzenia topologiczna. Podzbior $S$ zbioru $X$ jest \textbf{zbiorem domknietym} w $(X, T)$ jesli jego dopelnienie w $X$, $X\setminus S$, jest zbiorem otwartym w $(X, T)$
+    Niech $(X,T)$ bedzie przestrzenia topologiczna. Podzbior $S$ zbioru $X$ jest \textbf{zbiorem domknietym} w $(X, T)$ jesli jego dopelnienie w $X$, $X\setminus S$, jest zbiorem otwartym w $(X, T)$
 \end{tcolorbox}
 \textbf{Komentarz}
 
@@ -573,14 +574,14 @@ Zauwazmy, ze jesli $(X,T)$ jest przestrzenia dyskretna, wtedy kazdy podzbior $X$
 
 \begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=1.2.5 Lemat: Przestrzen topologiczna i zbiory domkniete]
 
-Niech $(X,T)$ bedzie przestrzenia topologiczna. Wtedy
+    Niech $(X,T)$ bedzie przestrzenia topologiczna. Wtedy
 
-\begin{itemize}%poczatek lematu
-\item $\emptyset$ oraz $X$ sa zbiorami domknietymi
-\item przekroj skonczonej lub nieskonczonej liczby zbiorow domknietych jest zbiorem domknietym
-\item suma skonczonej liczby zbiorow zamknietych jest zbiorem domknietym
-    
-\end{itemize}%koniec letmatu
+    \begin{itemize}%poczatek lematu
+        \item $\emptyset$ oraz $X$ sa zbiorami domknietymi
+        \item przekroj skonczonej lub nieskonczonej liczby zbiorow domknietych jest zbiorem domknietym
+        \item suma skonczonej liczby zbiorow zamknietych jest zbiorem domknietym
+
+    \end{itemize}%koniec letmatu
 \end{tcolorbox}
 \textbf{Komentarz:}
 
@@ -596,131 +597,147 @@ TODO
 \textbf{Cwiczenie 1.2:}
 \begin{enumerate}%poczatek zadan
 
-\item Wypisz wszystkie 64 podzbiory zbioru $X = \left\{a,b,c,d,e,f \right\}$. Obok kazdego zbioru wypisz czy jest 
-    \begin{itemize}
-        \item clopen (czyli otwarty i domkniety)
-        \item ani domkniety ani otwarty
-        \item otwarty ale nie domkniety
-        \item domkniety ale nie otwarty
-    \end{itemize}
-dla topologii $T$ zadanej na $X$, takiej, ze: $$T = \left\{ X, \emptyset, \left\{ a \right\}, \left\{ c,d \right\}, \left\{ a,c,d \right\}, \left\{ b,c,d,e,f \right\} \right\}$$
+    \item Wypisz wszystkie 64 podzbiory zbioru $X = \left\{a,b,c,d,e,f \right\}$. Obok kazdego zbioru wypisz czy jest 
+        \begin{itemize}
+            \item clopen (czyli otwarty i domkniety)
+            \item ani domkniety ani otwarty
+            \item otwarty ale nie domkniety
+            \item domkniety ale nie otwarty
+        \end{itemize}
+        dla topologii $T$ zadanej na $X$, takiej, ze: $$T = \left\{ X, \emptyset, \left\{ a \right\}, \left\{ c,d \right\}, \left\{ a,c,d \right\}, \left\{ b,c,d,e,f \right\} \right\}$$
 
-\textbf{Odpowiedz:}
-\begin{enumerate}[label=\arabic*.] %poczatek wymieniania zbiorow
-    
-\item $\emptyset$: jest clopen, bo jest otwarty czyli nalezy do $T$ oraz domkniety bo jego dopelnienie, czyli $X$ nalezy do $T$.
-\item $\left\{ a \right\}$: jest clopen, bo jest otwarty czyli nalezy do $T$ oraz domkniety bo jesgo dopelnienie $\left\{ b,c,d,e,f \right\}$ nalezy do $T$.
-\item $\left\{ b \right\}$: nie jest otwarty bo nie nalezy do $T$ oraz nie jest domkniety, bo jego domkniecie tez nie nalezy do $T$
-\item $\left\{ c \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ d \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ f \right\}$: nie jest otwarty ani domkniety
+        \textbf{Odpowiedz:}
+        \begin{enumerate}[label=\arabic*.] %poczatek wymieniania zbiorow
 
-\item $\left\{ a,b \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,c \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,d \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,f \right\}$: nie jest otwarty ani domkniety
+            \item $\emptyset$: jest clopen, bo jest otwarty czyli nalezy do $T$ oraz domkniety bo jego dopelnienie, czyli $X$ nalezy do $T$.
+            \item $\left\{ a \right\}$: jest clopen, bo jest otwarty czyli nalezy do $T$ oraz domkniety bo jesgo dopelnienie $\left\{ b,c,d,e,f \right\}$ nalezy do $T$.
+            \item $\left\{ b \right\}$: nie jest otwarty bo nie nalezy do $T$ oraz nie jest domkniety, bo jego domkniecie tez nie nalezy do $T$
+            \item $\left\{ c \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ d \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ b,c \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,d \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,c \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,d \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ c,d \right\}$: jest otwarty bo nalezy do $T$, ale nie jest domkniety bo jego dopasowanie $\left\{ a,b,e,f \right\}$ nie nalezy do $T$
-\item $\left\{ c,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ c,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,c \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,d \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ d,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ d,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ c,d \right\}$: jest otwarty bo nalezy do $T$, ale nie jest domkniety bo jego dopasowanie $\left\{ a,b,e,f \right\}$ nie nalezy do $T$
+            \item $\left\{ c,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ c,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ d,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,b,c \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,b,d \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,b,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,b,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ e,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,c,d \right\}$: jest otwarty bo nalezy do $T$, ale nie jest domkniety bo jego dopelnienie $\left\{ b,e,f \right\}$ nie nalezy do $T$
-\item $\left\{ a,c,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,c,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,c \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,d \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,d,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,d,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,c,d \right\}$: jest otwarty bo nalezy do $T$, ale nie jest domkniety bo jego dopelnienie $\left\{ b,e,f \right\}$ nie nalezy do $T$
+            \item $\left\{ a,c,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,c,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,d,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ b,c,d \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,c,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,c,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,e,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ b,d,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,d,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,c,d \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,c,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,c,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ b,e,f \right\}$: nie jest otwary, bo nie nalezy do $T$, ale jest domkniety bo jego dopelnienie, czyli $\left\{ a,c,d \right\}$ nalezy do $T$.
+            \item $\left\{ b,d,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ c,d,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ c,d,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,e,f \right\}$: nie jest otwary, bo nie nalezy do $T$, ale jest domkniety bo jego dopelnienie, czyli $\left\{ a,c,d \right\}$ nalezy do $T$.
 
-\item $\left\{ c,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ c,d,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ c,d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ d,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ c,e,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,b,c,d \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,b,c,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,b,c,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ d,e,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,b,d,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,b,d,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,c,d \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,c,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,c,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,b,e,f \right\}$: nie jest otwarty bo nie nalezy do $T$, ale jest domkniety bo jego dopelnienie czyli ${c,d}$ nalezy do $T$
+            \item $\left\{ a,b,d,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,d,f \right\}$: nie jest otwarty ani domkniety
 
-\item $\left\{ a,c,e,f \right\}$: nie jest otwarty ani domkniety 
+            \item $\left\{ a,b,e,f \right\}$: nie jest otwarty bo nie nalezy do $T$, ale jest domkniety bo jego dopelnienie czyli ${c,d}$ nalezy do $T$
 
-\item $\left\{ a,c,d.e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,c,d,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,c,e,f \right\}$: nie jest otwarty ani domkniety 
 
-\item $\left\{ a,c,e,f \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,d,e,f \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,c,d,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,c,d,f \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,c,e,f \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,d,e,f \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ c,d,e,f \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,b,c,d,e \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,b,c,d,f \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,b,d,e,f \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ a,c,d,e,f \right\}$: nie jest otwarty ani domkniety
-\item $\left\{ b,c,d,e,f \right\}$: jest clopen, bo nalezy do $T$ oraz jest domkniety bo jego dopelnienie $\left\{ a \right\}$ nalezy do $T$
-\item $\left\{ a,b,c,d,e,f \right\}$: jest clopen, nalezy do $T$ oraz jest domkniety bo jego dopelnienie czyli $\emptyset$ nalezy do $T$
+            \item $\left\{ a,c,d.e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,c,d,f \right\}$: nie jest otwarty ani domkniety
 
-\end{enumerate} %koniec wymieniania zbiorow
-\item Niech $(X,T)$ bedzie przestrzenia topologiczna z wlasnoscia taka, ze kazdy podzbior jest domkniety(closed). Udowodnij ze jest to przestrzen dyskretna.
-\item Pokaz ze jesli $(X,T)$ jest przestrzenia dyskretna lub przestrzenia nie dyskretna, wtedy kazdy otwarty(open) zbior jest clopen zbiorem. Znajdz topologia $T$ na zbiorze $X = \left\{ a,b,c,d \right\}$, ktora nie jest dyskretna oraz nie jest nie dyskretna ale ma wlasnosc taka, ze kazdy zbior otwarty(open) jest clopen.
+            \item $\left\{ a,c,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,d,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,c,d,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,c,d,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,c,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,d,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ c,d,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,c,d,e \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,c,d,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,b,d,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ a,c,d,e,f \right\}$: nie jest otwarty ani domkniety
+            \item $\left\{ b,c,d,e,f \right\}$: jest clopen, bo nalezy do $T$ oraz jest domkniety bo jego dopelnienie $\left\{ a \right\}$ nalezy do $T$
+            \item $\left\{ a,b,c,d,e,f \right\}$: jest clopen, nalezy do $T$ oraz jest domkniety bo jego dopelnienie czyli $\emptyset$ nalezy do $T$
 
-\textbf{Odpowiedz:}
+        \end{enumerate} %koniec wymieniania zbiorow
+    \item Niech $(X,T)$ bedzie przestrzenia topologiczna z wlasnoscia taka, ze kazdy podzbior jest domkniety(closed). Udowodnij ze jest to przestrzen dyskretna.
 
-Zalozmy, ze $(X,T)$ jest przestrzenia topologiczna taka, ze kazdy jej podzbior jest domkniety. Skoro kazdy podzbior jest domkniety, to kazdy podzbior jest otwarty. Czyli kazdy podzbior $X$ nalezy do $T$. Zatem $(X,T)$ jest przestrzenia dyskretna. 
-\item Niech $X$ bedzie zbiorem nieskonczonym. Jesli $T$ jest topologia na $X$ taka ze kazdy nieskonczony podzbior $X$ jest domkniety(closed), udowodnij ze $T$ jest topologia dyskretna.
- 
-\item Niech $X$ bedzie nieskonczonym zbiorem oraz $T$ topologia na $X$ z wlasnoscia taka, ze jedynym nieskonczonym podzbiorem $X$, ktory jest otwarty jest $X$. Czy $(X, T)$ musi byc przestrzenia niedyskretna?
-\item Niech $T$ bedzie topologia na zbiorze $X$ taka, ze ma tylko 4 zbiory; dokladnie, $T = \left\{ X, \emptyset, A, B \right\}$ gdzie $A$ i $B$ to niepuste rozlaczne, podzbiory \textbf{wlasciwe}(czyli nie moga byc rowne $X$) $X$.
+        \textbf{Odpowiedz:}
 
-Udowodnij ze $A$ i $B$ spelniaja tylko jeden z wymienionych kryteriow:
-\begin{itemize}
-    \item $B = X \setminus A$;
-    \item $A \subset B$;
-    \item $B \subset A$.
-\end{itemize}
+        Zauwazmy ze przestrzen dyskretna to taka przestrzen, ktora zawiera wszystkie swojw podzbiory, rownowaznie zawiera kazdy singleton.
+        Z zalozen zadania mamy, ze kazdy podzbior $X$ jest domkniety. Wezmy dowolny podzbior $X$, nazwijmy go $A$. Skoro kazdy podzbior $X$ jest domkniety oraz $X \setminus A \subseteq X$, wnioskujemy, ze $X \setminus A$ jest domkniety, czyli jego dopelnienie, czyli $A$ jest otwarte. Z dowolnosci wyboru $A$, mamy, ze $(X,T)$ jest przestrzenia dyskretna.
 
-Korzystajac z powyzszego zadania, wypisz wszystkie topolobia na $X = \left\{ 1,2,3,4 \right\}$ zawierajace dokladnie 4 zbiory.
+    \item Pokaz ze jesli $(X,T)$ jest przestrzenia dyskretna lub przestrzenia nie dyskretna, wtedy kazdy otwarty(open) zbior jest clopen zbiorem. Znajdz topologia $T$ na zbiorze $X = \left\{ a,b,c,d \right\}$, ktora nie jest dyskretna oraz nie jest nie dyskretna ale ma wlasnosc taka, ze kazdy zbior otwarty(open) jest clopen.
 
-\item
-    \begin{itemize}
-        \item Uzywajac indukcji, udowodnij ze wraz ze wzrostem $n$, gdzie n to liczba elementow zbioru $X$, liczba topologii na zbiorze $X$ wzrasta.
-        \item Uzywajac indukcji udowonij ze jesli skonczony zbior $X$ ma $n \in \mathbb{N}$ punktow, to ma conajmniej $(n-1)!$ roznych topologii.
-        \item Jesli zbior $X$ jest dowolnym nieskonczonym zbiorem o mocy(cardinality) $\aleph$, czyli jest przeliczalny. Udowodnij, ze jest conajmniej $2^{\aleph}$ roznych topologii na $X$. Wywnioskuj ze kazdy nieskonczony zbior ma nieprzeliczlanie duzoe roznych topologii na sobie.
-    \end{itemize}
+        \textbf{Odpowiedz:}
+
+        Zalozmy, ze $(X,T)$ jest przestrzenia topologiczna taka, ze kazdy jej podzbior jest domkniety. Skoro kazdy podzbior jest domkniety, to kazdy podzbior jest otwarty. Czyli kazdy podzbior $X$ nalezy do $T$. Zatem $(X,T)$ jest przestrzenia dyskretna. 
+
+    \item Niech $X$ bedzie zbiorem nieskonczonym. Jesli $T$ jest topologia na $X$ taka ze kazdy nieskonczony podzbior $X$ jest domkniety(closed), udowodnij ze $T$ jest topologia dyskretna.
+
+        \textbf{Odpowiedz}
+
+        Mamy, ze $X$ jest zbiorem nieskonczonym oraz topologia $T$ na $X$ ma taka wlasnosc, ze kazdy nieskonczony podzbior $X$ jest domkniety. Wezmy dowolny element $a \in X$, rozwazmy nieskonczony zbior $X\setminus \left\{ a \right\}$. Jest on oczwyscie nieskonczony i jest podzbiorem $X$. Zatem jest domkniety, czyli jego dopelnienie- $\left\{ a \right\} \in T$. Poniewaz $a$ bylo dowolnym elementem $X$, wnioskujemy, ze $T$ jest topologia dyskretna.
+
+    \item Niech $X$ bedzie nieskonczonym zbiorem oraz $T$ topologia na $X$ z wlasnoscia taka, ze jedynym nieskonczonym podzbiorem $X$, ktory jest otwarty jest $X$. Czy $(X, T)$ musi byc przestrzenia niedyskretna?
+
+        \textbf{Odpowiedz:}
+
+        Nie. Wezmy $X = \mathbb{N}$ oraz topologie $T$ na $X$: $T = \left\{ \mathbb{N}, \emptyset, \left\{ 1,2 \right\} \right\}$. TODO 
+
+    \item Niech $T$ bedzie topologia na zbiorze $X$ taka, ze ma tylko 4 zbiory; dokladnie, $T = \left\{ X, \emptyset, A, B \right\}$ gdzie $A$ i $B$ to niepuste rozne, podzbiory \textbf{wlasciwe}(czyli nie moga byc rowne $X$) $X$.
+
+        Udowodnij ze $A$ i $B$ spelniaja tylko jeden z wymienionych kryteriow:
+        \begin{itemize}
+            \item $B = X \setminus A$;
+            \item $A \subset B$;
+            \item $B \subset A$.
+        \end{itemize}
+
+        Korzystajac z powyzszego zadania, wypisz wszystkie topologie na $X = \left\{ 1,2,3,4 \right\}$ zawierajace dokladnie 4 zbiory.
+
+    \item
+        \begin{itemize}
+            \item Uzywajac indukcji, udowodnij ze wraz ze wzrostem $n$, gdzie n to liczba elementow zbioru $X$, liczba topologii na zbiorze $X$ wzrasta.
+            \item Uzywajac indukcji udowonij ze jesli skonczony zbior $X$ ma $n \in \mathbb{N}$ punktow, to ma conajmniej $(n-1)!$ roznych topologii.
+            \item Jesli zbior $X$ jest dowolnym nieskonczonym zbiorem o mocy(cardinality) $\aleph$, czyli jest przeliczalny. Udowodnij, ze jest conajmniej $2^{\aleph}$ roznych topologii na $X$. Wywnioskuj ze kazdy nieskonczony zbior ma nieprzeliczlanie duzoe roznych topologii na sobie.
+        \end{itemize}
 \end{enumerate}%koniec zadan
 \subsection{Skonczenie-domknieta topologia(ang. The Finite-Closed Topology): definicje lematy, zadania i rozwiazania.}
 
@@ -728,9 +745,9 @@ Do tej pory definiowalismy topologie poprzez okreslanie ktore zbiory sa otwarte.
 
 \begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.3.1 Definicja: Skonczenie domknieta topologia(finite-closed topology(cofinite topology))]
 
-Niech $X$ bedzie nie pustym zbiorem. Mowimy ze topologia $T$ na $X$ jest \textbf{skonczenie-domknieta topologia lub koskonczona topologia}(ang. finite-closed topology or cofinite topology) jesli domknietymi podzbiorami $X$ sa $X$ oraz wszystkie skonczone podzbiory $X$; czyli otwartymi zbiorami sa $\emptyset$ oraz wszystkie podzbiory $X$, ktore maja skonczone dopelnienia.
+    Niech $X$ bedzie nie pustym zbiorem. Mowimy ze topologia $T$ na $X$ jest \textbf{skonczenie-domknieta topologia lub koskonczona topologia}(ang. finite-closed topology or cofinite topology) jesli domknietymi podzbiorami $X$ sa $X$ oraz wszystkie skonczone podzbiory $X$; czyli otwartymi zbiorami sa $\emptyset$ oraz wszystkie podzbiory $X$, ktore maja skonczone dopelnienia.
 
-Inaczej:
+    Inaczej:
 
     $$T = \left\{ A \subseteq X: A = \emptyset \text{ or }X \setminus A\text{ jest skonczony} \right\}$$
 \end{tcolorbox}
@@ -748,13 +765,433 @@ $$\left\{ 2,3,4,\dots \right\}, \left\{ 1,2,3,4,8,9,\dots \right\}, \left\{ 1,3,
 
 Niech $T$ bedzie skonczenie-wymiarowa topologia na zbiorze $X$. Jesli $X$ ma przynajmniej 3 rozne clopen podzzbiory, udowodnij ze $X$ jest skonczonym zbiorem.
 
+\textbf{Komentarz do przykladu:}
 
+W zalozeniach zadania przykladu mamy to, ze $T$ jest \textbf{skonczenie-domknieta topologia} oraz ze sa conajmniej 3 rozne clopen zbiory.
+Mamy pokazac, ze $X$ jest zbiorem skonczonym.
+
+Przypomnijmy, ze $T$ jest \textbf{skonczenie-domknieta topologia}, czyli znaczy to ze rodzina wszystkich domknietych zbiorow sklada sie z $X$ oraz wszystkich skonczonych podzbiorow $X$. Przypominjmy rowniez, ze zbior jest clopen wtedy i tylko wtedy jesli jest jednoczesnie otwarty(open) oraz domkniety(closed).
+Przypomnijmy rowniez ze w kazdej przestrzeni topologicznej sa przynajmniej 2 zbiory, ktore sa clopen, mianowicie $X$ oraz $\emptyset$. W przykladzie mamy dodatkowo podane, ze w przestrzeni $(X,T)$ sa conajmniej 3 zbiory, ktore sa clopen. Wynika z tego, ze jest jeszcze jeden zbior clopen, ktory jest rozny od $X$ oraz $\emptyset$.
+
+\textbf{Dowod:}
+
+Przestrzen topologiczna $(X,T)$ ma 3 rozne podzbiory, ktore sa clopen, wiemy ze jest pewien podzbior $S \subseteq X$ taki ze, $S \neq X$ oraz $S \neq \emptyset$. Poniewaz $S$ jest otwarty w $(X, T)$, wiec jego dopelnienie $X \setminus S$ jest zbiorem domknietym. Wiec $S$ oraz $X \setminus S$ sa domkniete w skonczenie domknietej topologi $T$. Zatem $S$ oraz $X \setminus S$ sa obaj skonczonymi zbiorami, ponieaz zaden z nich nie jest rowny $X$. Ale $X = S \cup X\setminus S$, wiec $X$ jest suma dwoch skonczonych zbiorow. Zatem $X$ jest zbiorem skonczonym.
+
+
+\textbf{WDM-powtorka:}
 \hrule
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.3.4 Definicja: Funkcja injekcja/surjekcja/bijekcja]
+    Niech f bedzie funkcja z zbioru $X$ w zbior $Y$.
+    \begin{itemize}
+        \item Funkcja f jest 1-1 lub injekcja jesli $$ f(x_{1}) = f(x_{2}) \rightarrow x_{1} = x_{2}, \text{ dla } x_{1},x_{2} \in X$$
+        \item Funkcja f jest na lub surjekcja jesli $$ (\forall y \in Y)(\exists x \in X)(f(x) = y)$$
+        \item Funkcja f jest bijekcja jesli jest jednoczesnie 1-1 i na.
+    \end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.3.5 Definicja: Odwrotnosc funkcji.]
+
+    Niech f bedzie funkcja z zbioru $X$ w zbior $Y$. Mowimy, ze funkcja f ma odwrotnosc($\textbf{have an inverse}$) jesl istnieje taka funkjca g z $Y$ w $X$, ze $g(f(x)) = x$, for all $x \in X$ oraz $f(g(y)) = y$, for all $y \in Y$. Funkcje g nazywamy funkcja odwrotna($\textbf{inverse function}$) do f. 
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=1.3.6 Lemat: Wlasnosci funkcji.]
+    Niech f bedzie funkcja z zbioru $X$ w zbior $Y$.
+    \begin{itemize}
+        \item Funkcja f ma odwrotnosc iff f jest bijekcja
+        \item Niech $g_{1}$ oraz $g_{2}$ beda funkcjami z $Y$ w $X$. Jesli $g_{1}$ oraz $g_{2}$ sa obie funkcjami odwrotnymi do f, wtedy $g_{1} = g_{2}$; to znaczy $g_{y} = g_{y}$, dla kazdego $y \in Y$.
+        \item Niech  g bedzie funkcja z $Y$ w $X$. Wtedy g jest funkcja odwrotna do f iff f jest funkcja odwrotna do g.
+    \end{itemize}
+\end{tcolorbox}
+
+\textbf{Dowod:} TODO
+
+Bardzo wazna definicja.
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=1.3.7 Definicja: Przeciwobraz funkcji]
+
+    Niech f bedzie funkcja ze zbioru $X$ w zbior $Y$. Jesli $S$ jest dowolnym podzbiorem $Y$, to zbior $f^{-1}(S)$ jest zdefiniowany jako:
+    $$f^{-1}(S) = \left\{ x: x \in X \text{ and } f(x) \in S \right\}$$
+    Mowimy, ze podzbior $f^{-1}(S)$ zbioru $X$ jest przeciwobrazem($\textbf{inverse image}$) zbioru S(przy odwzorowaniu f).
+
+\end{tcolorbox}
+
+\textbf{Komentarz:}
+
+Zauwazmy ze funkcja odwrotna do funkcji $f: X \rightarrow Y$ istnieje iff f jest bijekcja. Natmiast przeciwobraz dowolnego podzbioru $Y$ istnieje nawet wtedy, kiedy f nie jest 1-1 ani na.
+
+Konczymy ten rozdzial ciekawym przykladem.
+
+\textbf{1.3.9 Przyklad}
+
+Niech $(Y,T)$ bedzie przestrzenia topologiczna oraz $X$ niepustym zbiorem. Niech f bedzie funkcja z $X$ w $Y$. Polozmy $T_{1} = \left\{ f^{-1}(S) : S \in T \right\}$. Udowodnij, ze $T_{1}$ jest topologia na $X$.
+
+\textbf{Dowod:}
+
+Musimy pokazac zachodzenie trzech podpunktow z definicji topologii.
+\begin{itemize}
+    \item
+
+        \begin{gather}        
+            X \in T_{1} \hspace{5mm} \text{ bo } \hspace{5mm} X = f^{-1}(Y)\hspace{5mm}  \text{ i } \hspace{5mm} Y \in T \\ 
+            \emptyset \in T_{1} \hspace{5mm} \text{ bo } \hspace{5mm} \emptyset = f^{-1}(\emptyset) \hspace{5mm} \text{ i } \hspace{5mm} \emptyset \in T
+        \end{gather}
+        Zatem $T_{1}$ ma wlasnosc nr 1.
+    \item  Niech $\left\{ A_{j}: j \in J \right\}$ bedzie kolekcja elementow z $T_{1}$, dla jakiegos zbioru indekoswego $J$. Pokazemy, ze $\bigcup\limits_{j \in J}A_{j} \in T_{1}$. Poniewaz $A_{j} \in T_{1}$, wiec z definicji $T_{1}$ wynika, ze $A_{j} = f^{-1}(B_{j})$, gdzie $B_{j} \in T$. Ponadto $ \bigcup\limits_{j \in J}A_{j} = \bigcup\limits_{j \in J}f^{-1}(B_{j}) = f^{-1}(\bigcup\limits_{j \in J}B_{j})$.(Dowod w cw 1.3 $\#1$)
+        Zauwazmy ze $B_{j} \in T$, dla kazdego $j \in J$, wiec $\bigcup\limits_{j \in J}B_{j}$, bo $T$ jest topologia na $Y$. Zatem z definicji $T_{1}$, $f^{-1}(\bigcup\limits_{j \in J}B_{j}) \in T_{1}$; czyli $\bigcup\limits_{j \in J}A_{j} \in T_{1}$. Zatem $T_{1}$ ma wlasnosc numer 2. 
+    \item Niech $A_{1}$ oraz $A_{2}$ beda w $T_{1}$. Musimy pokazac, ze $A_{1} \cap A_{2} \in T_{1}$. Poniewaz $A_{1}, A_{2} \in T_{1}$, $A_{1} = f^{-1}(B_{1})$ oraz $A_{2} = f^{-1}(B_{2})$, gdzie $B_{1}, B_{2} \in T$. $A_{1} \cap A_{2} = f^{-1}(B_{1})\cap f^{-1}(B_{2}) = f^{-1}(B_{1} \cap B_{2}$. (Dowod w cw 1.3 $\#$1).
+        Poniewaz $B_{1} \cap B_{2} \in T$, mamy $f^{-1}(B_{1} \cap B_{2}) \in T_{1}$. Zatem $A_{1} \cap A_{2} \in T_{1}$ i pokazalismy ze $T_{1}$ spelnia wlasnosc nr 3 z definicji topologii.
+\end{itemize}
+Zatem $T_{1}$ jest rzeczywiscie topologia.
+
+\textbf{Komentarz, bardzow wazny:}
+
+Odnosi sie do punktu drugiego definicji topologii, w ktorej musimy pokazac ze dowolna suma(skonczone lub nie) zbiorow z T, nalezy do T. Otoz nie kazde zbiory sa przeliczalne. Wiec nie wystarczy zaklozyc, ze zbiory $A_{1}, A_{2}, \dots, A_{n}, \dots$ sa w $T_{1}$ i pokazac ze ich suma tez jest w $T_{1}$. To dowiedzie tylko temu, ze \textbf{przeliczalna} suma zbiorow z $T$, nalezy do $T$. Nie wystarczy to aby pokazac wlasnosc nr 2. Wlasnosc ta wymaga aby \textbf{dowolna} suma zbiorow z $T$ skonczona lub nie, przeliczalna lub nie przeliczalna, nalezala do $T$. 
+
+\hrulefill
 
 \textbf{Cwiczenia 1.3}
 
 TODO
 
+\hrulefill
+
+\section{Topologia euklidesowa}
+\subsection{Topologia euklidesowa na $\mathbb{R}$}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=2.1.1 Definicja: Topologia euklidesowa na $\mathbb{R}$]
+    Mowimy ze podzbior $S$ zbioru $\mathbb{R}$ jest otwarty w \textbf{topologii euklidesowej na $\mathbb{R}$} jesli spelnia nastepujace wlasnosci:
+    $$(*)(\forall x \in S)(\exists a,b \in \mathbb{R}\land a<b)(x \in (a,b) \subseteq S)$$
+
+    Czyli dla kazdego $x \in S$, istnieja $a,b \in \mathbb{R}$, $a<b$, takie ze $x \in (a,b) \subseteq S$
+
+    Wlasnymi slowami, dla kazdego elementu S, istnieje otwarty odcinek w ktorym ten element sie znajduje.
+\end{tcolorbox}
+
+\textbf{Komentarz:}
+
+Przyjmujemy, ze kiedykolwiek bedziemy mowic o topologi na $\mathbb{R}$, bez specyfikowania topologii, to bedziemy mieli na mysli topologie euklidesowa.
+
+Napiszemy teraz kilka bardzo waznych wlasnosci dotyczacych topologi euklidesowej na $\mathbb{R}$.
+\textbf{Uwaga 2.1.2 Wlasnosci topologii euklidesowej(niektore)}
 
 
+\begin{enumerate}[label=(\alph*)] %poczatek wlasnosci topologii euklidesowej
+    \item Pokazemy ze topologia euklidesowa jest rzeczywiscie topologia. Czyli ze definicja 2.1.1 jest prawidlowa. Pokazemy 3 znane wlasnosci z definicji topologi.
+
+        Musimy pokazac ze $T$ spelnia 3 aksjomaty topologii. Mamy ze zbior nalezy do $T$ iff kiedy ma wlasnosc (*).
+
+        \begin{itemize}
+            \item Najpierw pokazem ze $\mathbb{R}$ nalezy do $T$. Niech $x \in \mathbb{R}$. Polozmy $a = x-1$ oraz $b = x+1$. Wtedy $x \in (a,b) \subseteq \mathbb{R}$; czyli $\mathbb{R}$ ma wlasnosc (*). Zauwazmy ze $\emptyset \in T$ bo $\emptyset$ ma wlasnosc (*) defaultowo.
+         
+            \item Niech teraz $\left\{ A_{j}: j \in J \right\}$ dla pewnego zbioru indeksowego $J$, bedzie dowolna rodzina zbiorow z $T$. Pokazemy ze $\bigcup\limits_{j \in J}A_{j} \in T$; czyli ze $ \bigcup\limits_{j \in J}A_{j}$ ma wlasnosc (*). Niech $x \in \bigcup\limits_{j \in J}A_{j}$. Wtedy $x \in A_{k}$ dla pewnego $k \in J$. Poniewaz $A_{k} \in T$, wiec istnieja $a,b \in \mathbb{R}$ takie ze $x\in (a,b) \subseteq A_{k}$. Poniewaz $k \in J, A_{k} \in   \bigcup\limits_{j \in J}A_{j}$ wiec $x \in (a,b) \subseteq \bigcup\limits_{j \in J}A_{j} $. Zatem $\bigcup\limits_{j \in J}A_{j}$ ma wlasnosc (*) i nalezy do $T$.
+           
+            \item Wezmy dowolne $A_{1}, A_{2} \in T$. Pokazemy ze $A_{1} \cap A_{2} \in T$. Zatem niech $y \in A_{1} \cap A_{2} \in T$. Poniewaz $A_{1} \in T$ wiec istnieja a,b takie ze $y \in (a,b)$. Analogicznie istnieja c,d takie ze $y \in (c,d) \subseteq A_{2}$. Niech e bedzie max(a,c) orac f bedzie min(b,d). Zatem $y \in (e,f)$. Poniewaz $(e,f) \in A_{1}$ oraz $(e,f) \in A_{2}$, zatem $(e,f) \in A_{1} \cap A_{2}$. Zatem $A_{1} \cap A_{2}$ ma wlasnosc (*), czyli nalezy do $T$.
+        \end{itemize}
+        Zatem $T$ jest topologia na $\mathbb{ R }$
+
+        Opiszemy teraz jak wygladaja zbiory otwarte i domkniete w tej topologii. W szczegolnosci zobaczymy ze kazde otwarte przedzialy/odcinki sa otwarte w tej topologii oraz kazde domkniete przedzialy/odcinki sa zbiorami domknietymi
+    \item Niech $r,s \in \mathbb{R}$ z $r<S$. W topologi euklidesowej $T$ na $\mathbb{R}$ odcinek/przedzial $(r,s)$ nalezy do $T$ i w konsekwencji jest zbiorem otwartym.
+
+        \textbf{Dowod:}
+        
+        Dowod trywialny. Musimy pokazac, ze dla $(r,s)$ zachodzi wlasnosc (*). Wezmy dowolnego $x \in (r,s)$. Niech $a=r$ oraz $b=s$. Wtedy $x \in (r,s) \subseteq (a,b)$, Wiec $(r,s)$ jest otwarty w topologii euklidesowej
+    \item Przedzialy otwarte $(-\infty, r)$ oraz $(r, \infty)$ takze sa zbiorami otwartymi w $\mathbb{R}$.
+
+        \textbf{Dowod:}
+
+        Niech $x \in (r,\infty)$. Polozmy $a = r$ oraz $b = x+1$. Wtedy $x \in (a,b) \subseteq (r, \infty)$, a wiec $(r, \infty) \in T$. Analogiczny argument dowodzi tego, ze $(-\infty, r)$ jest zbiorem otwartym w $\mathbb{R}$.
+    \item Bardzo wazne jest, zeby miec na uwadze, ze podczas gdy kazdy odcinek otwarty jest zbiorem otwartym w $\mathbb{R}$, to przeciwnosc tego faktu jest falszywa. Nie kazdy zbior otwarty w $R$ sa odcinkami. Np zbior $(1,2) \cup (4, 5)$ jest zbiorem otwartym w $\mathbb{R}$, ale nie jest odcinkiem otwartym. Nawet zbior $\bigcup\limits_{n=1}^{\infty}(2n, 2n+1)$ jest zbiorem otwartym w $R$.
+
+    \item Dla dowolnego $c,d \in \mathbb{R}$, $c<d$, odcinek domkniety $[c,d]$ nie jest zbiorem otwartym w $\mathbb{R}$.
+
+        \textbf{Dowod:}
+
+        Zauwazmy, ze $c \in [c,d]$. Zalozmy ze istnieja takie $a,b \in \mathbb{R}$, $a<b$, ze $c \in (a,b) \subseteq [c,d]$. Wtedy $c \in (a,b)$ implikuje $a < c < b$ i w zwiazku z tym $a < \frac{c+a}{2} < c$. Zatem $  \frac{c+a}{2} \in (a,b)$ i $ \frac{c+a}{2} \notin [c,d]$. Czyli $(a,b) \not\subseteq [c,d]$ co jest sprzecznoscia. Zatem nie istnieja takie a i b, ze $c \in (a,b) \subseteq [c,d]$. Czyli $[c,d]$ nie ma wlasnosci (*), wiec $[c,d] \notin T$.
+    \item  Dla dowolnego $a,b \in \mathbb{R}$, $a<b$, odcinek domkniety $[a,b]$ jest zbiorem domknietym w topologii euklidesowej na $\mathbb{R}$.
+
+        \textbf{Dowod:}
+
+        Zauwazmy ze dopelnienie $[a,b]$, czyli $(-\infty, a) \cup (b, \infty)$ jako suma dwoch zbiorow otwartych, jest zbiorem otwartym. Czyli $[a,b]$ jest zbiorem domknietym.
+
+    \item Kazdy singleton $\left\{ a \right\}$ jest zbiorem domknietym w $\mathbb{R}$.
+
+        \textbf{Dowod:}
+
+        Dopelnienie $\left\{ a \right\}$ to zbior $(-\infty, ) \cup (a, \infty)$, ktory jest suma dwoch zbiorow otwartych, czyli jest otwarty. Zatem $\left\{ a \right\}$ jest domkniety w $\mathbb{R}$.
+
+    \item Zauwazmy ze poprzedni podpunkt, to tak naprawde szczegolny przypadek punktu przedpoprzedniego. Tzn przyjmujac, ze ${\left\{ a \right\}} = [a,a]$, mamy ze $\left\{ a \right\}$ jest domkniety.
+
+    \item Zbior liczb calkowitych $\mathbb{Z}$ jest domkniety w $\mathbb{R}$
+
+        \textbf{Dowod:}
+
+        Dopelnieniem zbioru $\mathbb{Z}$, jest suma $\bigcup\limits_{n=-\infty}^{\infty}(n, n+1)$ zbiorow otwartych $(n, n+1) \in \mathbb{R}$, wiec jest otwarta w $\mathbb{R}$. Zatem $\mathbb{Z}$ jest domkniety w $\mathbb{R}$.
+
+    \item Zbior liczb wymiernych $\mathbb{Q}$ nie jest ani domkniety w $\mathbb{R}$ ani otwarty w $\mathbb{R}$.
+
+        Pokazemy, ze $\mathbb{Q}$ nie jest zbiorem otwartym, udawadniajac, ze nie spelnia wlasnosci (*). Aby to zrobic, wystarczy ze pokazemy, ze $\mathbb{Q}$ nie zawiera \textbf{zadnego} otwartego odcinka $(a,b)$ z $a<b$.
+
+        \textbf{Dowod:}
+
+        Zalozmy, ze $(a,b) \subseteq \mathbb{Q}$, gdzie $a,b \in \mathbb{R}$, $a<b$. Miedzy dwoma dowolnymi roznymi liczbami rzeczywistymi, znajduje sie liczba niewymierna(prosty dowod). Zatem istnieje $c \in (a,b)$ takie ze, $c \notin \mathbb{Q}$. To przeczy temu, ze $(a,b) \subseteq \mathbb{Q}$. Zatem $\mathbb{Q}$ nie zawiera zadnego odcinka $(a,b)$ czyli nie jest zbiorem otwartym.
+
+        Aby pokazac ze $\mathbb{Q}$ nie jest zbiorem domknietym, wystarczy ze pokazemy ze dopelnienie $\mathbb{Q}$ czyli $\mathbb{R} \setminus \mathbb{Q}$ nie jest zbiorem otwartym. Korzystajac z tego, ze pomiedzy kazdymi dwoma liczbami rzeczywistymi znajduje sie liczba wymierna, widzimy ze $\mathbb{R} \setminus \mathbb{Q}$ nie zawiera zadnego odcinka $(a,b)$ z $a<b$. Zatem $\mathbb{R} \setminus \mathbb{Q}$ nie jest zbiorem otwartym w $\mathbb{R}$, czyli $\mathbb{Q}$ nie jest zbiorem domknietym w $\mathbb{R}$.
+
+    \item W rozdziale 3 udowodnimy ze jedynymi zbiorami clopen w $\mathbb{R}$ sa $\mathbb{R}$ oraz $\mathbb{\emptyset}$.
+
+\end{enumerate} %koniec wlasnosci topologii euklidesowej
+
+\subsection{Baza topologii}
+
+Uwaga 2.1.2 pozwolila/pokazala nam jak opisywac topologie euklidesowe na $\mathbb{R}$ w bardziej wygodny sposob. W tym rodzizale rozwiniemy ten pomysl przedstawiajac baze topologii.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=2.2.1 Lemat]
+    Podzbior $S \subseteq \mathbb{R}$ jest zbiorem otwartym wtedy i tylko wtedy kiedy jest suma otwartych odcinkow, i.e. postaci $(a,b), a,b \in \mathbb{R}$
+
+\end{tcolorbox}
+
+\textbf{Dowod:}
+
+$(\leftarrow)$ Zalozmy ze $S$ jest suma otwartych odcinkow. To znaczy ze istnieje odcinek $(a_{j}, b_{j})$ gdzie $j \in J$ i $J$ jest jakims zbiorem indeksowym, takim ze $S = \bigcup\limits_{j \in J}(a_{j}, b_{j})$. Wiemy z uwagi 2.1.2 b) ze kazdy $(a_{j}, b_{j})$ jest zbiorem otwartym. Zatem $S$ jako suma zbiorow otwartych jest otwarty.
+
+$(\rightarrow)$ Zalozmy, ze $S$ jest zbiorem otwartym w $\mathbb{R}$. Wtedy dla kazdego $x \in S$ istnieje odcinek $I_{x} = (a,b)$ taki ze $x \in I_{x} \subseteq S$. Pokazemy teraz, ze $S = \bigcup\limits_{x \in S}I_{x}$.
+Pokazemy to pokazujac zawieranie w dwie strony. 
+Niech $y \in S$. Wtedy $y \in I_{y}$. Zatem $y \in \bigcup\limits_{x \in S}I_{x}$. Z drugiej strony niech $z \in \bigcup\limits_{x \in S}I_{x}$. Wtedy $z \in I_{t}$ dla pewnego $t \in S$. Poniewaz kazdy $I_{x} \subseteq S$, wiec $I_{t} \subseteq S$ czyli $z\in S$. Zatem $S = \bigcup\limits_{x \in S}I_{x}$. Czyli $S$ jest suma otwartych odcinkow. 
+\vspace{5mm}
+Powyzszy lemat mowi nam, ze aby opisac topologie na $\mathbb{R}$ wystarczy powiedziec ze jazdy odcinek $(a,b)$ jest zbziorem otwartym. Kazdy inny zbior otwarty, jest suma tych zbiorow otwartych. To prowadzi nas do ponizszej definicji.
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=2.2.2 Definicja: Baza topologii]
+
+    Niech $(X,T)$ bedzie przestrzenia topologiczna. Kolekcja $\mathbb{B}$ zbiorow otwartych w $X$ jest \textbf{baza} topologi $T$ jesli kazdy zbior otwarty jest suma elementow z $\mathbb{B}$.
+
+\end{tcolorbox}
+
+
+\textbf{Komentarz}
+
+Jesli $\mathbb{B}$ jest baza topologii $T$ na $X$ to podzbior $U \subseteq X$ jest w $T$ iff jesli jest suma elementow z $\mathbb{B}$. Zatem $\mathbb{B}$ generuje nam topologie $T$ w ten sposob: jesli ktos nam powiedzial jakie zbiory sa w $\mathbb{B}$ wtedy mozemy zdeterminowac zbiory w $T$- sa one wszystkimi mozliwymi zbiorami zlozonym z sum elementow z $\mathbb{B}$.
+
+\textbf{Przyklady:}
+\begin{itemize}
+    \item $\mathbb{B} = \left\{ (a,b): a,b \in \mathbb{R}, a<b \right\}$. Wtedy $\mathbb{B}$ jest baza topologi euklidesowej na $\mathbb{R}$, lemat 2.2.1
+    \item Niech $(X,T)$ bedzie topologia dyskretna oraz $\mathbb{B}$ rodzina wszystkich singletonow zbioru $X$. Wtedy $\mathbb{B}$ jest baza dla $T$.
+    \item Niech $x = \left\{ a,b,c,d,e,f \right\}$ oraz $T = \left\{ X, \emptyset, \left\{ a \right\}, \left\{ c,d \right\}, \left\{ a,c,d \right\}, \left\{ b,c,d,e,f \right\}   \right\}$. Wtedy $\mathbb{B} = \left\{ \left\{ a \right\}, \left\{ c,d \right\}, \left\{ b,c,d,e,f \right\}  \right\}$ jest baza $T$ bo $\mathbb{B} \subseteq T$ oraz kazdy element $T$ mozna wyrazic jako sume elementow z $\mathbb{B}$. Zauwazmy ze $\emptyset$ jest pusta suma elementow z $\mathbb{B}$. Zauwazmy tez, ze $T$ jest baza dla samego siebie.
+\end{itemize}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=2.2.6 Lematokomentarz: Rozne bazy dla tej samej topologii]
+
+    Tak jak w poprzednim punkcie poruszylismy, jesli $(X,T)$ jest przestrzenia topologiczna, to $T$ same w sobie jest baza dla $T$. Dla przykladu zbior wszystkich mozliwych podzbiorow $X$ jest baza dla topologii dyskretnej na $X$.
+
+    Widzimy, ze dla zadanej topologii $T$ moze byc wiele roznych baz. Precisely. Zauwazmy (\textbf{UDOWODNIJ TO}), ze jesli $\mathbb{B}$ jest baza dla topologii $T$ na zbiorze $X$, oraz zbior $\mathbb{B}_{1}$ bedacy kolekcja podzbiorow $X$ taka ze $\mathbb{B} \subseteq \mathbb{B}_{1} \subseteq X$, wtedy $\mathbb{B}_{1}$ jest takze baza $T$. $\leftarrow$ TODO UDOWODNIJ
+
+\end{tcolorbox}
+Zatem baza dla topologii, pozwala nam zdefiniowac topologie, lecz trzeba uwazac. Spojrzmy na ponizszy przyklad:
+
+\textbf{2.2.7 Przyklad}
+
+Niech $X = \left\{ a,b,c \right\}$ oraz $\mathbb{B} = \left\{ \left\{ a \right\}, \left\{ c \right\}, \left\{ a,b \right\}, \left\{ b,c \right\}  \right\}$. Wtedy $\mathbb{B}$ \textbf{nie jest baza} dla zadnej topologii na $X$. Aby zobaczyc dlaczego spojrzmy:
+
+Niech $\mathbb{B}$ bedzie baza dla topologii $T$. $T$ zaweira wszystkie mozliwe sumy z $\mathbb{B}$, tj:
+$$T = \left\{X, \emptyset, \left\{ a \right\}, \left\{ c \right\}, \left\{ a,c \right\}, \left\{ a,b \right\}, \left\{ b,c \right\}    \right\}$$
+
+Ale $T$ nie jest topologia, bo nie zawiera w sobie przekroju $\left\{ a,b \right\} \cap \left\{ b,c \right\} = \left\{ b \right\}$. Zatem $\mathbb{B}$ nie moze byc baza $T$.
+\vspace{1cm}
+
+To prowadzi nas do bardzo waznego pytania: jesli $\mathbb{B}$ jest kolekcja podzbiorow $X$, jaki warunek zapewnia to, ze $\mathbb{B}$ jest rzeczywiscie baza dla topologii na $X$?
+
+Ponizszy lemat ustali te warunki.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=2.2.8 Lemat: Warunek na bycie baza]
+
+    Niech $X$ bedzie niepustym zbiorem oraz $\mathbb{B}$ bedzie kolekcja podzbiorow $X$. Wtedy $\mathbb{B}$ jest baza dla topologi na $X$ wtedy i tylko wtedy kiedy $\mathbb{B}$ ma nastepujace wlasnosci:
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $X = \bigcup\limits_{B \in \mathbb{B}}B$,
+        \item dla dowolnych $B_{1}, B_{2} \in \mathbb{B}$, zbior $B_{1} \cap B_{2}$ jest suma elementow z $\mathbb{B}$
+        
+    \end{enumerate}
+
+\end{tcolorbox}
+
+\textbf{Dowod:}
+
+Zakladamy ze $X$ jest niepustym zbiorem oraz $\mathbb{B}$ kolekcja podzbiorow(jakichs?) $X$.
+
+$(\rightarrow)$
+
+Implikacja w prawo. Zalozmy ze $\mathbb{B}$ jest baza topologii $T$. $T$ jest topologia wiec spelnia 3 aksjomaty topologii(definicja). W szczegolnosci $X$ jest zbiorem otwartym oraz przekroj zbiorow otwartych jest zbiorem otwartym. Poniewaz zbiory otwarte sa suma elementow z $\mathbb{B}$, wynikaz tego, ze wlasnosci (a) oraz (b) sa prawdziwe.
+
+$(\leftarrow)$
+
+Implikacja w lewo. Zalozmy ze $\mathbb{B}$ ma wlasnosci (a) i (b) oraz niech $T$ bedzie kolekcja wszystkich podzbiorow $X$, ktore sa sumami elementow z $\mathbb{B}$. Pokazemy, ze $T$ jest topologia na $X$.
+
+Z wlasnosci (a), $X = \bigcup\limits_{B \in \mathbb{B}}B$ zatem  $X \in T$. $\emptyset$ jest pusta suma podzbiorow $\mathbb{B}$ zatem $\emptyset \in T$.
+
+Nastepnie niech $\left\{ T_{j} \right\}$ bedzie rodzina elementow $T$. Wtedy kazdy $T_{j}$ jest jakas suma elementow z $\mathbb{B}$. Zatem suma wszystkich $T_{j}$ jest suma elementow z $\mathbb{B}$ wiec nalezy do $T$.
+
+Finalnie niech $C$ oraz $D$ beda w $T$. Chcemy pokazac ze $C \cap D \in T$. Ale $C = \bigcup\limits_{k \in K}B_{k}$, dla jakiegos zbioru indeksowego $K$ i zbiorow $B_{k} \in \mathbb{B}$ oraz $D = \bigcup\limits_{j \in J}B_{j}$ dla jakiegos zbioru indeksowego $J$ oraz $B_{j} \in \mathbb{B}$. Zatem $$ C \cap D = \left(\bigcup\limits_{k \in K}B_{k}\right) \bigcap \left( \bigcup\limits_{j \in J}B_{j} \right) = \bigcup\limits_{k \in K, j \in J}(B_{k} \cap B_{j})$$
+
+\textbf{ZROB DOWOD Z TYMI PRZEKROJAMI I SUMAMI TODO}
+
+Z zalozenia (b), kazdy $B_{k} \cap B_{j}$ jest suma elementow z $\mathbb{B}$ zatem $C \cap D$ jest suma elementow z $\mathbb{B}$. Zatem $C \cap D \in T$ 
+
+Zatem $T$ spelnia wszystkie 3 aksjomaty z definicji zatem jest topologia.
+
+\vspace{1cm}
+
+Powyzszy lemat 2.2.8 daje nam bardzo pozyteczne narzedzie. Pozwala nam ono zdefiniowac topologie tylko poprzez wypisanie jej bazy. Jest to o wiele bardziej poreczniejsze niz opisanie wszystkich zbiorow otwartych.
+
+Posluzymy sie teraz ta wlasnoscia aby zdefiniowac topologie na plaszczyznie. Jest ona znana pod nazwa "topologia euklidesowa"
+
+\textbf{2.2.9 Przyklad}
+
+Niech $\mathbb{B}$ bedzie kolekcja wszystkich "otwartych prostokatow" na plaszczyznie, majacych kazdy bok rownolegly do osi $X$ lub osi $Y$
+$$\mathbb{B} = \left\{ \langle x,y \rangle : \langle x,y \rangle \in \mathbb{R}^{2}, a<x<b, c<y<d   \right\}$$
+
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.5\textwidth]{rectangle2_2_9.png}
+  % \caption{Podpis pod obrazkiem}
+\end{figure}
+
+Wtedy $\mathbb{B}$ jest baza topologii na plaszczyznie. Ta topologia nazywa sie topologia euklidesowa.
+
+Aby dostrzec, ze $\mathbb{B}$ jest rzeczywiscie baza topologii, zauwazmy ze (i) plaszczyzna jest suma wszystkich takich otwartych prostokatow oraz (ii) przekroj dowolnych dwoch prostokatow jest prostokatem. Przez prostokat rozumiemy tu taki prostokat z bokami rownoleglymi do osi $X$ i $Y$, tak jak na obrazku. Zatem wlasnosci z lematu 2.2.8 zachodza wiec $\mathbb{B}$ jest baza.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=2.2.10 Lematokomentarz: Uogolnienie Przykladu 2.2.9]
+
+    Uogolniajac przyklad 2.2.9 mozemy zauwazyc jak polozyc topologie na $\mathbb{R}^{n} = \left\{ \langle x_{1}, x_{2}, \dots, x_{n} \rangle : x_{i} \in \mathbb{R}, i = 1, \dots, n \right\}$, dla dowolnego calkowitego $n > 2$. Przyjmujemy tutaj, ze $\mathbb{B}$ jest kolekcja wszystkich podzbiorow $\left\{ \langle x_{1}, x_{2}, \dots, x_{n} \rangle :a_{i} <  x_{i} < b_{i}, i = 1, \dots, n \right\} \subseteq \mathbb{R}^{n}$ z bokami rownoleglymi do osi ukladu wspolrzednych. Taka kolekcja $\mathbb{B}$ jest baza dla \textbf{topologii euklidesowej} na $\mathbb{R}$.
+\end{tcolorbox}
+
+\subsection{Baza dla podanej wczesniej topologii}
+
+Lemat 2.2.8 powiedzial nam pod jakimi warunkami kolekcja $\mathbb{B}$ podzbiorow $X$ jest baza dla \textbf{pewnej} topologii na $X$. Jednakze czasami mamy juz \textbf{ustalona} topologie $T$ na $X$ i chcemy sie dowiedziec czy $\mathbb{B}$ jest baza dla dokladnie tej topologii $T$. Mozemy to owczywiscie sprawdzic z definicji 2.2.2 Bazy topologii, ale lemat 2.3.2 pokazuje nam alternatywna metode.
+
+Spojrzmy najpierw na pewien przyklad:
+
+\textbf{Przyklad 2.3.1}
+
+Niech $\mathbb{B}$ bedzie kolekcja odcinkow jednostronnie domknietych postaci $(a, b]$, $a<b$, gdzie $(a,b] = \left\{ x: x \in \mathbb{R}, a < x \leq b  \right\}$. Wtedy $\mathbb{B}$ jest baza dla topologii na $\mathbb{R}$, poniewaz $\mathbb{R}$ jest suma wszystkich elementow z $\mathbb{B}$ oraz przekroj dowolnych dwoch jednostronnie otwartych odcinkow, jest jednostornnie otwartym odcinkiem. 
+
+\textbf{Jednakze:}
+
+Topologia $T$ ktora ma $\mathbb{B}$ jako swoja baze, \textbf{nie} jest topologia euklidesowa na $\mathbb{R}$.
+
+Dlaczeg? Zauwazmy, ze $(a,b]$ jest zbiorem otwartym w $\mathbb{R}$ z topologia $T$, podczas gdy $(a,b]$ nie jest zbiorem otwartym w $\mathbb{R}$ z topologia euklidesowa. (nie mozemy otoczyc punktu b "odcinkiem otwartym"- dowod cwiczneie 2.1).
+
+Podsumowoujac, $\mathbb{B}$ jest baza dla \textbf{pewnej} topologii ale nie jest baza dla topologii euklidesowej na $\mathbb{R}$.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=2.3.2 Lemat Baza topologii podejscie 2?]
+
+    Niech $(X,T)$ bedzie przestrzenia topologiczna. Rodzina $\mathbb{B}$ otwartych podzbiorow $X$ jest baza $T$ wtedy i tylko wtedy kiedy dla dowolnego punktu $x$ nalezacego do dowolnego zbioru otwartego $U$, istnieje zbior $B \in \mathbb{B}$ taki ze $x \in B \subseteq U$.
+
+    Czyli rodzina zbiorow $\mathbb{B}$ jest baza iff dla dowolnego punktu z dowolnego zbioru istnieje zbior bazowy B taki ze $x \in B \subseteq U$
+\end{tcolorbox}
+
+\textbf{Dowod:}
+
+Musimy pokazac ze:
+\begin{itemize}
+    \item jesli $\mathbb{B}$ jest baza $T$ oraz $x \in U \in T$, to istnieje $B \in \mathbb{B}$ takie ze $x \in B \subseteq U$
+
+        oraz
+    \item jesli dla kazdego $U \in T$ i $x \in U$ istnieje $B \in \mathbb{B}$ takie ze $x \in B \subseteq U$, wteedy $\mathbb{B}$ jest baza $T$.
+\end{itemize}
+
+Zatem:
+
+Zalozmy ze $\mathbb{B}$ jest baza $T$ oraz $x \in U \in T$. Poniewaz $\mathbb{B}$ jest baza $T$, wiec $U$ jest suma otwartych zbiorow z $\mathbb{B}$. To znaczy $U = \bigcup\limits_{j \in J}B_{j}$ dla pewnego zbioru indeksowego $J$ i $B_{j} \in \mathbb{B}$. Ale $x \in U$ implikuje to ze $x \in B_{j}$ dla pewnego $j \in J$. Zatem $x \in B_{j} \subseteq U$, tak jak chcielismy.
+
+Z drugiej strony, zalozmy ze dla kazdego $U \in T$ and kazdego $x\in T$ istnieje $B \in \mathbb{B}$ z $x \in B \subseteq U$. Pokazemy ze kazdy zbior otwarty jest suma elementow z $\mathbb{B}$. Wiec niech $V$ bedzie dowolnym zbiorem otwartym. Wtedy dla kazdeggo $x \in V$, istnieje $B_{x} \in B$ taki ze $x \in B_{x} \subseteq V$. Zauwazmy ze $V = \bigcup\limits_{x \in V}B_{x}$ $\leftarrow$\textbf{UDOWODNIJ TODO}. Zatem $V$ jest suma elementow z $\mathbb{B}$.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=2.3.3 Lemat: Baza topologii podejscie 3?]
+
+    Niech $\mathbb{B}$ bedzie baza topologii $T$ na zbiorze $X$. Wtedy podzbior $U$ zbioru $X$ jest otwarty wtedy i tylko wtedy kiedy dla kazdego $x \in U$ istnieje $B \in \mathbb{B}$ takie ze $x \in B \subseteq U$
+
+\end{tcolorbox}
+ 
+\textbf{Dowod:}
+
+Niech $U$ bedzie dowolnym podzbiorem $X$. Zalozmy ze dla kazdego $x \in U$ istnieje $B_{x} \in \mathbb{B}$ taki ze $x \in B_{x} \subseteq U$. Widac ze $U = \bigcup\limits_{x \in U}B_{x}\leftarrow$\textbf{TUTAJ TROCHE NIE KUMAM ZROB DOWOD I PRZEANALIZUJ} Zatem $U$ jest suma zbiorow otwartych i co za tym idzie $U$ jest zbiorem otwartym. Dowod w druga strone wynika z lematu 2.3.2.
+
+\textbf{Komentarz}
+
+Zauwazmy ze wlasnosc bazy opisana w lemacie 2.3.3 jest dokladnie ta wlasnoscia, ktora uzylismy aby opisac topologie euklidesowa na $\mathbb{R}$. Powiedzielsimy wtedy, ze podzbior $U \subseteq \mathbb{R}$ jest otwarty iff dla kazdego $x \in U$ istnieje $a,b \in \mathbb{R}$ i $a<b$ takie, ze $x \in (a,b) \subseteq U$
+
+\textbf{ATTENZIONE}
+
+Miej na uwadze i pamietaj, o roznicy w lematach 2.2.8 i 2.3.2. W lemacie 2.2.8 podalismy wlasnosci jakie musi miec rodzina $\mathbb{B}$ aby baza dla \textbf{pewnej} topologi, podczas gdy lemat 2.3.2 daje nam wlasnosci jakie musi miec rodzina $\mathbb{B}$ podzbiorow przestrzeni topologicznej $(X,T)$ aby byc baza \textbf{danej} topologii $T$.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=2.3.4 Lemat: Bazy dla tej samej topologii]
+    Niech $B_{1}$ oraz $B_{2}$ beda bazami dla topologii odpowiednio $T_{1}$ oraz $T_{2}$, na niepustym zbiorze $X$. Wtedy $T_{1} = T_{2}$ wtedy i tylko wtedy kiedy:
+    \begin{enumerate}[label=(\alph*)]
+        \item dla kazdego $B \in B_{1}$ i kazdego $x \in B$, istnieje $B^{\prime} \in B_{2}$ takie ze $x \in B^{\prime} \subseteq B$, oraz
+        \item dla kazdego $B \in B_{2}$ i kazdego $x \in B$, istnieje $B^{\prime} \in B_{1}$ takie ze $x \in B^{\prime} \subseteq B$
+    \end{enumerate}
+\end{tcolorbox}
+
+\textbf{Dowod:}
+
+Pokazemy ze $B_{1}$ oraz $B_{2}$ sa bazami dla tej samej topologii iff (a) oraz (b) zachodza. Najpierw zalozymy ze one sa bazami dla tej samej topologii, tzn $T_{1} = T_{2}$ i pokazemy za (a) i (b) zachodza. Nastepnie zalozymy ze (a) i (b) zachodza i pokazemy ze $T_{1} = T_{2}$.
+
+Zatem:
+
+Najpierw zalozmy ze $T_{1} = T_{2}$. Wtedy (a) i (b) sa konsekwencja lematu 2.3.2
+
+Z drugiej strony, zalozmy, ze $B_{1}$ oraz $B_{2}$ spelniaja warunki (a) oraz (b). Na mocy lematu 2.3.2, (a) implikuje to, ze kazde $B \in B_{1}$ jest otwarte w $(X,T_{2})$; to znaczy $B_{1} \subseteq T_{2}$. Poniewaz kazdy element $T_{1}$ ja suma elementow z $T_{2}$, implikuje to $T_{1} \subseteq T_{2}$. Analogicznie (b) pociaga za soba $T_{2} \subseteq T_{1}$. Czyli $T_{1} = T_{2}$, tak jak chcielismy.
+
+Spojrzmy teraz na przyklady.
+
+\textbf{2.3.5 Przyklad}
+
+Pokaz,ze zbior $\mathbb{B}$ skladajacy sie z wszyskich "otwartych trojkatow rownobocznych" z podstawa rownolegla do osi X, jest baza dla topologi euklidesowej na $R^{2}$.(Otwarty, czyli bez brzegu).
+
+\textbf{Dowod przez obrazki i tlumeczenie. TODO FORMALNY DOWOD!!!!!}
+
+Musimy pokazac ze $\mathbb{B}$ jest baza dla topologii euklidesowej. Zastosujemy lemat 2.3.4 ale najpierw musimy pokazac, ze $\mathbb{B}$ jest baza dla \textbf{jakiejs} topologii na $\mathbb{R}^{2}$ 
+
+Aby to zrobic, pokazemy ze $\mathbb{B}$ spelnia warunki z lematu 2.2.8
+
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.5\textwidth]{trojkat1.png}
+  % \caption{Podpis pod obrazkiem}
+\end{figure}
+
+Pierwsza rzecza ktora nalezy zauwazyc jest to, ze $\mathbb{B}$ jest baza dla jakiejs topologii poniewaz spelnia warunki z lematu 2.2.8. Aby to zauwazyc, spojrz ze $\mathbb{R}^{2}$ jest rowne sumie wszystkich otwartych trojkatow rownobocznych z podstawa rownolegla do osi X oraz ze przeciecie dwoch dowolnych trojkatow jest kolejnym trojkatem. ?
+
+Nastepnie pokazemy ze warunki (a) oraz (b) z lematu 2.3.4 sa spelnione.
+
+Najpierw sprawdzimy warunek (a). Niech R bedzie otwartym prostokatem z bokami rownoleglymi do osi ukladu oraz x dowolnym punktem w R. Pokazemy ze istnieje otwarty trojkart rownoboczny T z podstawa rownolegla do osi X taki ze $x \in T \subseteq R$. Na obrazku latwo to zauwazyc.
+
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.5\textwidth]{trojkat2.png}
+  % \caption{Podpis pod obrazkiem}
+\end{figure}
+
+W koncu sprawdzamy warunek (b) z lematu 2.3.4. Niech $T^{\prime}$ bedzie otwartym trojkatem rownobocznym z podstawa rownolegla do osi X oraz niech y bedzie dowolnym punktem w $T^{\prime}$. Wtedy istnieje otwarty prostokat $R^{\prime}$ taki ze $y \in R^{\prime} \subseteq T^{\prime}$. Ponownie na obrazku jest latwo to dostrzec.
+
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.5\textwidth]{trojkat3.png}
+  % \caption{Podpis pod obrazkiem}
+\end{figure}
+
+Zatem warunkiz lematu 2.3.4 sa spelnione. Zatem $\mathbb{B}$ jest rzeczywiscie baza dla topologi euklidesowej na $R^{2}$.
+
+\vspace{1cm}
+
+W przykladzie 2.2.9 zdefiniowalismy sobie baze dla topologii euklidesowej jako kolekcje "otwartych prostokatow" (z bokami rownoleglymi do osi ukladu). Przyklad 2.3.5 pokazal nam ze "otwarte prostoakaty" moga byc wymienione przez "otwarte trojkaty rownoboczne"(z podstawa rownolegla do osi X) bez potrzeby zmiany topologii. W cwiczeniu 2.3 1 zobaczymy ze warunki w nawiasach(rownoleglosc) moga zostac porzucone bez potrzeby zmiany topologii. Co wiecej "otwarte prostokaty" moga zostac wymienione na "otwarte kola".
+\section{Punkty skupienia(ang Limit Points)}
+
+\subsection{Punkty skupienia i domkniecie}
+\subsection{Sasiedztwo (ang Neighbourhoods)}
+\subsection{Spojnosc (ang Connectedness)}
+
+\section{Homeomorfizmy}
+
+\subsection{Podprzestrzenie}
+\subsection{Homeomorfizmy}
+\subsection{Nie-homeomorficzne przestrzenie (ang Non-Homeomorphic Spaces)}
 \end{document} %end calego dokumentu

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.20)  28 FEB 2024 20:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.20)  9 MAR 2024 03:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -448,20 +448,20 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 (./notes.aux)
 \openout1 = `notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -519,12 +519,12 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -532,7 +532,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-Overfull \hbox (76.13486pt too wide) in paragraph at lines 404--406
+Overfull \hbox (76.13486pt too wide) in paragraph at lines 405--407
 []\OT1/cmr/m/n/10 Jesli $\OML/cmm/m/it/10 B \OT1/cmr/m/n/10 = []$ dla pewnego $
 \OML/cmm/m/it/10 m \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N$ \OT1/cmr/m/n/10 oraz $\O
 ML/cmm/m/it/10 C \OT1/cmr/m/n/10 = []$ dla pewnego $\OML/cmm/m/it/10 n \OMS/cms
@@ -540,33 +540,47 @@ y/m/n/10 2 \U/msb/m/n/10 N$\OT1/cmr/m/n/10 , to $\OML/cmm/m/it/10 B \OMS/cmsy/m
 /n/10 \ \OML/cmm/m/it/10 C \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 2
  []
 
-[5] [6] [7] [8] [9] [10] [11] (./notes.aux) ) 
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
+<rectangle2_2_9.png, id=68, 400.49625pt x 256.96pt>
+File: rectangle2_2_9.png Graphic file (type png)
+<use rectangle2_2_9.png>
+Package pdftex.def Info: rectangle2_2_9.png  used on input line 1053.
+(pdftex.def)             Requested size: 289.08pt x 185.48547pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1064
+\OT1/cmr/m/n/10 dla dowol-nego calkowitego $\OML/cmm/m/it/10 n > \OT1/cmr/m/n/1
+0 2$. Przyj-mu-jemy tu-taj, ze $\U/msb/m/n/10 B$ \OT1/cmr/m/n/10 jest kolekcja 
+wszys-t-kich podzbiorow
+ []
+
+[16 <./rectangle2_2_9.png>] [17] (./notes.aux) ) 
 Here is how much of TeX's memory you used:
- 13885 strings out of 480247
- 275262 string characters out of 5896150
- 560268 words of memory out of 5000000
- 31587 multiletter control sequences out of 15000+600000
- 479155 words of font info for 66 fonts, out of 8000000 for 9000
+ 13914 strings out of 480247
+ 275745 string characters out of 5896150
+ 560267 words of memory out of 5000000
+ 31612 multiletter control sequences out of 15000+600000
+ 479774 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,15n,104p,774b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/luke/.texlive2021/texmf-va
-r/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on notes.pdf (11 pages, 191323 bytes).
+ 99i,15n,104p,790b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/luke/.texlive2021/texmf
+-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on notes.pdf (17 pages, 244627 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
+ 141 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

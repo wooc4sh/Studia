@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage{import}
+\usepackage{transparent}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage[margin=0.25in]{geometry}
+\usepackage{listings}
+
+%Commands definitions
+\newcommand{\setbackgroundcolour}{\pagecolor[rgb]{0.19, 0.19, 0.19}}
+\newcommand{\settextcolour}{\color[rgb]{0.87, 0.87, 0.87}}
+\newcommand{\invertbackgroundtext}{\setbackgroundcolour\settextcolour}
+
+%Command execution
+%If this line is commented, then the appearance remaind as usual.
+\invertbackgroundtext
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{cyan},
+    commentstyle=\color{green!70!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+
+\author{Lukasz Kopyto}
+\title{tytul}
+
+\begin{document}
+\maketitle
+
+\end{document}

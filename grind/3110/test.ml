@@ -1,12 +1,9 @@
-let x : int = 3110
-
-let val_of_option o b =
-  match o with
-    Some a -> a
-    None -> b
+let x : int = 42
 
 
 
-type vec2 = float * float
 
-let mk_vec x y = ((x,y) : vec2)
+let rec append xs ys =
+  match xs with
+    | [] -> ys
+    | h :: t -> h :: append t ys
