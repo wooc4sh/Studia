@@ -882,9 +882,9 @@ Napiszemy teraz kilka bardzo waznych wlasnosci dotyczacych topologi euklidesowej
 
         \begin{itemize}
             \item Najpierw pokazem ze $\mathbb{R}$ nalezy do $T$. Niech $x \in \mathbb{R}$. Polozmy $a = x-1$ oraz $b = x+1$. Wtedy $x \in (a,b) \subseteq \mathbb{R}$; czyli $\mathbb{R}$ ma wlasnosc (*). Zauwazmy ze $\emptyset \in T$ bo $\emptyset$ ma wlasnosc (*) defaultowo.
-         
+
             \item Niech teraz $\left\{ A_{j}: j \in J \right\}$ dla pewnego zbioru indeksowego $J$, bedzie dowolna rodzina zbiorow z $T$. Pokazemy ze $\bigcup\limits_{j \in J}A_{j} \in T$; czyli ze $ \bigcup\limits_{j \in J}A_{j}$ ma wlasnosc (*). Niech $x \in \bigcup\limits_{j \in J}A_{j}$. Wtedy $x \in A_{k}$ dla pewnego $k \in J$. Poniewaz $A_{k} \in T$, wiec istnieja $a,b \in \mathbb{R}$ takie ze $x\in (a,b) \subseteq A_{k}$. Poniewaz $k \in J, A_{k} \in   \bigcup\limits_{j \in J}A_{j}$ wiec $x \in (a,b) \subseteq \bigcup\limits_{j \in J}A_{j} $. Zatem $\bigcup\limits_{j \in J}A_{j}$ ma wlasnosc (*) i nalezy do $T$.
-           
+
             \item Wezmy dowolne $A_{1}, A_{2} \in T$. Pokazemy ze $A_{1} \cap A_{2} \in T$. Zatem niech $y \in A_{1} \cap A_{2} \in T$. Poniewaz $A_{1} \in T$ wiec istnieja a,b takie ze $y \in (a,b)$. Analogicznie istnieja c,d takie ze $y \in (c,d) \subseteq A_{2}$. Niech e bedzie max(a,c) orac f bedzie min(b,d). Zatem $y \in (e,f)$. Poniewaz $(e,f) \in A_{1}$ oraz $(e,f) \in A_{2}$, zatem $(e,f) \in A_{1} \cap A_{2}$. Zatem $A_{1} \cap A_{2}$ ma wlasnosc (*), czyli nalezy do $T$.
         \end{itemize}
         Zatem $T$ jest topologia na $\mathbb{ R }$
@@ -893,7 +893,7 @@ Napiszemy teraz kilka bardzo waznych wlasnosci dotyczacych topologi euklidesowej
     \item Niech $r,s \in \mathbb{R}$ z $r<S$. W topologi euklidesowej $T$ na $\mathbb{R}$ odcinek/przedzial $(r,s)$ nalezy do $T$ i w konsekwencji jest zbiorem otwartym.
 
         \textbf{Dowod:}
-        
+
         Dowod trywialny. Musimy pokazac, ze dla $(r,s)$ zachodzi wlasnosc (*). Wezmy dowolnego $x \in (r,s)$. Niech $a=r$ oraz $b=s$. Wtedy $x \in (r,s) \subseteq (a,b)$, Wiec $(r,s)$ jest otwarty w topologii euklidesowej
     \item Przedzialy otwarte $(-\infty, r)$ oraz $(r, \infty)$ takze sa zbiorami otwartymi w $\mathbb{R}$.
 
@@ -940,6 +940,14 @@ Napiszemy teraz kilka bardzo waznych wlasnosci dotyczacych topologi euklidesowej
     \item W rozdziale 3 udowodnimy ze jedynymi zbiorami clopen w $\mathbb{R}$ sa $\mathbb{R}$ oraz $\mathbb{\emptyset}$.
 
 \end{enumerate} %koniec wlasnosci topologii euklidesowej
+
+\begin{enumerate} %poczatek zadan do rozdzialu 2.1
+
+    \item jakies zadania TODO   
+
+
+\end{enumerate} %koniec zadan dla rozdzialu 2.1
+
 
 \subsection{Baza topologii}
 
@@ -1008,7 +1016,7 @@ Ponizszy lemat ustali te warunki.
     \begin{enumerate}[label=(\alph*)]
         \item $X = \bigcup\limits_{B \in \mathbb{B}}B$,
         \item dla dowolnych $B_{1}, B_{2} \in \mathbb{B}$, zbior $B_{1} \cap B_{2}$ jest suma elementow z $\mathbb{B}$
-        
+
     \end{enumerate}
 
 \end{tcolorbox}
@@ -1049,9 +1057,9 @@ Niech $\mathbb{B}$ bedzie kolekcja wszystkich "otwartych prostokatow" na plaszcz
 $$\mathbb{B} = \left\{ \langle x,y \rangle : \langle x,y \rangle \in \mathbb{R}^{2}, a<x<b, c<y<d   \right\}$$
 
 \begin{figure}[h]
-   \centering
-   \includegraphics[width=0.5\textwidth]{rectangle2_2_9.png}
-  % \caption{Podpis pod obrazkiem}
+    \centering
+    \includegraphics[width=0.5\textwidth]{rectangle2_2_9.png}
+    % \caption{Podpis pod obrazkiem}
 \end{figure}
 
 Wtedy $\mathbb{B}$ jest baza topologii na plaszczyznie. Ta topologia nazywa sie topologia euklidesowa.
@@ -1109,7 +1117,7 @@ Z drugiej strony, zalozmy ze dla kazdego $U \in T$ and kazdego $x\in T$ istnieje
     Niech $\mathbb{B}$ bedzie baza topologii $T$ na zbiorze $X$. Wtedy podzbior $U$ zbioru $X$ jest otwarty wtedy i tylko wtedy kiedy dla kazdego $x \in U$ istnieje $B \in \mathbb{B}$ takie ze $x \in B \subseteq U$
 
 \end{tcolorbox}
- 
+
 \textbf{Dowod:}
 
 Niech $U$ bedzie dowolnym podzbiorem $X$. Zalozmy ze dla kazdego $x \in U$ istnieje $B_{x} \in \mathbb{B}$ taki ze $x \in B_{x} \subseteq U$. Widac ze $U = \bigcup\limits_{x \in U}B_{x}\leftarrow$\textbf{TUTAJ TROCHE NIE KUMAM ZROB DOWOD I PRZEANALIZUJ} Zatem $U$ jest suma zbiorow otwartych i co za tym idzie $U$ jest zbiorem otwartym. Dowod w druga strone wynika z lematu 2.3.2.
@@ -1152,11 +1160,13 @@ Musimy pokazac ze $\mathbb{B}$ jest baza dla topologii euklidesowej. Zastosujemy
 
 Aby to zrobic, pokazemy ze $\mathbb{B}$ spelnia warunki z lematu 2.2.8
 
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.5\textwidth]{trojkat1.png}
-  % \caption{Podpis pod obrazkiem}
-\end{figure}
+\begin{center}
+    \begin{minipage}[h]{0.8\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]{trojkat1.png}
+         %\caption{Podpis pod obrazkiem}
+    \end{minipage}
+\end{center}
 
 Pierwsza rzecza ktora nalezy zauwazyc jest to, ze $\mathbb{B}$ jest baza dla jakiejs topologii poniewaz spelnia warunki z lematu 2.2.8. Aby to zauwazyc, spojrz ze $\mathbb{R}^{2}$ jest rowne sumie wszystkich otwartych trojkatow rownobocznych z podstawa rownolegla do osi X oraz ze przeciecie dwoch dowolnych trojkatow jest kolejnym trojkatem. ?
 
@@ -1164,19 +1174,24 @@ Nastepnie pokazemy ze warunki (a) oraz (b) z lematu 2.3.4 sa spelnione.
 
 Najpierw sprawdzimy warunek (a). Niech R bedzie otwartym prostokatem z bokami rownoleglymi do osi ukladu oraz x dowolnym punktem w R. Pokazemy ze istnieje otwarty trojkart rownoboczny T z podstawa rownolegla do osi X taki ze $x \in T \subseteq R$. Na obrazku latwo to zauwazyc.
 
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.5\textwidth]{trojkat2.png}
-  % \caption{Podpis pod obrazkiem}
-\end{figure}
+\begin{center}
+    \begin{minipage}[h]{0.8\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]{trojkat2.png}
+        %\caption{Podpis pod obrazkiem}
+    \end{minipage}
+\end{center}
 
 W koncu sprawdzamy warunek (b) z lematu 2.3.4. Niech $T^{\prime}$ bedzie otwartym trojkatem rownobocznym z podstawa rownolegla do osi X oraz niech y bedzie dowolnym punktem w $T^{\prime}$. Wtedy istnieje otwarty prostokat $R^{\prime}$ taki ze $y \in R^{\prime} \subseteq T^{\prime}$. Ponownie na obrazku jest latwo to dostrzec.
 
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.5\textwidth]{trojkat3.png}
-  % \caption{Podpis pod obrazkiem}
-\end{figure}
+\begin{center}
+    \begin{minipage}[h]{0.8\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]{trojkat3.png}
+         %\caption{Podpis pod obrazkiem}
+    \end{minipage}
+\end{center}
+
 
 Zatem warunkiz lematu 2.3.4 sa spelnione. Zatem $\mathbb{B}$ jest rzeczywiscie baza dla topologi euklidesowej na $R^{2}$.
 
@@ -1186,12 +1201,268 @@ W przykladzie 2.2.9 zdefiniowalismy sobie baze dla topologii euklidesowej jako k
 \section{Punkty skupienia(ang Limit Points)}
 
 \subsection{Punkty skupienia i domkniecie}
-\subsection{Sasiedztwo (ang Neighbourhoods)}
+
+Majac przestrzen topologiczna $(X.T)$, zwykle sie przyjelo, ze na elementy zbioru $X$ mowi sie, ze sa \textbf{punktami}.
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=3.1.1 Definicja: Punkt skupienia(limit point/accumulation point/clusterpoint)]
+
+    Niech $A$ bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Punkt  $x\in X$ jest punktem skupienia(ang. limit point/accumulation point/cluster point) zbioru $A$ jesli kazdy zbior otwarty $U$, zawierajacy $x$, zawiera tez punkt nalezacy do $A$, ale rozny od $x$.
+
+\end{tcolorbox}
+
+\textbf{3.1.2 Przyklad}
+
+Rozwazmy przestrzen topologiczna $(X,T)$ gdzie $X = \left\{ a,b,c,d,e, \right\}$ oraz topologia $T = \left\{X, \emptyset, \left\{ a \right\}, \left\{ c, d \right\}, \left\{ a,c,d \right\}, \left\{ b,c,d,e \right\}  \right\}$ oraz $A = \left\{ a,b,c \right\}$. Wtedy b, d oraz e sa punktami skupienia zbioru $A$ ale a i c nie sa punktami skupienia zbioru $A$.
+
+\textbf{Dowod}
+
+Zbior $\left\{ a \right\}$ jest otwarty i nie zawiera zadnego innego punktu z $A$. Zatem a nie jest punktem skupienia.
+
+Jedynym zbiorem otwartym zawierajacym b jest $X$ oraz $\left\{ b,c,d,e \right\}$ i oba te zbiory zawieraja punkt nalezacy do $A$ ale inny od $x$. Zatem b jest punktem skupienia zbioru $A$.
+
+Punkt d jest punktem skupienia zbioru $A$, pomimo tego ze nie nalezy do $A$. Jest tak poniewaz kazdy zbior otwarty zawierajacy d, zawiera punkt z $A$ inny od d. Analogicznie jest z punktem e, takze jest on punktem skupienia zbioru $A$ nawet pomimo tego, ze nie nalezy do $A$.
+
+
+\textbf{3.1.3 Przyklad}
+
+Niech $(X, T)$ bedzie przestrzenia dyskretna oraz $A$ podzbiorem $X$. Wtedy $A$ nie ma punktow skupienia, gdyz dla kazdego $x \in X$, $\left\{ x \right\}$ jest zbiorem otwartym i nie zaweira on punktu z $A$ innego niz x.
+
+\textbf{3.1.4 Przyklad}
+
+Rozwazmy podzbior $A = [a,b) \subseteq \mathbb{R}$. Latwo udowodnic ze kazdy element $[a,b)$ jest punktem skupienia $A$.$\leftarrow \text{UDOWODNIJ!!!!} $Punkt b jest takze punktem skupienia $A$  
+
+\textbf{3.1.5 Przyklad}
+Niech $(X,T)$ bedzie przestrzenia niedyskretna oraz $A$ podzbiorem $X$ z conajmniej dwoma elementami. Latwo pokazac(\textbf{UDOWDNIJ!!!!)}, ze kazdy punkt $X$ ma punkt skupienia w $A$ (\textbf{TODO} UDOWODNIJ I POKAZ DLACZEGO SA YWMAGANE CONAJMNIEJ 2 ELEMENTY!!!!)
+
+Ponizszy lematokometarz dostarcza pozytecznego narzedzia do sprawdzania czy zbior jest domkniety czy nie.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=3.1.6 Lematokomentarz: Warunek na domknietosc A]
+
+    Niech A bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Wtedy $A$ jest domkniety w $(X,T)$ wtedy i tylko wtedy kiedy $A$ zawiera wszystkie punkty skupienia.
+
+\end{tcolorbox}
+
+\textbf{Dowod}
+
+$(\rightarrow)$
+
+Zalozmy, ze $A$ jest domkniety w $(X,T)$. Zalozmy nie wprosc, ze $p$ jest punktem skupienia zbioru $A$, takim, ze $p \in X\setminus A$. Wtedy $X\setminus A$ jest zbiorem otwartym zawierajacym punkt skupienia $p$ zbioru $A$. Zatem $X\setminus A$ zawieta element z $A$. To jest oczywiscie falsz, mamy sprzecznosc z zalozeniem. Zatem kazdy punkt skupienia zbioru $A$ musi znajdowac sie w $A$.
+
+$(\leftarrow)$
+
+Zalozmy, ze $A$ zawiera wszystkie punkty skupienia. Zatem dla kazdego $z \in X\setminus A$, istnieje zbior otwarty $U_{z}$, $z \in U_{z}$ taki ze, $U_{z} \cap A = \emptyset$; czyli $U_{z} \subseteq X\setminus A$. Zatem $X\setminus A = \bigcup\limits_{z \in X\setminus A}U_{z}$ (\textbf{UDOWODNIJ!!!!!!!!!}). Zatem $X\setminus A$ jest suma zbiorow otwartycz wiec jest otwarta. Zatem jej dopelnienie, $A$, jest domkniete. 
+
+\textbf{3.1.7 Przyklad}
+
+Jako zastosowanie lematokomentarzu 3.1.6 mamy nastepujace wnioski:
+\begin{itemize}
+    \item zbior [a,b) nie jest domkniety w $\mathbb{R}$, bo b jest punktem skupienia i $b \not\in [a,b)$;
+    \item zbior $[a,b]$ jest domkniety w $\mathbb{R}$, poniewaz wszystkie punkty skupienia $[a,b]$(zauwazmy ze sa to wszystkie punktu [a,b]) sa w $[a,b]$
+    \item $(a,b)$ nie jest zbiorem domknietym w $\mathbb{R}$, poniewaz nie zawiera punktu skupienia $a$
+    \item $[a, \infty)$ nie jest zbiorem domknietym w $\mathbb{R}$  
+\end{itemize}
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=3.1.8 Lematokomentarz: domknietosc  $A \cup A^{\prime}$]
+
+    Niech $A$ bedzie podzbiorem przestrzeni topologicznej $(X,T)$ oraz $A^{\prime}$ zbiorem wszystkich punktow skupienia zbioru $A$. Wtedy $A \cup A^{\prime}$ jest zbiorem domknietym.
+
+\end{tcolorbox}
+
+\textbf{Dowod}
+
+Z Lematu 3.1.6 wystarczy pokazac, ze zbior $A \cup A^{\prime}$ zawiera wszyskie \textbf{swoje} punkty skupienia lub rownowaznie, ze zaden element zbioru $X \setminus A\cup A^{\prime}$ nie jest punktem skupienia zbioru $A\cup A^{\prime}$
+
+Niech $p \in X \setminus A \cup A^{\prime}$. Poniewaz $p \notin A^{\prime}$, to istnieje zbior otwarty $U$ zawierajacy $p$ taki ze $U \cap A = \left\{ p \right\}$ albo $\emptyset$. Ale $p\notin A$ wiec $U\cap A = \emptyset$. Twierdzimy tez, ze $U \cap A^{\prime} = \emptyset$. Jesli tak nie jest, to $x \in U$, wtedy $U$ jako zbior otwarty i $U\cap A = \emptyset$ daje $x\notin A^{\prime}$. Zatem $U\cap A^{\prime} = \emptyset$. Zatem $U \cap (A\cup A^{\prime}) = \emptyset$ oraz $p\in U$. Czyli $p$ nie jest punktem skupienia $A\cup A^{\prime}$, co za tym idzie, $A\cup A^{\prime}$ domkniety.
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=3.1.9 Definicja: Domkniecie zbioru A(closure of A)]
+
+    Niech A bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Wtedy zbior $A\cup A^{\prime}$ zawierajacy A oraz wszystkie jego punkty skupienia jest nazywany \textbf{domknieciem zbioru A(closure of A)} i ma swoje oznaczenie, mianowicie: $\overline{A}$
+
+\end{tcolorbox}
+
+\textbf{3.1.10 Uwaga}
+
+Jest jasne z Lematu 3.1.8 ze $\overline{A}$ jest zbiorem domknietym. Lemat 3.1.6 oraz cwiczenie 3.1.5(i) mowia, ze kazdy zbior domkniety zawierajacy A musi takze zawierac zbior $A^{\prime}$. Zatem $A \cup A^{\prime} = \overline{A}$ jest najmniejszym domknietym zbiorem zawierajacym $A$. Co za tym idzie $\overline{A}$ jest przekrojem wszystkich zbiorow domknietych zawierajacych $A$.
+
+\textbf{3.1.11 Przyklad}
+
+Niech $X = \left\{ a,b,c,d,e \right\}$ oraz $T = \left\{ X, \emptyset, \left\{ a \right\}, \left\{ c,d \right\}, \left\{ a,c,d \right\}, \left\{ b,c,d,e \right\}  \right\}$. Pokaz, ze $\overline{\left\{b\right\}} = \left\{ b,e \right\}, \overline{\left\{a,c\right\}} = X, \overline{\left\{b,d\right\}} = \left\{ b,c,d,e \right\} $
+
+\textbf{Komentarz}
+
+Aby znalezc domkniecie danego zbioru, powinnismy znalezc najpierw wszystkie zbiory domkniete zawierajace ten zbior oraz wybrac najmniejszy. Zatem zaczniemy od wypisania wszystkich zbiorow domknietych- sa to po prostu dopelnienia otwartych zbiorow.
+
+\textbf{Dowod}
+
+Zbiorami domknietymi sa $\emptyset, X, \left\{ b,c,d,e \right\}, \left\{ a,b,e \right\}, \left\{ b, e \right\}, \left\{ a \right\}$. Zatem najmniejszym zbiorem zawierajacym $\left\{ b \right\}$ jest $\left\{ b,e \right\}$; zatem  $\overline{\left\{b\right\}} = \left\{ b,e \right\}$. Analogicznie $\overline{\left\{a,c\right\}} = X$ oraz $\overline{\left\{b,d\right\}} = \left\{ b,c,d,e \right\}$ 
+
+\textbf{3.1.12 Przyklad}
+
+Udowodnic ze $\overline{\mathbb{Q}} = \mathbb{R}$.
+
+\textbf{Dowod}
+
+Zalozmy ze $\overline{\mathbb{Q}} \neq \mathbb{R}$. Wtedy istnieje $x \in \mathbb{R} \setminus \overline{\mathbb{Q}}$. Poniewaz $\mathbb{R} \setminus \overline{\mathbb{Q}}$ jest otwarty w $\mathbb{R}$ , zatem istnieja a<b takie ze $x\in (a,b) \subseteq \mathbb{R}\setminus \overline{\mathbb{Q}}$. Ale w kazdym odcinku $(a,b)$
+istnieje liczba wymierna q; to znaczy $q \in (a,b)$. Zatem $q \in \mathbb{R} \setminus \overline{\mathbb{Q}}$ co za tym idzie, $q\in \mathbb{R}\setminus \\mathbb{Q}$. Otrzymalismy sprzecznosc, bo $q \in \mathbb{Q}$. Zatem $\overline{\mathbb{Q}} = \mathbb{R}$
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=3.1.13 Definicja: Gestosc]
+
+    Niech $A$ bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Mowimy, ze $A$ jest \textbf{gesty} w $X$ lub \textbf{wszedzie gesty} w $X$ jesli $\overline{A} = X$
+
+\end{tcolorbox}
+
+Zatem, korzystajac z powyzszej definicji, mozemy przeformulowac wniosek z przykladu 3.1.12: zbior $\mathbb{Q}$ jest gestym podzbiorem $\mathbb{R}$.
+
+\textbf{3.1.14 Przyklad}
+
+Niech $(X,T)$ bedzie przestrzenia dyskretna. Wtedy kazdy podzbior $X$ jest domkniety(bo jego dopelnienie jest otwarte). Zatem jedynym gestym podzbiorem $X$ jest $X$, bo kazdy podzbior $X$ jest swoim wlasnym domknieciem.
+
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=3.1.15 Lematokomentarz: Gesty zbior A przecina niepusto wszystkie zbiory otwarte]
+
+Niech $A$ bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Wtedy $A$ jest gesty w $X$ wtedy i tylko wtedy kiedy kazdy nie pusty zbior otwarty w $X$ przecina $A$ nie pusto. To znaczy jesli $U \in T$ oraz $U \neq \emptyset$ to $A \cap U \neq \emptyset$
+
+\end{tcolorbox}
+
+\textbf{Dowod}
+
+$(\leftarrow)$
+
+Zalozmy, ze kazdy niepusty zbior otwarty przecina sie z $A$ niepusto. Jesli $A=X$, to ofc $A$ jest gesty w $X$. Jesli $A \neq X$, to niech $x \in X\setminus A$. Jesli $U \in T$ oraz $x \in U$ wtedy $U \cap A \neq \emptyset$. Zatem x jest punktem skupienia zbioru A. Poniewaz x byl dowolnym punktem w $X\setminus A$, to kazdy punkt zbioru $X\setminus A$ jest punktem skupienia zbioru $A$. Zatem $X\setminus A \subseteq A^{\prime}$ i z definicji 3.1.9 $\overline{A} = A^{\prime} \cup A = X$; czyli A jest gesty w X.
+
+$(\rightarrow)$
+
+Zalozmy ze A jest gesty w X. Niech $U$ bedzie dowolnym niepustym zbiorem otwartym w X. Zalozmy ze $U\cap A = \emptyset$. Wtedy jesli $x\in U$ to $x \not\in A$ i x nie jest punktem skupienia zbioru $A$, bo $U$ jest zbiorem otwartym zawierajacym x, ale nic poza tym x ze zbioru $A$. To jest sprzecznosc, bo $A$ jest gesty w $X$, czyli kazdy element $X\setminus A$ jest punktem skupienia zbioru $A$. Zatem nasze zalozenie jest falszywe i $U\cap A \neq \emptyset$, tak jak chcielismy.
+
+\subsection{Sasiedztwo/otoczenie (ang Neighbourhoods)}
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=3.2.1 Definicja: Otoczenie/sasiedztwo]
+
+Niech $(X,T)$ bedzie przestrzenia topologiczna, $N \subseteq X$ oraz punkt $p\in N$. Mowimy, ze $N$ jest \textbf{otoczeniem(neighbourhood)} punktu p, jesli istnieje zbior otwarty $U$, taki ze $p\in U \subseteq N$
+
+\end{tcolorbox}
+
+\textbf{3.2.2 Przyklad}
+
+Domkniety odcinek $[0,1]$ w $\mathbb{R}$ jest otoczneiem punktu $\frac{1}{2} \in (\frac{1}{4}, \frac{3}{4}) \subseteq [0,1]$.
+
+\textbf{3.2.3 Przyklad}
+
+Odcinek jednostronnie domkniety $(0,1]$ w $\mathbb{R}$ jest otoczeniem punktu $\frac{1}{4}$, bo $\frac{1}{4} \in (0, \frac{1}{2}) \subseteq (0,1]$. Ale $(0,1]$ nie jest otoczeniem punktu 1.\textbf{UDOWODNIJ TO TODO} 
+
+\textbf{3.2.4 Przyklad}
+
+Jesli $(X,T)$ jest dowolna przestrzenia topologiczna oraz $U \in T$, wtedy z definicji 3.2.1(definicja otoczenia), wiadomo, ze $U$ jest oroczeniem dowolnego puntku $p\in U$. Zatem, na przyklad, kazdy otwarty odcinek $(a,b)$ w $\mathbb{R}$ jest otoczeniem kazdego punktu, ktory w nim jest.
+
+\textbf{3.2.5 Przyklad}
+
+Niech $(X,T)$ bedzie przestrzenia topologiczna oraz $N$ otoczeniem punktu $p$. Jesli $S$ jest dowolnym podzbiorem $X$, takim ze $N \subseteq S$ to $S$ jest otoczeniem punktu $p$.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=3.2.6 Lematokomentarz: Punkt skupienia a otoczenie.]
+    Niech $A$ bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Punkt $x\in X$ jest punktem skupienia zbioru $A$ wtedy i tylko wtedy kiedy dowolne otoczenie punktu $x$ zawiera w sobie punkt ze zbioru $A$ inny od $x$ (Czy taki otoczenie punktu x, nie zaweireajace punktu x, to nie jest sasiedztwo? Sprwadz)
+
+\end{tcolorbox}
+
+\textbf{Dowod- Jest prosty i zostawiony dla czytelnika(czyli mnie) TODO}
+
+\begin{tcolorbox}[colback=white!90!cyan,colframe=black!35!cyan,title=3.2.7 Wniosek: Otoczenie i domknietosc zbioru A]
+
+    Niech $A$ bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Wtedy zbior $A$ jest domkniety wtedy i tylko wtedy kiedy dla kazdego $x \in X\setminus A$ istnieje otoczenie $N$ punktu $x$ takie ze $N \subseteq X\setminus A$
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!cyan,colframe=black!35!cyan,title=3.2.8 Wniosek: Otoczenie i otwartosc zbioru A]
+
+    Niech $U$ bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Wtedy $U\in T$ wtedy i tylko wtedy, kiedy dla kazdego $x\in U$ istnieje otoczenie $N$ punktu $x$, takie ze $N\subseteq U$.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!90!cyan,colframe=black!35!cyan,title=3.2.9 Wniosek: Otoczenie i otwartosc zbioru A: v2]
+    Niech $U$ bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Wtedy $U\in T$ wtedy i tylko wtedy, kiedy dla kazdego $x\in U$ istnieje $V \in T$ takie ze $x\in V \subseteq U.$
+
+\end{tcolorbox}
+
 \subsection{Spojnosc (ang Connectedness)}
+
+\textbf{3.3.1 Powtorka}
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=black!35!blue,title=Aksjomat najmniejszego gornego ograniczenia(least upper bound axiom)]
+
+Niech $S$ bedzie niepustym podzbiorem liczb rzeczywistych. Jesli $S$ jest ograniczony od gory, to $S$ zawiera \textbf{najmniejsze ograniczenie gorne}.
+\end{tcolorbox}
+
+Najmniejsze ograniczenie gorne(least upper bound) zbioru S nazywamy \textbf{supremum zbioru S} i oznaczamy \textbf{supS}.
+
+Analogicznie, dowolny zbior ograniczony od dolu posiada najwieksze ograniczenie dolne(most lower bound). Nazywamy je \textbf{infimum zbioru S} i oznaczamy \textbf{infS}.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=3.3.2 Lemat:]
+
+Niech $S$ bedzie podzbiorem $\mathbb{R}$, ograniczonym z gory i niech $p$ bedzie supremum tego zbioru, tzn $p = supS$. Jesli $S$ jest domknietym zbiorem na $\mathbb{R}$ to $p \in S$
+
+\end{tcolorbox}
+
+\textbf{Dowod}
+
+Zalozmy ze $p\in \mathbb{R} \setminus S$. Poniewaz $\mathbb{R} \setminus S$ jest zbiorem otwartym, to istnieja liczby rzeczywiste a i b takie ze $p\in (a,b) \subseteq \mathbb{R} \setminus S$. Poniewaz $p$ jest najmniejszym gornym ograniczeniem zbioru $S$ i $a<p$, jest jasne ze istnieje $x \in S$ taki ze $a<x$. Rowniez $x<p<b$ i co za tym idzie $x \in (a,b) \subseteq \mathbb{R} \setminus S$. Ale to jest sprzecznosc bo $x\in S$. Zatem nasze zalozenie jest falszywe, czyli $p \in S$.
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=3.3.3 Lemat: Clopen podzbior $\mathbb{R}$]
+
+    Niech $T$ bedzie clopen(otwartym i domknietym) podzbiorem $\mathbb{R}$. Wtedy albo $T = \mathbb{R}$ albo $T = \emptyset$
+
+\end{tcolorbox}
+
+\textbf{Dowod}
+
+Zalozmy ze $T \neq \mathbb{R}$ oraz $T \neq \emptyset$. Zatem istnieje $x \in T$ oraz $z \in \mathbb{R} \setminus T$. WLOG zalozmy ze $x<z$. Polozmy $S = T \cap [x,z]$. Wtedy $S$ bedace przekrojem dwoch zbiorow domknietych, jest takze zbiorem domknietym. Jest takze ograniczone z gory przez $z$. Niech $p$ bedzie supremum zbioru $S$. Z lematu 3.3.2 $p \in S$. Poniewaz $p \in [x,z], p\leq z$. Poniewaz $z \in \mathbb{R} \setminus S, p \neq z$, zatem $p<z$.
+
+$T$ jest takze zbiorem otwartym i $p \in T$. Zatem istnieja $a,b \in \mathbb{R}, a<b$. takie ze, $p \in (a,b) \subseteq T$.Niech $t$ bedzie taka liczba, ze $p <t <min(b,z)$. Zatem $t \in T$ i $t \in [p,z]$. Zatem $t \in T\cap [x,z] = S$. Mamy sprzecznosc, bo o $t>p$ i $p$ jest supremum zbioru $S$. Zatem nasze zalozenie jest falszyew i co za tym idzie $T = \mathbb{R} \text{ albo } T = \emptyset$
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=3.3.4 Definicja:Spojnosc(connected)]
+
+    Niech $(X,T)$ bedzie przestrzenia topologiczna. Mowimy, ze jest \textbf{spojna(connected)} jesli jedynymi zbiorami clopen sa $X$ oraz $\emptyset$.
+
+\end{tcolorbox}
+
+Mozemy teraz przeformulowac lemat 3.3.3 uzywajac pojecia spojnosci. Mianowicie:
+
+\begin{tcolorbox}[colback=white!90!green,colframe=black!35!green,title=3.3.5 Lemat: Spojnosc $\mathbb{R}$]
+
+    Przestrzen topologiczna $\mathbb{R}$ jest spojna(connected).
+
+\end{tcolorbox}
+
+\textbf{3.3.6 Przyklad}
+
+Jesli $(X,T)$ jest jaka przestrzenia dyskretna z wiecej niz jednym elementem, to wtedy  $(X,T)$ nie jest spojna. bo kazdy singleton jest clopen
+
+
+\textbf{3.3.7 Przyklad}
+
+Jesli $(X,T)$ jest przestrzenia nie-dyskretna, wtedy jest spojna bo jedynymi zbiorami clopen sa $X$ oraz $\emptyset$.
+
+\textbf{3.3.8 Przyklad}
+
+Jesli $X = \left\{ a, b, c, d, e \right\}$ oraz $T = \left\{ X, \emptyset, \left\{ a \right\}, \left\{ c, d \right\}, \left\{ a,c,d \right\}, \left\{ b,c,d,e \right\}    \right\}$ wtedy $(X,T)$ jest nie-spojny bo $ \left\{ b, c, d, e \right\}$ jest zbiorem clopen.
+
+\begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=3.3.9 Definicja: Zbior niespojny]
+
+    Z definicji 3.3.4 wynika ze przestrzen topologiczna $(X,T)$ nie jest spojna- mowimy wtedy ze jest \textbf{niespojna}- wtedy i tylko wtedy, kiedy istnieje niepusty zbior otawrty w $A$ i $B$ taki ze $A\cap B = \emptyset \text{ oraz } A\cup B = X$
+ 
+ Dowod w cwiczeniu 3.3.3.
+\end{tcolorbox}
+
+\textbf{Komentarz}
+
+Rozdzial podsumuwujemy tym, ze $\mathbb{R}^{2}$ (i w zasadzie $\mathbb{R}^{n}$ dla $n \geq 1$) jest przestrzenia spojna. Dowod jest przeniesiony na rozdzial 5.
+
+\subsection{Cwiczenia:}
 
 \section{Homeomorfizmy}
 
 \subsection{Podprzestrzenie}
 \subsection{Homeomorfizmy}
 \subsection{Nie-homeomorficzne przestrzenie (ang Non-Homeomorphic Spaces)}
+
+
 \end{document} %end calego dokumentu
+

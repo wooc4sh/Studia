@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.20)  9 MAR 2024 04:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.20)  13 MAR 2024 13:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -544,10 +544,10 @@ y/m/n/10 2 \U/msb/m/n/10 N$\OT1/cmr/m/n/10 , to $\OML/cmm/m/it/10 B \OMS/cmsy/m
 <rectangle2_2_9.png, id=68, 400.49625pt x 256.96pt>
 File: rectangle2_2_9.png Graphic file (type png)
 <use rectangle2_2_9.png>
-Package pdftex.def Info: rectangle2_2_9.png  used on input line 1053.
+Package pdftex.def Info: rectangle2_2_9.png  used on input line 1061.
 (pdftex.def)             Requested size: 289.08pt x 185.48547pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1063--1064
+Underfull \hbox (badness 10000) in paragraph at lines 1071--1072
 \OT1/cmr/m/n/10 dla dowol-nego calkowitego $\OML/cmm/m/it/10 n > \OT1/cmr/m/n/1
 0 2$. Przyj-mu-jemy tu-taj, ze $\U/msb/m/n/10 B$ \OT1/cmr/m/n/10 jest kolekcja 
 wszys-t-kich podzbiorow
@@ -557,56 +557,48 @@ wszys-t-kich podzbiorow
 <trojkat1.png, id=74, 258.9675pt x 208.78pt>
 File: trojkat1.png Graphic file (type png)
 <use trojkat1.png>
-Package pdftex.def Info: trojkat1.png  used on input line 1157.
-(pdftex.def)             Requested size: 289.08pt x 233.08014pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<trojkat2.png, id=75, 375.4025pt x 291.0875pt>
+Package pdftex.def Info: trojkat1.png  used on input line 1166.
+(pdftex.def)             Requested size: 231.26488pt x 186.45392pt.
+ [17]
+<trojkat2.png, id=78, 375.4025pt x 291.0875pt>
 File: trojkat2.png Graphic file (type png)
 <use trojkat2.png>
-Package pdftex.def Info: trojkat2.png  used on input line 1169.
-(pdftex.def)             Requested size: 289.08pt x 224.1647pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<trojkat3.png, id=76, 370.38374pt x 287.0725pt>
+Package pdftex.def Info: trojkat2.png  used on input line 1180.
+(pdftex.def)             Requested size: 231.26488pt x 179.32643pt.
+<trojkat3.png, id=79, 370.38374pt x 287.0725pt>
 File: trojkat3.png Graphic file (type png)
 <use trojkat3.png>
-Package pdftex.def Info: trojkat3.png  used on input line 1177.
-(pdftex.def)             Requested size: 289.08pt x 224.0602pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[17] [18 <./trojkat1.png> <./trojkat2.png>] [19 <./trojkat3.png>] (./notes.aux)
- ) 
+Package pdftex.def Info: trojkat3.png  used on input line 1190.
+(pdftex.def)             Requested size: 231.26488pt x 179.24902pt.
+ [18 <./trojkat1.png> <./trojkat2.png> <./trojkat3.png>] [19] [20] [21] [22] (.
+/notes.aux) ) 
 Here is how much of TeX's memory you used:
- 13935 strings out of 480247
- 276090 string characters out of 5896150
- 560267 words of memory out of 5000000
- 31630 multiletter control sequences out of 15000+600000
+ 13954 strings out of 480247
+ 276394 string characters out of 5896150
+ 560268 words of memory out of 5000000
+ 31649 multiletter control sequences out of 15000+600000
  479774 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,15n,104p,790b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/luke/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600p
-k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on notes.pdf (19 pages, 266280 bytes).
+ </home/luke/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tc
+rm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sbm7.pfb>
+Output written on notes.pdf (22 pages, 289062 bytes).
 PDF statistics:
- 154 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
+ 163 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
