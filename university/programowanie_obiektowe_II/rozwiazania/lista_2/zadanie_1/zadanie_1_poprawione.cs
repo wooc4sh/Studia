@@ -4,7 +4,7 @@ using System;
    Lukasz Kopyto
    nr indeksu: 322 997
    Lista nr 2
-   zadanie nr 1
+   zadanie nr 1 POPRAWIONE
    mcs zadanie_1.cs
    ./zadanie_1.exe
 */
@@ -108,7 +108,7 @@ class RandomStream : IntStream
     }   
 }
 
-class RandomWordStream : IntStream {
+class RandomWordStream{
 
     //dwa nowe obiekty odpowiednich klas
     RandomStream rs = new RandomStream();
@@ -129,12 +129,12 @@ class RandomWordStream : IntStream {
     }
 
     //metoda resetujaca strumien
-    public override void reset()
+    public void reset()
     {
         fs.reset();
     }
     // i metoda ktora generuje nastepny wyraz o losowych znakach o dlugosci kolejnego wyrazu ciagu fibonacciego
-    public new string next(){
+    public string next(){
         return GenerateString(fs.next());
     }
 }
