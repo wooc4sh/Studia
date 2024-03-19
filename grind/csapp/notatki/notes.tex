@@ -9,6 +9,7 @@
 \usepackage{enumitem}
 \usepackage{amssymb}
 \usepackage[margin=0.5in]{geometry}
+\usepackage{listings}
 
 %Commands definitions
 \newcommand{\setbackgroundcolour}{\pagecolor[rgb]{0.19, 0.19, 0.19}}
@@ -18,6 +19,20 @@
 %Command execution
 %If this line is commented, then the appearance remaind as usual.
 \invertbackgroundtext
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{cyan},
+    commentstyle=\color{green!70!black},
+    stringstyle=\color{red!85!white},
+    showstringspaces=false,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
 
 \author{Lukasz Kopyto}
 \title{CSAPP}
@@ -32,7 +47,6 @@
 Komputery uzywaja 8-bitowych blokow nazywanych bajtami, jako najmniejsze adresowane jednostki pamieci. Program na poziomie maszynowym widzi pamiec jako bardzo duza tablice bajtow, zwana pamiecia wirtualna(ang. virtual memory). Kazdy bajt pamieci ma swoj unikatowy numer, nazywany adresem. Zbior wszystkich mozliwych adresow jest nazwany jako przestrzen adresow wirtualnych(virtual address space).
 
 \subsubsection{Notacja szesnastkowa/hexadecymalna}
-
 
 
 \textbf{Tabelka 2.2. Trzeba ja miec w glowie.}
@@ -243,5 +257,93 @@ Wiersz ten mowi nam, ze szesnastkowa wartosc ciagu bitow: 01 05 43 0b 20 00 bito
 
 Jesli wezmiemy ostatnie 4 bajty z ciagu 43 0b 20 00 i zapiszemy je odwrotnie, dostaniemy 00 20 0b 43. Ignorujac poczatkowe zera otrzymamy wartosc 0x200b43, czyli wartosc liczbowa po prawet stronie instrukcji. 
 Wystepowanie bajtow w odwrotnej kolejnosci jest czestym zjawiskiem przy czytaniu kodu maszynowego wygenerowanego dla little-endian maszyny, takiej jak ta powyzej. Naturalny sposob na zapisanie bajtow jest taki, ze najnizej numerowany bit jest po lewej stronie a najwyzej numerowany jest po prawej. Jest to sprzeczne z normalnym zapisemliczb, gdze najbardziej znaczaca cyfra jest po lewej a najmniej znaczaca po prawej.
+
+Listin 2.4(ponizej) pokazuje kod w C, ktory uzywa rzutowania aby dobrac sie i wyswietlic bajtowa reprezentacje roznych obiektow w programie. Uzywamy typedef aby zdefiniowac typ byte\_pointer jako wskaznik na obiekt typu unsigned char. Wskaznik ten odnosi sie do ciagu bajtow gdzie kazdy bajt jest interpretowany jako nieujemna liczba calkowita. show\_bytes bierze jako pierwszy argument adres ciagu bajtow, reprezentowany jako byte\_pointer, na drugim miejscnu jest "licznik bajtow". Jest on zdefiniowany jako obiekt typu size\_t- preferowany typ do reprezentowania rozmiarow roznych struktur i obiektow(sizeof go zwraca). show\_bytes drukuje nam pojedyncze bajty w reprezentacji szesnastkowe-> wyswietla 2 cyfry, ktore nalezy interpretowac jako wartosc szesnastkowa-> kazda z nich ma 4 bity-> razem daja 2*4 bity = 8bitow = 1 bajt
+
+Funkcje show\_int, show\_float, show\_pointer pokazuja nam jak uzywac funkcji show\_bytes aby wyswietlic bajtowe reprezentacje obiektow programu w C typu int, float oraz pointer(wskaznik, void *). Zauwazmy ze przekazujemy funkcji show\_bytes wskaznik \&x argumentu ktory przekazalismy, nastepnie rzutujemy ten wskaznik na typ unsigned char *.  Rzutowanie mowi kompilatorowi(i nam) aby interpretowac ten wskaznikk jako ciag bajtow a nie jako obiekt typu ktory pierwotnie przekazalismy do funkcji. Wskaznik ten, bedzie adresem "najnizszego" bajtu obiektu ktory przekazalismy.
+
+Procedury te uzywaja wbudowanej w C funkcji sizeof aby okreslic liczbe bajtow uzywanych przez obiekt. W ogolnosci sizeof(T) zwraca liczbe bajtow potrzebnych aby przechowac obiekt typu T. Uzywajac sizeof zamiast sztywnej liczby bajtow sprawiamy ze nasz program jest w jakims stopniu przenosny.
+
+
+
+\textbf{2.4 Listing}
+
+Kod sluzacy do wyswietlenia bajtowej reprezentacji obiektow programu. 
+
+Uzywa rzutowania aby "obejsc" system typow.
+
+\begin{lstlisting}
+
+#include <stdio.h>
+
+typedef unsigned char *byte_pointer;
+
+void show_bytes(byte_pointer start, size_t len)
+{
+    int i;
+    for (i = 0; i < len; i++)
+        printf(" %.2x", start[i]);
+    printf("\n");
+
+}
+
+void show_int(int x)
+{
+    show_bytes((byte_pointer) &x, sizeof(int));
+}
+
+void show_float(float x)
+{
+    show_bytes((byte_pointer) &x, sizeof(float));
+}
+
+void show_poiner(void *x)
+{
+    show_bytes((bytes_pointer) &x, sizeof(void *x));
+}
+
+\end{lstlisting}
+
+\textbf{2.5 Listing}
+
+Kod ponizej wyswietla bajtowa reprezentacje przykladowych obiektow danych typow.
+
+\begin{lstlisting}
+
+void test_show_bytes(int val)
+{
+    int ival = val;
+    float fval = (float) ival;
+    int *pval = &ival;
+    show_int(ival);
+    show_float(fval);
+    show_pointer(pval);
+}
+    
+\end{lstlisting}
+
+
+Jak odpalimy ten program a dokladniej jak odpalimy funkcje show\_bytes(x), gdzie x to int x = 12345, dostaniemy takie cos na wyjsciu:
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    Wartosc & Typ & Bajty(szesnastkowo)  \\
+    \hline
+    12345 & int & 39 30 00 00 \\
+    \hline
+    12345 & float & 00 e4 40 46 \\
+    \hline 
+    12345 & int $*$  & 28 f0 da 29 fc 7f 00 00 \\ 
+    \hline
+    
+\end{tabular}
+
+\textbf{Komentarz}
+
+Na pare rzeczy trzeba zwrocic uwage, mianowicie:
+
+TODO
+
+
 
 \end{document} %Koniec calego dokumentu
