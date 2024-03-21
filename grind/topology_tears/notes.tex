@@ -9,10 +9,15 @@
 \usepackage{alphalph} %zeby numerowanie moglo byc dluzesze niz 50
 \usepackage{enumitem} %nie pamietam, chyba to wymieniania
 \usepackage{amssymb} %wazne matematyka
-\usepackage[margin=0.25in]{geometry} %wazne marginesy
+\usepackage[margin=0.90in]{geometry} %wazne marginesy
 \usepackage{graphicx} %zeby szlo obrazek wkleic
 
-
+%TO JEST KOMENDA ABY PRZY WYLICZANIU ZACZYNAC OD NOWEJ LINI
+\makeatletter
+\def\myitem{%
+   \@ifnextchar[ \@myitem{\@noitemargtrue\@myitem[\@itemlabel]}}
+\def\@myitem[#1]{\item[#1]\mbox{}\\}
+\makeatother
 
 %Commands definitions
 \newcommand{\setbackgroundcolour}{\pagecolor[rgb]{0.19,0.19,0.19}}  
@@ -851,9 +856,90 @@ Odnosi sie do punktu drugiego definicji topologii, w ktorej musimy pokazac ze do
 
 \textbf{Cwiczenia 1.3}
 
-TODO
 
-\hrulefill
+
+\begin{enumerate}[align=left] %poczatek zadan 1.3
+        \renewcommand{\labelenumi}{\textbf{Cwiczenie 1.3.\arabic{enumi}}}
+    \item \hfill \newline Niech f bedzie funkcje z zbioru $X$ w zbior $Y$. W przykladzie 1.3.9 powiedzielismy, ze:
+
+        $$(1): \hspace{1cm} f^{-1}(\bigcup\limits_{j \in J}B_{j}) = \bigcup\limits_{j \in J}f^{-1(B_{j})} $$
+
+        oraz
+
+        $$(2): \hspace{1cm} f^{-1}(B_{1} \cap B_{2}) = f^{-1}(B_{1})\cap f^{-1}(B_{2})$$
+        Dla dowolnych podzbiorw $B_{j} \subseteq Y$ oraz dowolnego zbioru indeksowego J.
+        \begin{enumerate}[label=(\alph*)]
+            \item Udowodnij (1)
+            \item Udowodnij (2)
+            \item Podaj przyklad zbiorow $A_{1}, A_{2}, X, Y$ oraz funkcji $f: X \rightarrow Y$ takich ze:
+                $$f(A_{1} \cap A_{2}) \neq f(A_{1}) \cap f(A_{2})$$
+                gdzie $A_{1} \subseteq X, A_{2} \subseteq Y$
+        \end{enumerate}
+
+        \myitem Rozstrzygnij czy topologia $T$ w cwiczeniu 1.1.6 jest skonczenie-domknieta topologia.(Udowodnij odpowiedz)
+
+        \myitem Mowimy ze przestrzen topologiczna $(X,T)$ jest \textcolor{red}{$T_{1}$-przestrzenia} jesli kazdy singleton $ \left\{x \right\}$ jest domkniety w $(X,T)$. Pokaz i udowodnij ze dokladnie dwie z kolejnych dziewieciu przestrzeni topologicznych sa $T_{1}-przestrzeniami$.
+        \begin{enumerate}[label=(\alph*)] %poczatek z zadania 1.3.3
+            \item przestrzen dyskretna
+            \item przestrzen nie dyskretna z conajmniej dwoma punktami
+            \item zbior nieskonczony z skonczenie-domknieta topologia
+            \item przyklad 1.1.2
+            \item przyklad 1.1.5 (i)
+            \item przyklad 1.1.5 (ii)
+            \item przyklad 1.1.5 (iii)
+            \item przyklad 1.1.6 (i)
+            \item przyklad 1.1.6 (ii)
+        \end{enumerate} %koniec z zadania 1.3.3
+
+        \myitem Niech $T$ bedzie skonczenie-domknieta topologia na zbiorze $X$. Jesli $T$ jest dodatkowo topologia dyskretna, to udowodnij ze zbior $X$ jest skonczony.
+        \myitem Mowimy ze przestrzen topologiczna $(X,T)$ jest \textcolor{red}{$T_{0}$-przestrzenia} jesli dla kazdej pary roznych punktow a,b w $X$, albo istnieje zbior otwarty zawierajacy a ale nie b albo istnieje zbior otwarty zawierajacy b ale nie a.
+
+        \begin{enumerate}[label=(\alph*)]
+            \item Udowodnij ze kazda $T_{1}$-przestrzen jest tez $T_{0}$- przestrzenia.
+            \item Ktore przestrzenie z cwiczenia 1.3.3 sa $T_{0}$-przestrzeniami. Uzasadnij swoje odpowiedzi.
+            \item Zdefiniuj?Stworz? topologie $T$ na zbiorze $X = \left\{ 0,1 \right\}$ tak ze $(X,T)$ bedzie $T_{0}$-przestrzenia, ale nie $T_{1}$-przestrzenia. Nazywa sie taka przestrzen \textcolor{red}{przestrzenia Sierpinskiego}.
+            \item Udowodnij ze kazda przestrzen topologiczna opisana w cwiczeniu 1.1.6 jest $T_{0}$-przestrzenia
+            
+        \end{enumerate}
+    \myitem \textcolor{red}{przeliczalnie-domknieta topologia} (ang. countable-closed topology).
+        Niech $X$ bedzie zbiorem nieskonczonym. Przeliczalnie-domknieta topologia jest zdefiniowana jako topologia ktora jak zbiory domkniete ma $X$ oraz wszystkie przeliczalnie podzbiory $X$. Udowodnij ze jest to topologia na $X$.
+         
+        \myitem \textcolor{red}{Przekroj dwoch topologii}
+        Niech $T_{1}$ oraz $T_{2}$ beda dwoma topologiami na zbiore $X$. Udowodnij nastepujace twierdzenia.
+
+        \begin{enumerate}[label=(\alph*)]
+            \item jesli $T_{3} = T_{1} \cup T_{2}$, wtedy $T_{3}$ nie jest zawsze topologia na $X$
+            \item jesli $T_{4}$ jest zdefiniowana jako $T_{4} = T_{1} \cap T_{2}$ to wtedy $T_{4}$ jest topologia na $X$. Mowimy ze jest to przekroj topologii $T_{1}$ i $T_{2}$
+            \item jesli $(X, T_{1})$ oraz $(X, T_{2})$ sa $T_{1}$-przestrzeniami, wtedy $(T_{4}, X)$ jest $T_{1}$-przestrzenia
+            \item jesli $(X, T_{1})$ oraz $(X, T_{2})$ sa $T_{0}$-przestrzeniami, wtedy $(T_{4}, X)$ nie jest koniecznie $T_{0}$-przestrzenia
+            \item jesli $T_{1}, T_{2}, \dots, T_{n}$ sa topologiami na $X$ to wtedy $T = \bigcap\limits_{i=1}^{n} T_{i}$ jest topologia na $X$.
+            \item jesli dla kazdego $i \in I$, gdzie zbior $I$ jest jakims zbiorem indeksowym, kazde $T_{i}$ jest topologia na zbiorze $X$, to wtedy $T = \bigcap\limits_{i \in I} T_{i}$ jest topologia na $X$.
+ 
+        \end{enumerate}
+
+        \myitem \textcolor{red}{Rozne $T_{0}$-topologie na skonczonym zbiorze}
+        Udowodnij uzywajac indukcji, ze wraz ze wzrostem n, liczba $T_{0}$-przestrzeni wzrasta.
+        \myitem \textcolor{red}{przestrzen drzwiowa(door space)}
+        Mowimy ze przestrzen topologiczna $(X,T)$ jest przestrzenia drzwiowa(door space) jesli kazdy podzbior $X$ jest albo otwrtym zbiorem albo domknietym albo oba(clopen).
+
+        \begin{enumerate}[label=(\alph*)]
+            \item czy przestrzen dyskretna jest przestrzenia drzwiowa
+            \item czy przestrzen niedyskretna jest przestrzenia drzwiowa
+            \item jesli $X$ jest zbiorem nieskonczonym oraz $T$ skonczenie-domknieta topologia, to czy $(X,T)$ jest przestrzenia drzwiowa?
+            \item niech $X$ bedzie zbiorem $\left\{ a,b,c,d \right\}$. Wypisz/zidentyfikuj te tpologie $T$ na $X$, ktore sa przestrzeniami drzwiowymi??
+            
+        \end{enumerate}
+        \myitem \textcolor{red}{zbiory nasycone(saturated sets)}
+        Mowimy ze podzbior $S$ przestrzeni topologiczne $(X,T)$ jest \textcolor{red}{nasycony} jesli jest przekrojem zbiorow otwartych w $(X,T)$.
+
+        \begin{enumerate}[label=(\alph*)]
+            \item sprawdz ze kazdy zbior otwarty jest nasycony
+            \item sprawdz ze w $T_{1}$-przestrzeni kazdy zbior jest nasycony
+            \item podaj przyklad przestrzeni topologicznej ktora ma conajmniej jeden podzbior ktory nie jest nasycony
+            \item czy prawda jest ze jesli przestrzen topologiczna $(X,T)$ ma wlasnosc taka, ze kazdy jej podzbior jest nasycony, to jest ona wtesy $T_{1}$-przestrzenia?
+            
+        \end{enumerate}
+\end{enumerate}%koniec zadan 1.3
 
 \section{Topologia euklidesowa}
 \subsection{Topologia euklidesowa na $\mathbb{R}$}
@@ -941,10 +1027,45 @@ Napiszemy teraz kilka bardzo waznych wlasnosci dotyczacych topologi euklidesowej
 
 \end{enumerate} %koniec wlasnosci topologii euklidesowej
 
-\begin{enumerate} %poczatek zadan do rozdzialu 2.1
+\begin{enumerate}[align=left] %poczatek zadan 2.1
+        \renewcommand{\labelenumi}{\textbf{Cwiczenie 2.1.\arabic{enumi}}}
+        \myitem Udowodnij ze jesli $a,b \in \mathbb{R}$ oraz $a < b$ to ani $[a,b)$ ani $(a, b]$ jest zbiorem otwartym w $\mathbb{R}$. Pokaz tez ze zaden nie jest tez zbiorem domknietym w $\mathbb{R}$
 
-    \item jakies zadania TODO   
+        \myitem Udowodnij ze zbiory $[a, \infty)$ oraz $(-\infty, a]$ sa domkniete w $\mathbb{R}$
 
+        \myitem Pokaz ze suma nieskonczenie wielu(suma nieskonczona) zbiorow domknietych na $\mathbb{R}$ nie jest koniecznie zbiorem domknietym na $\mathbb{R}$
+        
+        \myitem Udowodnij kazde z ponizszych stwierdzen
+
+            \begin{enumerate}[label=(/alph*)]
+                \item Zbior $\mathbb{X}$ nie jest zbiorem domknietym na $\mathbb{R}$
+                \item Zbior $\mathbb{P}$ liczb pierwszych jest zbiorem domknietym na $\mathbb{R}$ ale nie jest zbiorem otwartym na $\mathbb{R}$
+
+                \item Zbior     $\mathbb{I}$ wszystkich liczb niewymiernych nie jest ani domkniety ani otwarty na $\mathbb{R}$
+                
+            \end{enumerate}
+
+            \myitem Niech $F$ bedzie niepustym skonczonym podbzioerm $\mathbb{R}$. Pokaz ze $F$ jest domkniety na $\mathbb{R}$ ale nie jest otwarty na $\mathbb{R}$.
+
+            \myitem Niech $f$ bedzie niepustym przeliczalnym podzbiorem $\mathbb{R}$. Pokaz ze $F$ nie jest zbiorem otwartym  ale moze by albo moze nie byc zbiorem domknietym, zalezy od wyboru $F$.
+            
+            \myitem Rozstrzygnij:
+
+
+            \begin{enumerate}[label=(/alph*)]
+                \item Niech $S = \left\{ 1, 1/2, 1/3, 1/4, 1/5, \dots, 1/n, \dots \right\}$. Udowodnij ze $S$ jest domkniety w topologi euklidesowej na $\mathbb{R}$
+                \item Czy zbior $T = \left\{1, 1/2, 1/3, 1/4, 1/5, \dots, 1/n,\dots  \right\}$ domkniety na $\mathbb{R}$
+                \item Czy zbior $\left\{ \sqrt{2}, 2\sqrt{2}, 3\sqrt{2},\dots,n\sqrt{2}, \dots  \right\}$ domkniety na $\mathbb{R}$?
+
+            \end{enumerate}
+
+            \myitem \textcolor{red}{$F_{\sigma}$-zbior oraz $G_{\delta}$-zbior}
+            \begin{enumerate}[label=(\alph*)]
+                \item Niech $(X,T$) bedzie przestrzenia topologiczna. Mowimy, ze podzbior $S$ zbioru $X$ jest $F_{\sigma}$-zbiorem jesli jest suma przeliczalnie wielu zbiorow domknietych. Udowodnij ze wszystkie otwarte odcinki $(a,b)$ oraz domkniete odcinki $[a,b]$ sa $F_{\sigma}$-zbiorami w $\mathbb{R}$
+                \item Niech $(X,T$) bedzie przestrzenia topologiczna. Mowimy, ze podzbior $S$ zbioru $X$ jest $G_{\delta}$-zbiorem jesli jest przeliczalnie przeliczalnie wielu zbiorow otwartych. Udowodnij ze wszystkie otwarte odcinki $(a,b)$ oraz domkniete odcinki $[a,b]$ sa $G_{\delta}$-zbiorami w $\mathbb{R}$
+                \item Udowodnij ze zbior $\mathbb{Q}$ jest $F_{\sigma}$-zbiorem w $\mathbb{R}$
+                \item Sprawdz, ze dopelnienie $F_{\sigma}$-zbioru to $G_{\delta}$-zbior,a dopelnienie $G_{\delta}$-zbioru to $F_{\sigma}$-zbior.
+            \end{enumerate}
 
 \end{enumerate} %koniec zadan dla rozdzialu 2.1
 
@@ -1071,6 +1192,58 @@ Aby dostrzec, ze $\mathbb{B}$ jest rzeczywiscie baza topologii, zauwazmy ze (i) 
     Uogolniajac przyklad 2.2.9 mozemy zauwazyc jak polozyc topologie na $\mathbb{R}^{n} = \left\{ \langle x_{1}, x_{2}, \dots, x_{n} \rangle : x_{i} \in \mathbb{R}, i = 1, \dots, n \right\}$, dla dowolnego calkowitego $n > 2$. Przyjmujemy tutaj, ze $\mathbb{B}$ jest kolekcja wszystkich podzbiorow $\left\{ \langle x_{1}, x_{2}, \dots, x_{n} \rangle :a_{i} <  x_{i} < b_{i}, i = 1, \dots, n \right\} \subseteq \mathbb{R}^{n}$ z bokami rownoleglymi do osi ukladu wspolrzednych. Taka kolekcja $\mathbb{B}$ jest baza dla \textbf{topologii euklidesowej} na $\mathbb{R}$.
 \end{tcolorbox}
 
+\textbf{Cwiczenia 2.2}
+
+\hrulefill
+
+\begin{enumerate}[align=left] %poczatek zadan 2.2
+        \renewcommand{\labelenumi}{\textbf{Cwiczenie 2.2.\arabic{enumi}}}
+        
+        \myitem W tym cwiczeniu udowodnimy, ze kola(disc)/kula w 2 wymiarach: $\left\{\langle x,y \rangle: x^{2} + y^{2} < 1  \right\}$ jest podzbiorem otwartym ${\mathbb{R}}^2$ oraz kazda otwarte kolo/dysk na plaszczyznie jest zbiorem otwartym.
+        \hfill\newline W tym celu:
+
+         \begin{enumerate} 
+                \item Niech $\langle a,b \rangle$ bedzie dowolnym punktem w kole $D = \ \left\{\langle x,y \rangle : x^{2} + y^{2} < 1  \right\}$. Polozmy $r = \sqrt{a^{2} + b^{2}}$. Niech $R_{\langle a,b \rangle}$ bedzie otwartym prostokatem z krawedziami w punktach $\langle a \pm \frac{1-r}{8}, b \pm \frac{1-r}{8} \rangle$. Sprawdz ze $R_{\langle a,b \rangle} \subset D$.
+                 \item Uzywajac poprzedniego podpunktu (a) udowodnij ze:
+                     $$D = \bigcup\limits_{\langle a, b \rangle \in D} R_{\langle a,b \rangle}$$
+                 \item Wywnioskuj z (b) ze $D$ jest zbiorem otwartym w ${\mathbb{R}}^{2}$
+                 \item Pokaz ze kazde kolo $\left\{ \langle a,b \rangle : (x-a)^{2} + (y-b)^{2}< c^{2}, a,b,c \in \mathbb{R}   \right\}$ jest otwarte w ${\mathbb{R}}^{2}$
+        \end{enumerate}
+
+        \myitem W tym cwiczeniu udowodnimy ze kolekcja wszystkich otwartych kol w ${\mathbb{R}}^{2}$ jest baza topologii na $\mathbb{R}^{2}$. Pozniej pokazemy ze jest to indeed topologia euklidesowa. \hfill\newline W tym celu:
+
+        \begin{enumerate}
+            \item Niech $D_{1}$ oraz $D_{2}$ bedzie dowolnym otwartym kolem w $\mathbb{R}^{2} z D_{1} \cap D_{2} \neq \emptyset$. Jesli $\langle a, b \rangle$ jest dowolnym punktem w $D_{1} \cap D_{2}$, pokaz ze istnieje otwarte kolo $D_{\langle a,b \rangle}$ z srodekiem w $\langle a,b \rangle$ takie ze $D_{\langle a,b \rangle} \subset D_{1} \cap D_{2}$.
+            \item Pokaz ze $$D_{1} \cap D_{2} = \bigcup\limits_{\langle a,b \rangle \in D_{1} \cap D_{2}}D_{\langle a,b \rangle}$$
+            \item Uzywajac poprzedniego podpunktu (b) oraz Lematu 2.2.8 udowodnij ze kolekcja wszystkich otwartych kol w $\mathbb{R}^{2}$ jest baza dla topologii na $\mathbb{R}^{2}$.
+        \end{enumerate}
+        \myitem Niech $\mathbb{B}$ bedzie kolekcja wszystkich otwartych odcinkow $(a,b)$ w $\mathbb{R}$ z a < b, i $a,b \in \mathbb{Q}$. Udowodnij ze $\mathbb{B}$ jest baza dla topologii euklidesowej na $\mathbb{R}$. Porownaj to z Lematem 2.2.1 i Cwiczeniem 2.2.3 gdzie a i b nie byly koniecznie liczbami wymiernymi.
+        \myitem \textcolor{red}{Drugi Aksjomat Przeliczalnosci} 
+        Mowimy ze przestrzen topologiczna $(X,T)$ spelnia \textcolor{red}{drugi aksjomat przeliczalnosci} albo ze jest \textcolor{red}{drugo przeliczalna? second countable} jesli istnieje baza $\mathbb{B}$ dla $T$, gdzie $\mathbb{B}$ zawiera tylko przeliczalnie wiele zbiorow.
+
+        \begin{enumerate}
+            \item Uzywajaz cwiczenia 2.2.3 powyzej, pokaz ze $\mathbb{R}$ spelnia drugi aksjomat przeliczalnosci.
+            \item Udowodnij ze przestrzen dyskretna na nieprzeliczalnym zbiorze nie spelnia drugiego aksjomatu przeliczalnosci. Uwaga nie wystarczy ze pokazesz ze jedna konkretna baza jest nieprzeliczalna. Musisz udowodnic ze kazda baza dla tej topologii jest nie przeliczalna.
+            \item Udowodnij ze $\mathbb{R}^{n}$ spelnia drugi aksjomat przeliczalnosci dla kazdego n dodatniego, calkowitego.
+            \item Niech $(X,T)$ bedzie zbiorem wszystkich liczb calkowitych z skonczenie-domknieta topologia. Czy $(X,T)$ spelnia drugi aksjomat przeliczalnosci?
+            
+        \end{enumerate}
+        \myitem Udowodnij ponizsze stwierdzenia
+        \begin{enumerate}
+            \item Niech $m,c \in \mathbb{R}$. Wtedy linia $L = \left\{ \langle x,y \rangle: y = mx + c \right\}$ jest domknietym podzbiorem $\mathbb{R}^{2}$
+            \item Niech $\mathbb{S}^1$ bedzie kolem jednostkowym, tj. $\mathbb{S}^{1} = \left\{ \langle x,y \rangle \in \mathbb{R}^{2} : x^{2} + y^{2} < 1  \right\}$. Wtedy $\mathbb{S}^{1}$ jest domknietym podzbiorem $\mathbb{R}^2$.
+            \item Niech $ \mathbb{S}^n$ bedzie n-sfera jednostkowa, tj. $$\mathbb{S}^{n} = \left\{ \langle x_{1}, x_{2}, \dots, x_{n+1} \in \mathbb{R}^{n+1} : x_{1}^{2} x_{2}^{2} + \dots + x_{n+1}^{2} = 1 \rangle \right\}$$. Pokaz ze $\mathbb{S}^n$ jest zbiorem domknietym w $\mathbb{R}^{n+1}$.
+            \item Niech $\mathbb{B}^{n}$ bedzie domknieta n-kula jednostkowa, tj.
+                $$\mathbb{B}^{n} = \left\{ \langle x_{1}, x_{2}, \dots, x_{n} \in \mathbb{R}^{n} : x_{1}^{2} x_{2}^{2} + \dots + x_{n+1}^{2} \leq 1 \rangle \right\}$$             
+            \item Krzywa $\mathbb{C} = \left\{ \langle x,y \rangle \in \mathbb{R}^{2}:  xy = 1    \right\}$ jest domknieta w $\mathbb{R}^{2}$
+            
+        \end{enumerate}
+
+        \myitem \textcolor{red}{Iloczyn topologii(product topology)}
+        Niech $\mathbb{B}_{1}$ bedzie baza topologii $T_{1}$ na zbiorze $X$ oraz $\mathbb{B}_{2}$ baza dla topolotii $T_{2}$ na zbiorze $Y$. Zbior $X \times Y$ zawierajacy wszystkie mozliwe pary $\langle x, y \rangle$, gdzie $x \in X$ oraz $y \in Y$. Niech $\mathbb{B}$ bedzie kolekcja podzbiorow $X \times Y$ zawierajacych wszystkjie zbiory $B_{1} \times B_{2}$, gdzie $B_{1} \in \mathbb{B}_{1}$ oraz $B_{2} \in \mathbb{B}_{2}$. Udowodnij ze $\mathbb{B}$ jest baza dla topologii na $X \times Y$. Topologia taka nazywa sie \textcolor{red}{topologia produktowa}. Hint: Cwiczenie 2.2.9.
+        \myitem Uzywajac Cwiczenia 3 powyzej oraz Cwiczenia 2.1.8, udowodnij ze kazdy zbior otwarty w $\mathbb{R}$ jest $F_{\sigma}$-zbiorem oraz $G_{\delta}$-zbiorem.
+        
+\end{enumerate}%koniec zadan 2.2
 \subsection{Baza dla podanej wczesniej topologii}
 
 Lemat 2.2.8 powiedzial nam pod jakimi warunkami kolekcja $\mathbb{B}$ podzbiorow $X$ jest baza dla \textbf{pewnej} topologii na $X$. Jednakze czasami mamy juz \textbf{ustalona} topologie $T$ na $X$ i chcemy sie dowiedziec czy $\mathbb{B}$ jest baza dla dokladnie tej topologii $T$. Mozemy to owczywiscie sprawdzic z definicji 2.2.2 Bazy topologii, ale lemat 2.3.2 pokazuje nam alternatywna metode.
@@ -1198,6 +1371,55 @@ Zatem warunkiz lematu 2.3.4 sa spelnione. Zatem $\mathbb{B}$ jest rzeczywiscie b
 \vspace{1cm}
 
 W przykladzie 2.2.9 zdefiniowalismy sobie baze dla topologii euklidesowej jako kolekcje "otwartych prostokatow" (z bokami rownoleglymi do osi ukladu). Przyklad 2.3.5 pokazal nam ze "otwarte prostoakaty" moga byc wymienione przez "otwarte trojkaty rownoboczne"(z podstawa rownolegla do osi X) bez potrzeby zmiany topologii. W cwiczeniu 2.3 1 zobaczymy ze warunki w nawiasach(rownoleglosc) moga zostac porzucone bez potrzeby zmiany topologii. Co wiecej "otwarte prostokaty" moga zostac wymienione na "otwarte kola".
+
+\textbf{Cwiczenia 2.3}
+
+\hrulefill
+
+\begin{enumerate}[align=left] %poczatek zadan 2.3
+        \renewcommand{\labelenumi}{\textbf{Cwiczenie 2.3.\arabic{enumi}}}
+        \myitem Okresl czy podane kolekcje sa baza dla topologii euklidesowej na $\mathbb{R}^{2}$
+        
+        \begin{enumerate}
+            \item kolekcja wszystkich "otwartych kwadratow" z bokami rownoleglymi do osi ukladu
+            \item kolekcja wszystkich otawrtych kol(disc)
+            \item kolekcja wszystkich otwartych kwadratow
+            \item kolekcja wszystkich otwartych prostokatow
+            \item kolekcja wszystkich otwartych trojkatow
+          
+        \end{enumerate}
+
+        \myitem
+            \begin{enumerate}
+                \item Niech $\mathbb{B}$ bedzie baza dla topologii $T$ na niepustym zbiorze $X$. Jesli $\mathbb{B}_{1}$ jest kolekcja podzbiorow $X$, taka ze $\mathbb{B} \subseteq \mathbb{B}_{1} \subseteq T$. Udowodnij ze $\mathbb{B}_{1}$ jest takze baza dla $T$.
+                \item Wywnioskuj z (a), ze istnieje nieprzeliczalnie liczba roznych baz dla topologii euklidesowej na $\mathbb{R}$
+            \end{enumerate}
+         \myitem Niech $\mathbb{B} = \left\{ (a,b]: a,b \in \mathbb{R}, a<b \right\}$. Tak jak widzielismy w Cwiczeniu 2.3.1, $\mathbb{B}$ jest baza dla topologii $T$ na $\mathbb{R}$ oraz $T$ nie jest topologia euklidesowa na $\mathbb{R}$. Niemniej, pokaz ze kazdy odcinek otwarty $(a,b)$ jest otwarty w $(\mathbb{R}, T)$.
+         \myitem Niech $C[0,1]$ oznacza zbior wszystkich funkcji rzeczywistych ciaglych na odcinku $[0,1]$.
+         \begin{enumerate}
+             \item Pokaz ze kolekcja $\mathbb{M}$, gdzie $\mathbb{M} = \left\{ M(f, \epsilon): f \in C[0,1], \epsilon \in \mathbb{R}^{+}    \right\}$ oraz $M(f, \epsilon) =  \left\{g: g \in C[0,1] \land \int_{{0}}^{{1}} {|f(x)-g(x)|} \: d{x} {< \epsilon} \right\} $ jest baza dla topologii $T_{1}$ na $C[0,1]$.
+             \item Pokaz ze kolekcja $\mathbb{U} = \left\{U(f,\epsilon); f\in C[0,1] \land \epsilon \in \mathbb{R}^{+} \right\}$ oraz $U(f, \epsilon) = \left\{g: g \in C[0,1] \land sup_{x\in [0,1]} |f(x) - g(x)| < \epsilon  \right\}$ jest baza dla topologii $T_{2}$ na $C[0,1]$.
+             \item Udowodnij ze $T_{1} \neq T_{2}$
+         \end{enumerate}
+         \myitem \textcolor{red}{Podbaza dla topologii(Subbasis for a topology)}
+         Niech $(X,T)$ bedzie przestrzenia topologiczna. Mowimy ze niepusta kolekcja $\mathbb{S}$ otwartych podzbiorow $X$ jest \textcolor{red}{podbaza(subbasis)} $T$ jesli kolekcja wszystkich skonczonych przekrojow elementow $ \mathbb{S}$ formuje nam baze dla $T$.
+         \begin{enumerate}
+             \item Udowodnij ze kolekcja wszystkich wszystkich otwartyc odcinkow postaci $(a, \infty)$ lub $(-\infty, b)$ jest podbaza(subbasis) topologii euklidesowej na $\mathbb{R}$.
+             \item Udowodnij ze $\mathbb{S} = \left\{ \left\{ a \right\}, \left\{ a,c,d \right\}, \left\{ b,c,d,e,f \right\}  \right\}$ jest podbaza dla topologii $T_{1}$ z przykladu 1.1.2
+             
+         \end{enumerate}
+
+         \myitem Niech $\mathbb{S}$ bedzie podbaza dla topologii $T$ na $\mathbb{R}$. Zalozmy, ze wszystkie domkniete odcinki $[a,b]$, a<b sa w $\mathbb{S}$. Udowodnij ze $T$ jest topologia dyskretna.
+        
+        \myitem Niech $X$ bedzie zbiorem z conajmniej dwoma elementami oraz $\mathbb{S}$ kolekcja wszystkich zbiorow postaci $X \setminus \left\{ x\right\}$, $x\in X$. Udowodnij ze $\mathbb{S}$ jest podbaza dla skonczenie-domknietej topologii na $X$.
+        \myitem Niech $X$ bedzie dowolnym zbiorem nieskonczonym oraz $T$ topologia dyskretna na $X$. Znajdz podbaze $\mathbb{S}$ dla $T$, taka ze $\mathbb{S}$ nie zawiera zadnego singletonu.
+        \myitem Niech $\mathbb{S}$ bedzie kolekcja wszystkich lini prostych na plaszczyznie $\mathbb{R}^{2}$. Jesli $\mathbb{S}$ jest podbaza dla topologii $T$ na $\mathbb{E}^{2}$, to jaka(czym/co to za topologia) jest topologia?
+        \myitem Niech $\mathbb{S}$ bedzie kolekcja wszystkich lini prostych, ktore sa rownolegle do osi $X$. Jesli $\mathbb{S}$ jest podbaza topologii $T$ na $\mathbb{R}^{2}$ to opisz zbiory otwarte przestrzeni topologicznej $(\mathbb{R}^{2}, T)$.
+        \myitem Niech $\mathbb{S}$ bedzie kolekcja wszystkich kol na plaszczyznie. Jesli $\mathbb{S}$ jest podbaza dla topologii $T$ na $\mathbb{R}^{2}$, to opisz zbiory otwarte w $(\mathbb{R}^{2}, T)$
+        \myitem Niech $\mathbb{S}$ bedzie kolekcja wszystkich kol na plaszczyznie ktore maja srodek polozony na osi $X$. Jesli $\mathbb{S}$ jest podbaza dla topologii $T$ na $\mathbb{R}^{2}$, to opisz zbiory otwarte w $(\mathbb{R}^{2}, T)$.
+
+\end{enumerate}%koniec zadan 2.3
+
 \section{Punkty skupienia(ang Limit Points)}
 
 \subsection{Punkty skupienia i domkniecie}
@@ -1334,6 +1556,72 @@ $(\rightarrow)$
 
 Zalozmy ze A jest gesty w X. Niech $U$ bedzie dowolnym niepustym zbiorem otwartym w X. Zalozmy ze $U\cap A = \emptyset$. Wtedy jesli $x\in U$ to $x \not\in A$ i x nie jest punktem skupienia zbioru $A$, bo $U$ jest zbiorem otwartym zawierajacym x, ale nic poza tym x ze zbioru $A$. To jest sprzecznosc, bo $A$ jest gesty w $X$, czyli kazdy element $X\setminus A$ jest punktem skupienia zbioru $A$. Zatem nasze zalozenie jest falszywe i $U\cap A \neq \emptyset$, tak jak chcielismy.
 
+\textbf{Cwiczenia 3.1}
+
+\hrulefill
+
+\begin{enumerate}[align=left] %poczatek zadan 3.1
+        \renewcommand{\labelenumi}{\textbf{Cwiczenie 3.1.\arabic{enumi}}}
+
+        \myitem 
+        \begin{enumerate}
+            \item W przykladzie 3.1.2, znajdz wszystki punkty skupienia nastepujacych zbiorow:
+                \begin{enumerate}
+                    \item $\left\{ a \right\}$
+                    \item $\left\{ b,c \right\}$
+                    \item $\left\{ a,c,d \right\}$
+                    \item $\left\{ b,d,e \right\}$
+                \end{enumerate}
+            \item Znajdz domkniecia(closure) powyzszych zbiorow
+            \item Znajdz domkniecia powyzszych zbiorow ale uzywajac metody z przykladu 3.2.11
+        \end{enumerate}
+        \myitem Niech $(\mathbb{Z}, T)$ bedzie przestrzenia z skonczenie-domknieta topologia. Wypisz zbior punktow skupienia ponizszych zbiorow:
+        \begin{enumerate}
+            \item $A = \left\{1,2,\dots,10  \right\}$
+            \item Zbior $E$, zawierajacy wszystkie liczby parzyste.
+        \end{enumerate}
+
+        \myitem Znajdz wszystkie punkty skupienia odcinka otwartego $(a,b)$ w $\mathbb{R}$, a<b.
+
+        \myitem 
+        \begin{enumerate}
+            \item Jakie jest domkniecie(closure) w $\mathbb{R}$ kazdego z ponizszych zbiorow.
+                \begin{enumerate}
+                    \item $\left\{ 1, \frac{1}{2}, \frac{1}{3}, \dots, \frac{1}{n} , \dots \right\}$
+                    \item zbior liczb calkowitych $\mathbb{Z}$
+                    \item zbior liczb niewymiernych $\mathbb{P}$
+                \end{enumerate}
+            \item Niech $S$ bedzie niepustym podzbiorem $\mathbb{R}$ oraz $a \in \mathbb{R}$. Udowodnij ze $a \in \overline{S}$ wtedy i tylko wtedy kiedy dla kazdego $n \in \mathbb{N}^{+}$, istnieje ciag $x_{n} \in S$, taka ze $|x_{n}-a| < \frac{1}{n}$.  
+        \end{enumerate}
+
+        \myitem
+        Niech $S$ oraz $T$ beda niepustymi podzbiorami przestrzeni topologicznej $(X,T)$ oraz $S \subseteq T$
+        \begin{enumerate}
+            \item Sprawdz ze jesli p jest punktem skupienia zbioru $S$ to p jest takze punktem skupienia zbioru $T$
+            \item Wywnioskuj z poprzedniego punktu ze $\overline{S} \subseteq \overline{T}$
+            \item Pokaz tez, ze jesli $S$ jest gesty w $X$ to $T$ jest gesty w $X$.
+            \item Uzywajac poprzedniego podpunktu pokaz ze $\mathbb{R}$ ma nieprzeliczalnie wiele roznych gestych podzbiorow.
+            \item Ponownie uzywajac trzeciego podpunktu. Udowodnij ze $\mathbb{R}$ ma nieprzeliczalnie wiele roznych przeliczalnych gestych podzbiorow oraz $2^{\mathfrak{c}}$ roznych nieprzeliczalnych gestych podzbiorow. To jest z gwiazdka.
+            
+        \end{enumerate}
+        \myitem Niech $A$ oraz $B$ beda podzbiorami przesetrzeni $\mathbb{R}$ z topologia euklidesowa. Rozwazmy 4 zbiory;
+        \begin{enumerate}[label=(\roman*)]
+            \item $A \cap \overline{B}$
+            \item $\overline{A} \cap B$
+            \item $\overline{A} \cap \overline{B}$
+            \item $\overline{A\cap B}$
+        \end{enumerate}
+        
+        Udowodnij ponizsze stwierdzenia:
+        \begin{enumerate}
+            \item Jesli $A = \mathbb{Q}$ oraz $B = \mathbb{R} \setminus \mathbb{Q}$ to udowodnij ze powyzsze zbiory sa parami rozne.
+            \item Jesli $A$ i $B$ sa otwartymi odcinkami w $\mathbb{R}$ to udowodnij ze conajmniej dwa z powyzszych zbiorow sa rowne.
+            \item Wskaz dwa otwarte podzbiory $\mathbb{R}$, $A$ i $B$ takie ze powyzsza czworka zbiorow jest parami rozna.
+        \end{enumerate}
+
+\end{enumerate}%koniec zadan 3.1
+
+
 \subsection{Sasiedztwo/otoczenie (ang Neighbourhoods)}
 
 \begin{tcolorbox}[colback=white!90!red,colframe=black!35!red,title=3.2.1 Definicja: Otoczenie/sasiedztwo]
@@ -1381,6 +1669,76 @@ Niech $(X,T)$ bedzie przestrzenia topologiczna oraz $N$ otoczeniem punktu $p$. J
     Niech $U$ bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Wtedy $U\in T$ wtedy i tylko wtedy, kiedy dla kazdego $x\in U$ istnieje $V \in T$ takie ze $x\in V \subseteq U.$
 
 \end{tcolorbox}
+
+
+
+\textbf{Cwiczenia 3.2}
+
+\hrulefill
+
+\begin{enumerate}[align=left] %poczatek zadan 3.2
+        \renewcommand{\labelenumi}{\textbf{Cwiczenie 3.2.\arabic{enumi}}}
+        \myitem Niech A bedzie podzbiorem przestrzeni topologicznej $(X,T)$. Udowodnij, ze $A$ jest gety w $X$ wtedy i tylko wtedy kazde otoczenie kazdego punktu w $X\setminus A$ przecina sie z $A$ nietrywialnie(?czylijak)
+        \myitem Rozwiaz:
+        \begin{enumerate}[label=(\roman*)]
+            \item Niech $A$ i $B$ beda pozbiorami przestrzeni topologicznej $(X,T)$. Udowodnij dokladnie i uwaznie ze:
+                $$\overline{A\cap B} \subseteq \overline{A} \cap \overline{B}$$
+            \item Skonstruuj przyklad w ktorym 
+            $$\overline{A\cap B} \neq \overline{A} \cap \overline{B}$$
+        \end{enumerate}
+        \myitem Niech $(X,T)$ bedzie przestrzenia topologiczna. Udowodnij ze $T$ jest skonczenie-domknieta topologia na $X$ wtedy i tylko wtedy kiedy:
+        \begin{enumerate}[label=(\roman*)]
+            \item $(X,T)$ is $T_{1}$-przestrzenia
+            \item kazdy nieskonczony podzbior $X$ jest gesty w $X$
+        \end{enumerate}
+        \myitem \textcolor{red}{Przestrzenie rozdzielne/oddzielne(and. Separable spaces)}
+        Mowimy ze przestrzen topologiczna $(X,T)$ jest \textcolor{red}{rozdzielna/oddzielna(separable)} jesli zawiera gesty podzbior ktory jest przeliczalny. Rozstrzygnij ktore z ponizszych przestrzeni sa rozdzielne:
+        \begin{enumerate}[label=(\roman*)]
+            \item Zbior $\mathbb{R}$ ze zwykla topologia(euklidesowa?)
+            \item Przeliczalny zbior z topologia dyskretna
+            \item Przeliczalny zbior z skonczenie-domknieta topologia
+            \item $(X,T)$ gdzie $X$ jest skonczony
+            \item $(X,T)$ gdzie $T$ jest skonczony
+            \item Nieprzeliczalny zbior z topologia dyskretna
+            \item Nieprzeliczlany zbior z skonczeneie-domknieta topologia
+            \item Przestrzen $(X,T)$ spelniajaca drugi aksjomat przeliczalnosci
+        \end{enumerate}
+        \myitem \textcolor{red}{Wnetrze zbioru(ang. Interior of set)}
+        Niech $(X,T)$ bedzie przestrzenia topologiczna oraz $A$ podzbiorem $X$. Mowimy ze najwiekszy zbior otwarty zawarty w $A$, jest \textcolor{red}{wnetrzem A} i jest oznaczany jako \textcolor{red}{Int(A)}. Jest to suma wszystkich zbiorow otwartych w $X$, ktore w calosci zawieraja sie w $A$
+        \begin{enumerate}[label=(\roman*)]
+            \item Pokaz, ze w $\mathbb{R} Int([0,1]) = (0,1)$
+            \item Pokaz, ze w $\mathbb{R} Int([3,4]) = (3,4)$
+            \item Pokaz, ze jesli $A$ jest otwarty w $(X,T)$ to $Int(A) = A$
+            \item Sprawdz, ze w $\mathbb{R}, Int(\left\{ 3 \right\}) = \emptyset$
+            \item Pokaz, ze jesli $(X,T)$ jest przestrzenia niedyskretna, to dla wszystkich podzbiorow wlasciwych $A$ zbioru $X$, $Int(A) = \emptyset$
+            \item Pokaz, ze dla kazdego przeliczalnego podzbioru $A \subseteq \mathbb{R}, Int(A)= \emptyset$
+            
+        \end{enumerate}
+
+        \myitem Pokaz, ze jesli $A$ jest dowolnym podzbiorem przestrzeni topologicznej $(X,T)$, wtedy $Int(A) = X \setminus \overline{X\setminus A}$
+        \myitem Korzystajac z poprzedniego cwiczenia, sprawdz ze $A$ jest gesty w $(X,T)$ wtedy i tylko wtedy $Int(X\setminus A) = \emptyset$
+        \myitem Rozstrzygnij ktore z nastepujacych stwierdzen sa prawdziwe dla dowolnych zbiorow $A_{1}$ i $A_{2}$ przestrzeni topologicznej $(X,T)$.
+        \begin{enumerate}[label=(\roman*)]
+            \item $Int(A_{1} \cap A_{2}) = Int(A_{1}) \cap Int(A_{2})$
+            \item $Int(A_{1} \cup A_{2}) = Int(A_{1}) \cup Int(A_{2})$
+            \item $\overline{A_{1} \cup A_{2}} = \overline{A_{1}} \cup \overline{A_{2}}$ 
+        \end{enumerate}
+        \myitem Niech $S$ bedzie gestym podzbiorem przestrzeni topologicznej $(X,T)$. Udowodnij ze dla kazdego otwartego podzbioru $U \subseteq X$. $\overline{S \cap U}= \overline{U}$
+        \myitem Niech $S$ oraz $T$ beda gestymi podzbiorami przestrzeni $(X,T)$. Jesli $T$ jest takze zbiorem otwartym, to wywnioskuj z Cwiczenia powyzej(3.2.9) ze $S\cap T$ jest gesty w $X$.
+
+        \myitem \textcolor{red}{Prosta Sorgenfreya(The Sorgenfrey Line)}
+        Niech $\mathbb{B} = \left\{[a,b): a \in \mathbb{R}, b \in \mathbb{Q}, a<b  \right\}$. Udowodnij ponizsze stwierdzenia.
+
+        \begin{enumerate}[label=(\roman*)]
+            \item $\mathbb{B}$ jest baza dla topologii $T_{1}$ na $\mathbb{R}$.
+                Przestrzen $(\mathbb{R}, T_{1})$ ma nazwe: \textcolor{red}{Prosta Sorgenfreya}.
+            \item Jesli $T$ jest topologia euklidesowa na $\mathbb{R}$ to $T \subset T_{1}$.
+            \item Dla dowolnych $a,b \in \mathbb{R}$, a < b, $[a,b)$ jest zbiorem clopen w $(\mathbb{R}, T_{1}$
+            \item Prosta Sorgenfreya jest przestrzenia oddzielna(separable space).
+            \item Prosta Sorgenfreya nie spelnia drugiego aksjomatu przeliczalnosci.
+        \end{enumerate}
+\end{enumerate} %koniec zadan 3.2
+
 
 \subsection{Spojnosc (ang Connectedness)}
 
@@ -1455,7 +1813,34 @@ Jesli $X = \left\{ a, b, c, d, e \right\}$ oraz $T = \left\{ X, \emptyset, \left
 
 Rozdzial podsumuwujemy tym, ze $\mathbb{R}^{2}$ (i w zasadzie $\mathbb{R}^{n}$ dla $n \geq 1$) jest przestrzenia spojna. Dowod jest przeniesiony na rozdzial 5.
 
-\subsection{Cwiczenia:}
+\textbf{Cwiczenia 3.3}
+
+\hrulefill
+
+\begin{enumerate}[align=left] %poczatek zadan 3.3
+        \renewcommand{\labelenumi}{\textbf{Cwiczenie 3.3.\arabic{enumi}}}
+        \myitem Niech $S$ bedzie zbiorem liczb rzeczywistych oraz $T= \left\{ x: -x\in S \right\}$
+        \begin{enumerate}
+            \item Udowodnij, ze liczba rzeczywista a jest infimum zbioru $S$ wtedy i tylko wtedy kiedy -a jest supremum zbioru $T$
+            \item Korzystajac z podpunktu (a) oraz aksjomatu najmniejszego ograniczenia gornego udowodnij ze kazdy niepusty zbior liczb rzeczywistych ograniczony od dolu, ma najwieksze ograniczenie dolne Greatest Lower Bound.
+            
+        \end{enumerate}
+        \myitem Dla kazdego z wymienionych zbiorow liczb rzeczywistych znajdz o ile istnieja: najwiekszy element oraz najmniejsze ograniczenie gorne.
+        \begin{enumerate}
+            \item $S = \mathbb{R}$
+            \item $S = \mathbb{Z}$
+            \item $S = [9,10)$
+            \item $S = \left\{ x \in \mathbb{R}: x = 1 - \frac{3}{n^{2}} \land n \in \mathbb{N}^{+}   \right\}$
+            \item $S = (-\infty, 3]$
+            
+        \end{enumerate}
+ 
+        \myitem Niech $(X,T)$ bedzie dowolna przestrzenia topologiczna. Udowodnij ze $(X,T)$ nie jest spojna wtedy i tylko wtedy kiedy ma niepuste, wlasciwe, rozlaczne, otwarte podzbiory $A$ i $B$, takie ze $A\cup B = X$
+        \myitem Czy przestrzen $(X,T)$ z przykladu 1.1.2. jest spojna?
+        \myitem Niech $(X,T)$ bedzie dowolnym nieskonczonym zbiorem z skonczenie-domknieta topologia. Czy $(X,T)$ jest spojna?
+        \myitem Niech $(X,T)$ bedzie nieskonczonym zbiorem z przeliczalnie-domknieta topologia. Czy $(X,T)$ jest spojna?
+        \myitem Ktore z przestrzeni topologicznych z cwiczenia 1.1.9 sa spojne?
+\end{enumerate}
 
 \section{Homeomorfizmy}
 
