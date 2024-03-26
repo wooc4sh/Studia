@@ -1,0 +1,361 @@
+\documentclass{article}
+
+\usepackage{import}
+\usepackage{transparent}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage{enumitem}
+\usepackage{amssymb}
+%\usepackage[margin=0.25in]{geometry}
+\usepackage{listings}
+
+%Commands definitions
+\newcommand{\setbackgroundcolour}{\pagecolor[rgb]{0.19, 0.19, 0.19}}
+\newcommand{\settextcolour}{\color[rgb]{0.87, 0.87, 0.87}}
+\newcommand{\invertbackgroundtext}{\setbackgroundcolour\settextcolour}
+
+%Command execution
+%If this line is commented, then the appearance remaind as usual.
+\invertbackgroundtext
+
+\lstset{
+    language=ML,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{cyan},
+    commentstyle=\color{green!70!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+
+\author{Lukasz Kopyto}
+\title{Lista zadan nr 5- rozwiazania}
+
+\begin{document}
+\maketitle
+
+\section{Zadanie 1.}
+
+\subsection{Tresc:}
+Przypomnij sobie definicje funkcji map. Nastepnie pokaz, ze dla dowolnych funkcji f i g oraz listy xs zachodzi map f (map g xs) $\equiv$ map (fun x $\rightarrow$ f (g x)) xs
+Mozesz zalozyc, ze funkcje f i g poprawnie obliczaja sie do wartosci dla dowolnego argumentu.
+
+\subsection{Rozwiazanie}
+
+Definicja funkcji map:
+
+\begin{lstlisting}
+
+let rec map f xs = match xs with
+    | [] -> [] 
+    | h :: t -> (f h) :: (map f t)
+    
+\end{lstlisting}
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=black!35!blue,title=Zasada indukcji dla list typu 'a list]
+
+Dla kazdej wlasnosci P, jesli zachodzi P([ ]) oraz dla kazdego a : 'a, as : 'a list P(as) impikuje P(a :: as), to dla kazdej listy as zachodzi P(as)
+
+\end{tcolorbox}
+
+Przeprowadzimy dowod przez indukcje dla list.
+Ustalmy dowolne funkcj f i g oraz dowolna liste xs.
+
+Podstawa indukcji:
+
+L = map f (map g [ ]) = z def. map = map f [ ] =  z def. map = [ ] 
+
+P = map (fun x $\rightarrow$ f (g x)) [ ] = z def. map = [ ]
+
+Zatem podstawa indukcji zachodz i.
+
+Krok indukcyjny:
+
+Wezmy dowolne xs i zalozmy ze map f (map g xs) $\equiv$ map (fun x $\rightarrow$ f (g x)) xs. Pokaze, ze dla kazdego a : 'a map f (map g a::xs) $\equiv$ map (fun x $\rightarrow$ f (g x)) a :: xs
+
+L = map f (map g a::xs) = z def. map = map f ((g a) :: (map g xs)) = z def. map = f (g a) :: map f (map g xs) = zal indukcyjne = f (g a) :: map (fun x $\rightarrow$ f (g x)) xs 
+
+P = map (fun x $\rightarrow$ f (g x)) (a :: xs) = f (g a) :: (map (fun x $\rightarrow$ f (g x)) xs)
+
+Zatem L = P. Na mocy zasady indukcji dla list zachodzi teza. 
+
+\section{Zadanie 2.}
+\subsection{Tresc:}
+
+Pokaz ze funkcja append zawsze wylicza sie do wartosci. Tzn. pokaz ze dla dowolnych list xs, ys istnieje lista zs taka ze append ys xs $\equiv$ zs.
+
+\subsection{Rozwiazanie:}
+
+Definicja appenda:
+\begin{lstlisting}
+let rec append xs ys = match xs with
+    | [] -> ys
+    | h :: t -> h :: append t ys
+
+\end{lstlisting}
+
+
+
+Ustalmy dowolna liste ys
+
+Przeprowadzimy dowod przez indukcje wzgledem dlugosci listy xs.
+
+Krok indukcyjny:
+
+Dla xs = [ ], niech zs = ys.
+
+Wtedy append xs ys = append [ ] ys = z def. append = ys
+
+Krok indukcyjny:
+
+Ustalmy dowolna liste xs i zalozmy ze append ys xs = zs. Pokaze, ze dla kazdego a : 'a oraz ys : 'a list, append a::ys xs = a :: zs
+
+L = append a::ys xs = z def. appenda = a :: append ys xs = a :: zs = P
+
+Zatem L = P, czyli na mocy zasady indukcji dla list, zachodzi teza.
+
+\section{Zadanie 3.}
+
+\subsection{Tresc:}
+
+Formuly w negacyjnej postaci normalnej(nnf) mozna opisac nastepujacym typem danych, sparametryzowanym typem opisujacym zmienne.
+
+\begin{lstlisting}
+    type 'v nnf =
+        | NNFLit of bool * 'v
+        | NNFConj of 'v nnf * 'v nnf
+        | NNFDisj of 'v nnf * 'v nnf
+    
+\end{lstlisting}
+
+Flaga boolowska w konstruktorze literalu oznacza, czy zmienna jest zanegowana(wartosc true), czy nie (wartosc false). Sformuluj zasade indukcji dla typu NNF.
+
+\subsection{Rozwiazanie:}
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=black!35!blue,title=Zasada indukcji dla typu 'v nnf]
+
+    Dla kazdej wlasnosci P, jesli dla dowolnych (b : bool), (v : 'v) zachodzi P(NNLit(b, v)) oraz dla kazdego (n1 : 'v nnf), (n2 : 'v nnf), P(n1) i P(n2) implikuje P(NNFConj(n1, n2)) oraz P(n1) i P(n2) implikuje P(Conj(n1, n2)), to wtedy dla kazdej formuly f zapisanej w 'v nnf zachodzi P(f).
+ 
+\end{tcolorbox}
+
+\section{Zadanie 4.}
+
+\subsection{Tresc:}
+
+Zdefiniuj funkcje neg\_nnf : 'v nnf $\rightarrow$ 'v nnf negujaca formule zapisana w negacyjnej postaci normalnej. Nastepnie pokaz, ze neg\_nnf (neg\_nnf $\phi$) $\equiv \phi$ 
+
+\subsection{Rozwiazanie:}
+
+Funkcja:
+
+\begin{lstlisting}
+
+    let rec neg_nnf = function
+        | NNFLit (x, v) -> NNFLit(not x, v)
+        | NNFConj (a, b) -> NNFDisj((neg_nnf a), (neg_nnf b))
+        | NNFDisj (a, b) -> NNFConj((neg_nnf a), (neg_nnf b)) 
+    
+\end{lstlisting}
+
+Dowod przez indukcje:
+
+Baza indukcji:
+
+Ustalmy dowolny literal l = NNFLit(b:bool, v). wtedy:
+
+L = neg\_nnf (neg\_nnf l) = neg\_nnf (neg\_nnf NNFLit(b, v)) = z def neg\_nnf = neg\_nnf NNFLit(not b, v) = z def neg\_nnf = NNFLit(not not b, v) = NNFLit(b,v) = l = P.
+
+Krok indukcyjny: Ustalmy dowolne formuly $(\phi : v^{\prime}$ nnf) i  $(\psi : v^{\prime}$ nnf).
+
+Zalozmy, ze zachodzi neg\_nnf (neg\_nnf $\phi$) $\equiv \phi$ oraz neg\_nnf (neg\_nnf $\psi) \equiv \psi$. 
+
+
+Pokaze ze zachodzi neg\_nnf (neg\_nnf NNFConj($\psi, \phi$)) oraz neg\_nnf (neg\_nnf NNFDisj($\phi, \psi$)).
+
+1. neg\_nnf (neg\_nnf NNFConj($\psi, \phi$)) = z def neg\_nnf = neg\_nnf NNFDisj(neg\_nnf $\psi$, neg\_nnf $\phi$) = z def neg\_nnf = NNFConj(neg\_nnf (neg\_nnf $\psi$), neg\_nnf (neg\_nnf $\phi$) = zal indukcyjne = NNFConj($\psi, \phi$)) 
+
+2.  neg\_nnf (neg\_nnf NNFDisj($\psi, \phi$)) = z def neg\_nnf = neg\_nnf NNFConj(neg\_nnf $\psi$, neg\_nnf $\phi$) = z def neg\_nnf = NNFDisj(neg\_nnf (neg\_nnf $\psi$), neg\_nnf (neg\_nnf $\phi$) = zal indukcyjne = NNFDisj($\psi, \phi$)) 
+
+Zatem na mocy zasady indukcji, teza zachodzi. 
+
+\section{Zadanie 5}
+
+\subsection{Tresc:}
+
+Zdefiniuj funkcje eval\_nnf interpretujaca formule w negacyjnej postaci normalnej, przy zadanym wartosciowaniu zmiennych. Nastepnie pokaz ze dla dowolnej formuly $\phi$ i wartosciowania $\sigma$ zachodzi eval\_nnf $\sigma$ (neg\_nnf $\phi$) $\equiv$ not (eval\_nnf $\sigma$ $\phi$)
+
+\subsection{Rozwiazanie:}
+
+\begin{lstlisting}
+
+let rec eval_nnf sigma phi =
+  match phi with
+  | NNFLit (x, v) -> let t = sigma v in if x then not t else t
+  | NNFConj (v1, v2) -> (eval_nnf sigma v1) && (eval_nnf sigma v2)
+  | NNFDisj (v1, v2) -> (eval_nnf sigma v1) || (eval_nnf sigma v2)
+
+\end{lstlisting}
+
+Ustalmy dowolne wartosciowanie $\sigma$ oraz dowolna formule $\phi$ zapisana w NNF. Dowod przez indukcje strutkturalna wzgledem struktury typu 'v nnf.
+
+Podstawa indukcji:
+
+Dla $\phi$ bedacego literalem, tzn $\phi$ = NNFLit(b:bool, v) mamy:
+
+L = eval\_nnf $\sigma$ (neg\_nnf $\phi$) = eval\_nnf $\sigma$ (neg\_nnf NNFLit (b, v)) = eval\_nnf $\sigma$ NNFLit (not b, v) = mamy dwa przypadki:
+
+1. b = true. Wtedy eval\_nnf $\sigma$ NNFLit (not b, v) = eval\_nnf $\sigma$ NNFLit (false, v) = sigma v 
+
+2. b = false.  Wtedy eval\_nnf $\sigma$ NNFLit (not b, v) = eval\_nnf $\sigma$ NNFLit (true, v) = not (sigma v) 
+
+P = not (eval\_nnf $\sigma$ $\phi$) = not (eval\_nnf $\sigma$ NNFLit(b, v)) = tutaj tez mamy dwa przypadki:
+
+1. b = true. Wtedy not (eval\_nnf $\sigma$ NNFLit(b, v)) = not (eval\_nnf $\sigma$ NNFLit(false, v)) = not (not (sigma v)) = sigma v
+
+2. b = false. Wtedy not (eval\_nnf $\sigma$ NNFLit(b, v)) =  not (eval\_nnf $\sigma$ NNFLit(false, v)) = not (sigma v)
+
+W obu przypadkach otrzymalismy, ze L = P. Zatem baza indukcji zachodzi.
+
+Ustalmy dowolne wartosciowanie $\sigma$ oraz formuly $\phi$, $\psi$. Zalozmy ze:
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item eval\_nnf $\sigma$ (neg\_nnf $\phi$) $\equiv$ not (eval\_nnf $\sigma$ $\phi$).
+
+\item eval\_nnf $\sigma$ (neg\_nnf $\psi$) $\equiv$ not (eval\_nnf $\sigma$ $\psi$).
+
+\end{enumerate}
+
+Pokaze ze zachodzi:
+
+\begin{enumerate}[label=(\arabic*)]
+
+    \item eval\_nnf $\sigma$ (neg\_nnf NNFConj$(\phi, \psi)$) $\equiv$ not (eval\_nnf $\sigma$ NNFConj$(\phi, \psi)$).
+ 
+    \item eval\_nnf $\sigma$ (neg\_nnf NNFDisj$(\phi, \psi)$) $\equiv$ not (eval\_nnf $\sigma$ NNFDisj$(\phi, \psi)$).  
+
+\end{enumerate}
+
+NNFConj
+
+L =  eval\_nnf $\sigma$ (neg\_nnf NNFConj$(\phi, \psi)$) = z def neg\_nnf = eval\_nnf $\sigma$ NNFDisj((neg\_nnf $\phi$), (neg\_nnf $\psi$)) = z def eval\_nnf = (eval\_nnf $\sigma \phi$) || (eval\_nnf $\sigma \psi$) (z zal ind) $\equiv$ (not (eval\_nnf $\sigma$  ))
+
+
+\section{Zadanie 6}
+
+\subsection{Tresc:}
+
+Formuly rachunku zdan mozemy opisac nastepujacym typem:
+
+\begin{lstlisting}
+
+type 'v formula = 
+    | Var of 'v
+    | Neg of 'v formula
+    | Conj of 'v formula * 'v formula
+    | Disj of 'v formula * 'v formula
+    
+\end{lstlisting}
+
+Zdefiniuj funkcja to\_nnf transformujaca formule do rownowaznej formuly w negacyjnej postaci normalnej. Mozesz zdefiniowac funkcje pomocnicze, ale wszystkie funkcje(wzajemnie) rekurencyjne powinny byc strukturalnie rekurencyjne.
+
+
+\subsection{Rozwiazanie:}
+
+\begin{lstlisting}
+let rec to_nnf phi = match phi with
+  | Var v -> NNFLit (false, v)
+  | Neg psi -> neg_nnf (to_nnf psi)
+  | Conj (c1, c2) -> NNFConj( (to_nnf c1), (to_nnf c2))
+  | Disj (d1, d2) -> NNFDisj( (to_nnf d1), (to_nnf d2))
+    
+\end{lstlisting}
+
+\section{Zadanie 7.}
+
+\subsection{Tresc:}
+
+Zdefiniuj funkcje eval\_formula interpretujaca formuly z poprzedniego zadania. Nastepnie pokaz ze: eval\_nnf $\sigma$ (to\_nnf $\phi$) $\equiv$ eval\_formula $\sigma$ $\phi$ 
+
+\subsection{Rozwiazanie}
+
+Funkcja eval\_formula:
+
+\begin{lstlisting}
+
+let rec eval_formula sigma phi = match phi with
+    | Var v -> sigma v
+    | Neg psi -> not (eval_formula sigma psi)
+    | Conj (c1, c2) -> (eval_formula sigma c1) && (eval_formula sigma c2)
+    | Disj (d1, d2) -> (eval_formula sigma d1) || (eval_formula sigma d2)
+
+\end{lstlisting}
+
+\begin{tcolorbox}[colback=white!90!blue,colframe=black!35!blue,title=Zasada indukcji dla typu 'v formula]
+
+    Dla kazdej wlasnosci P, jesli dla dowolnego (x : v') zachodzi P(Var x) oraz dla kazdego $(\phi : \text{'v formula})$, $(\psi : \text{'v formula})$ zachodzi:
+    \begin{itemize}
+        \item P(Neg $\phi)$
+        \item $P(\phi) \land P(\psi) \implies P(\text{Conj}(\phi, \psi))$
+        \item $P(\phi) \land P(\psi) \implies P(\text{Disj}(\phi, \psi))$
+        
+    \end{itemize}
+ To wtedy dla kazdej formuly $\phi$ typu 'v formula zachodzi $P(\phi)$
+
+\end{tcolorbox}
+
+
+Dowod przez indukcje struktutralna, ze eval\_nnf $\sigma$ (to\_nnf $\phi$) $\equiv$ eval\_formula $\sigma$ $\phi$.
+
+Ustalmy dowolne wartosciowanie $\sigma$.
+
+Baza indukcji. Dla $(\phi : v')$:
+
+L = evalnnf sigma (tonnf phi) = evalnnf sigma NNFlit(false, phi) = sigma phi
+
+P = evalformula sigma phi = sigma phi
+
+L = P zatem baza indukcji zachodzi.
+
+Ustalmy dowolne formuly typu phi, psi typu 'v formula i zalozmy ze
+
+\begin{enumerate}[label=(\roman*)]
+    \item eval\_nnf $\sigma$ (to\_nnf $\phi$) $\equiv$ eval\_formula $\sigma$ $\phi$
+    \item eval\_nnf $\sigma$ (to\_nnf $\psi$) $\equiv$ eval\_formula $\sigma$ $\psi$.
+    
+\end{enumerate}
+
+Pokaze ze zachodzi tez:
+
+\begin{enumerate}[label=(\alph*)]
+    \item eval\_nnf $\sigma$ (to\_nnf Conj$(\phi, \psi)$) $\equiv$ eval\_formula $\sigma$ Conj$(\phi, \psi)$. 
+    \item eval\_nnf $\sigma$ (to\_nnf Disj$(\phi, \psi)$) $\equiv$ eval\_formula $\sigma$ Disj$(\phi, \psi)$.
+    \item eval\_nnf $\sigma$ (to\_nnf Neg$(\phi)$) $\equiv$ eval\_formula $\sigma$ Neg$(\phi)$.
+\end{enumerate}
+
+\begin{enumerate}[label=(\alph*)]
+    \item L = eval\_nnf $\sigma$ (to\_nnf Conj$(\phi, \psi)$) = z def to\_nnf = eval\_nnf $\sigma$ NNFConj( (to\_nnf $\phi$), (to\_nnf $\psi$) ) = z def eval\_nnf = (eval\_nnf $\sigma$ (to\_nnf $\psi$)) \&\& (eval\_nnf $\sigma$ (to\_nnf $\phi$)) $\equiv \text{zal ind}$ (eval\_formula $\sigma$ $\phi$) \&\& (eval\_formula $\sigma$ $\psi)$ = z def eval\_formula = eval\_formula $\sigma$ Conj$(\phi, \psi)$ = P
+    
+    \item L = eval\_nnf $\sigma$ (to\_nnf Disj$(\phi, \psi)$) = z def to\_nnf = eval\_nnf $\sigma$ NNFDisj( (to\_nnf $\phi$), (to\_nnf $\psi$) ) = z def eval\_nnf = (eval\_nnf $\sigma$ (to\_nnf $\psi$)) $\|$ (eval\_nnf $\sigma$ (to\_nnf $\phi$)) $\equiv \text{zal ind}$ (eval\_formula $\sigma$ $\phi$) $\|$ (eval\_formula $\sigma$ $\psi)$ = z def eval\_formula = eval\_formula $\sigma$ Disj$(\phi, \psi)$ = P
+    
+    \item L = eval\_nnf $\sigma$ (to\_nnf Neg$(\phi)$) = z def to\_nnf = eval\_nnf $\sigma$ (neg\_nnf (to\_nnf $\phi$))$\equiv \text{ z lematu } \equiv$ not (eval\_nnf $\sigma$ (to\_nnf $\phi$) 
+
+        P = eval\_formula $\sigma$ Neg$(\phi)$ = z def eval\_formula = not (eval\_formula $\sigma$ $\phi$) $\equiv \text{ zal ind} \equiv$ not (eval\_nnf $\sigma$ (to\_nnf $\phi$))
+    
+Czyli L $\equiv$ P. Zatem na mocy zasady indukcji, teza zachodzi.
+\end{enumerate}
+
+\section{Zadanie 8.}
+
+\subsection{Tresc:}
+
+\subsection{Rozwiazanie:}
+
+
+\end{document}
